@@ -83,6 +83,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
+Bundle 'godlygeek/tabular'
 
 filetype plugin indent on      " Required
 
