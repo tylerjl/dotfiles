@@ -17,6 +17,7 @@ set scrolloff=5                 " Move window ahead of cursor
 set mouse=a                     " Mouse support
 set paste                       " Not-stupid pasting
 set ruler                       " Show the ruler
+set hidden                      " Allow unsaved buffers to be backgrounded
 
 " ----------------- Theming ---------------------
 let g:solarized_termtrans = 1   " Enable a good colorscheme
