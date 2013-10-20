@@ -3,7 +3,6 @@ set nocompatible                " Get rid of obsolete compatability mode
 set nu                          " Line numbers
 set ai                          " Autoindent
 set backspace=indent,eol,start  " Sane backspace
-set ruler                       " Show the ruler
 set ls=2                        " Echo the file listing continuously
 nnoremap <tab> %                " Remap % to tab, easier bracket matching
 vnoremap <tab> %                " ^
@@ -17,6 +16,7 @@ set wildmenu                    " ^
 set scrolloff=5                 " Move window ahead of cursor
 set mouse=a                     " Mouse support
 set paste                       " Not-stupid pasting
+set ruler                       " Show the ruler
 
 " ----------------- Theming ---------------------
 let g:solarized_termtrans = 1   " Enable a good colorscheme
@@ -99,4 +99,8 @@ func! s:DeleteBuffer()
     exec "norm \<F5>"
 endfunc
 
+" ------------ NERDTree things ----------------------
+
+" Close NERDTree if it's the last window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
