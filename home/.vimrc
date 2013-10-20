@@ -45,9 +45,9 @@ set showmatch       " ^
 set hlsearch        " ^
 
 " --------------- Tabstop settings --------------
-set tabstop=2               " Configure the tabstop to four spaces
-set shiftwidth=2            " ^
-set softtabstop=2           " ^
+set tabstop=4               " Configure the tabstop to four spaces
+set shiftwidth=4            " ^
+set softtabstop=4           " ^
 set expandtab               " ^
 set list                    " Set invisible chars to display
 set listchars=tab:▸\ ,eol:¬ " ^
