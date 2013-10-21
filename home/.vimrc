@@ -78,6 +78,7 @@ nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
+nnoremap <leader>l :CtrlPLine<CR>
 
 " NERDtree shortcut
 nnoremap <leader>n :NERDTree<CR>
@@ -107,6 +108,9 @@ func! s:DeleteBuffer()
     exec "bd" fnamemodify(getline('.')[2:], ':p')
     exec "norm \<F5>"
 endfunc
+
+" CtrlP line search extension
+let g:ctrlp_extenions = ['line']
 
 " ------------ NERDTree things ----------------------
 
