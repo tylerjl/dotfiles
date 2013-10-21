@@ -65,6 +65,14 @@ vmap <F2> :w !pbcopy<CR><CR>
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " ,w - Switch to a split view and use it
 nnoremap <leader>w <C-w>v<C-w>l
+" ,v - Fix interpolated puppet strings
+nnoremap <leader>v :.s/\(".*\$\)\([a-zA-Z_]\+\)\(.*"\)/\1{\2}\3/<CR>:let @/=''<CR>
+" ,t - Globally replace tabs white four-space tabs
+nnoremap <leader>t :%s/\t/    /e<CR>:let @/=''<CR>
+" ,T - Tabularize puppet code
+nnoremap <leader>T :Tab /=><CR>
+" ,q - Replace quotes
+nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
