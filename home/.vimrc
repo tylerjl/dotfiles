@@ -73,6 +73,8 @@ nnoremap <leader>t :%s/\t/    /e<CR>:let @/=''<CR>
 nnoremap <leader>T :Tab /=><CR>
 " ,q - Replace quotes
 nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
+" ,d - Delete current buffer without exiting
+nnoremap <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
