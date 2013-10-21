@@ -97,6 +97,10 @@ fi
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+if [ -f "${HOME}/.homesick/repos/homeshick/bin/homeshick.sh" ]; then
+  alias homeshick="source $HOME/.homesick/repos/homeshick/bin/homeshick.sh"
+fi
+
 # ######
 # Aliases
 
