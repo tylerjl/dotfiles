@@ -64,30 +64,14 @@ fi
 ############################
 # PATH settings and the like
 
-# Set PATH so it includes user's private bin if it exists
-if [ -d "${HOME}/bin" ] ; then
-  PATH=${HOME}/bin:${PATH}
-fi
+PATHS=(/usr/local/{s,}bin ${HOME}/{opt/,.,}bin)
 
-# Set PATH so it includes user's private bin if it exists
-if [ -d "${HOME}/opt/bin" ] ; then
-  PATH=${HOME}/opt/bin:${PATH}
-fi
-
-# Set PATH so it includes custom sbinaries
-if [ -d "/usr/local/sbin" ] ; then
-  PATH=/usr/local/sbin:${PATH}
-fi
-
-# Set PATH so it includes custom user binaries
-if [ -d "/usr/local/bin" ] ; then
-  PATH=/usr/local/bin:${PATH}
-fi
-
-# Include RVM scripts in PATH
-if [ -d "${HOME}/.rvm/bin" ] ; then
-  PATH=${PATH}:${HOME}/.rvm/bin
-fi
+for p in $PATHS ; do
+  echo $PATH | grep ":$p:" &>/dev/null && continue
+  if [ -d "${p}" ] ; then
+    PATH=${PATH}:$p
+  fi
+done
 
 # Set MANPATH so it includes users' private man if it exists
 if [ -d "${HOME}/opt/share/man" ]; then
