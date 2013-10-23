@@ -1,9 +1,9 @@
 # ZSH Theme - Preview: http://gyazo.com/8becc8a7ed5ab54a0262a470555c3eed.png
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-local user_host='%{$terminfo[bold]$fg[green]%}%n%{$reset_color%}%{$fg[magenta]%}@%{$reset_color%}%{$terminfo[bold]$fg[cyan]%}%m%{$reset_color%}'
-local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
-local current_time='[ %{$terminfo[bold]$fg[green]%}%D{%L:%M} %D{%p}%{$reset_color%} ]'
+local user_host='%{$fg[green]%}%n%{$reset_color%}%{$fg[magenta]%}@%{$reset_color%}%{$fg[cyan]%}%m%{$reset_color%}'
+local current_dir='%{$fg[blue]%} %~%{$reset_color%}'
+local current_time='[ %{$fg[green]%}%D{%L:%M} %D{%p}%{$reset_color%} ]'
 local shebang='%{$fg[red]%}$%{$reset_color%}'
 local rvm_ruby=''
 if which rvm-prompt &> /dev/null; then

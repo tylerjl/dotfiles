@@ -18,13 +18,6 @@ set mouse=a                     " Mouse support
 set ruler                       " Show the ruler
 set hidden                      " Allow unsaved buffers to be backgrounded
 
-" ----------------- Theming ---------------------
-let g:solarized_termtrans = 1   " Enable a good colorscheme
-colorscheme solarized           " Non-default colorscheme
-set background=dark             " Use dark background
-hi SpecialKey ctermbg=8         " Smooth out colors, jeez
-set guifont=Source\ Code\ Pro:h15 " Non-standard but better font
-
 " --------------- Tab Settings ------------------
 " Remap tab-switching to Ctrl-T
 map <C-t><up> :tabr<cr>
@@ -102,13 +95,23 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on      " Required
+
+" ----------------- Theming ---------------------
+set t_Co=256                      " Fix color depth
+let g:solarized_termtrans = 1     " Fix glyph backgrounds
+set background=dark               " Use dark background
+colorscheme solarized             " From vundle
+hi SpecialKey ctermbg=8           " Smooth out colors, jeez
+set guifont=Source\ Code\ Pro:h15 " Non-standard but better font
 
 " ----------- CTRLP Buffer Deletion -------------
 let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
@@ -122,10 +125,14 @@ func! s:DeleteBuffer()
     exec "norm \<F5>"
 endfunc
 
+" ---------------- Plugin Settings ---------------
+
 " CtrlP line search extension
 let g:ctrlp_extenions = ['line']
 
-" ------------ NERDTree things ----------------------
+" Airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " Close NERDTree if it's the last window open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

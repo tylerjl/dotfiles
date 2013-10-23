@@ -124,7 +124,10 @@ export SVN_EDITOR=/usr/bin/vim
 export EDITOR=vim
 
 # Make directories more visible
-export LS_COLORS='di=00;44'
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+# Fix colorscheme kinda
+export TERM='xterm-256color'
 
 # Bind Alt+(f|b) to word movement
 bindkey -e
