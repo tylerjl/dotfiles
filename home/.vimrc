@@ -95,7 +95,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
+" Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -108,10 +108,11 @@ filetype plugin indent on      " Required
 " ----------------- Theming ---------------------
 set t_Co=256                      " Fix color depth
 let g:solarized_termtrans = 1     " Fix glyph backgrounds
+colorscheme molokai             " From vundle
 set background=dark               " Use dark background
-colorscheme solarized             " From vundle
 hi SpecialKey ctermbg=8           " Smooth out colors, jeez
 set guifont=Source\ Code\ Pro:h15 " Non-standard but better font
+let g:rehash256 = 1
 
 " ----------- CTRLP Buffer Deletion -------------
 let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
