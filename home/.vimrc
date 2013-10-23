@@ -52,12 +52,19 @@ set expandtab               " ^
 set list                    " Set invisible chars to display
 set listchars=tab:▸\ ,eol:¬ " ^
 
-" ------------------ Clipboard ------------------
+" ----------------- Commands --------------------
+" Write buffer through sudo
+cnoreabbrev w!! w !sudo tee % >/dev/null
+
+" ------------------- Keymaps ------------------
 " F1 = GUI paste, F2 = GUI copy
 nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
+" Bind tab to <C-w> to ease viewport switching
+map <tab> <C-w>
+map <tab><tab> <C-w><C-w>
 
 " ----------- Custom Leader Commands ------------
 " These are basically lil baby macros.
@@ -84,6 +91,9 @@ nnoremap <leader>l :CtrlPLine<CR>
 
 " NERDtree shortcut
 nnoremap <leader>n :NERDTree<CR>
+
+" Toggle search highlighting
+nmap <silent> <leader>/ :set hlsearch!<cr>
 
 " ------------------ Vundle ---------------------
 filetype off                   " Required
