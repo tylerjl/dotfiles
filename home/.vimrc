@@ -15,7 +15,6 @@ set wildmode=longest,list,full  " Better autocomplete
 set wildmenu                    " ^
 set scrolloff=5                 " Move window ahead of cursor
 set mouse=a                     " Mouse support
-set paste                       " Not-stupid pasting
 set ruler                       " Show the ruler
 set hidden                      " Allow unsaved buffers to be backgrounded
 
@@ -82,6 +81,8 @@ nnoremap <leader>T :Tab /=><CR>
 nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 " ,d - Delete current buffer without exiting
 nnoremap <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
+" ,p - Toggle paste mode
+set pastetoggle=<leader>p
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
