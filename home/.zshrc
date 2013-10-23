@@ -8,10 +8,6 @@ ZSH_CUSTOM=$HOME/.zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="gerard"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -81,10 +77,6 @@ fi
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-if [ -f "${HOME}/.homesick/repos/homeshick/bin/homeshick.sh" ]; then
-  alias homeshick="source $HOME/.homesick/repos/homeshick/bin/homeshick.sh"
-fi
-
 # ######
 # Aliases
 
@@ -119,6 +111,10 @@ alias goet='ssh tylerjl@ssh.et.byu.edu'
 
 # Shortcut to grab pineapple filesystem
 alias piback='ssh hpi "tar -cvf - -X ~/rpi.excl /" | bzip2 > pineapple_$(date +"%Y%m%d").tar.bz2'
+
+if [ -f "${HOME}/.homesick/repos/homeshick/bin/homeshick.sh" ]; then
+  alias homeshick="source $HOME/.homesick/repos/homeshick/bin/homeshick.sh"
+fi
 
 ##########################
 # Set some shell variables
