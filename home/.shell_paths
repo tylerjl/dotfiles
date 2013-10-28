@@ -1,0 +1,11 @@
+
+for p in /usr/local/{s,}bin $HOME/{opt/,.,}bin ; do
+  echo $PATH | grep ":$p:" &>/dev/null && continue
+  if [ -d "${p}" ] ; then
+    PATH=${PATH}:$p
+  fi
+done
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+

@@ -4,8 +4,8 @@
 # If not running interactively, just return.
 [ -z "$PS1" ] && return
 
+########
 # History/Bash behavior configuration
-# ######
 
 # Ignore duplicated history entries
 export HISTCONTROL=ignoredups
@@ -20,58 +20,16 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+#########
 # Aliases
-# #######
-
-# Some example alias instructions
-# If these are enabled they will be used instead of any instructions
-# they may mask.  For example, alias rm='rm -i' will mask the rm
-# application.  To override the alias instruction use a \ before, ie
-# \rm will call the real rm not the alias.
-
-# Interactive operation...
-# alias rm='rm -i'
-# alias cp='cp -i'
-# alias mv='mv -i'
+. $HOME/.shell_defaults
 
 # Default to human readable figures
-alias df='df -h'
-alias du='du -h'
-alias ds='du -h --max-depth=1 . 2> /dev/null | sort -hr'
-
-alias less='less -r'                          # raw control characters
-alias whence='type -a'                        # where, of a sort
-alias grep='grep --color'                     # show differences in colour
-
-alias sr="screen -r"						# Screen reattachment
-
 export LS_COLORS='di=00;44'
 
-# Some shortcuts for different directory listings
-# alias dir='ls --color=auto --format=vertical'
-# alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'                              # long list
-alias la='ls -A'                              # all but . and ..
-alias l='ls -CF'                              #
-
-
-# Functions
-# #########
-
-# Some example functions
-# function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
-
-# Some customizations I (Ty) added:
-# ###############
-
-# Aliases, they're too small for their own scripts
-alias gosl='ssh tylerjl@sl1web.byu.edu'
-alias gotjl='ssh tylerjl@tjll.net'
-alias goit='ssh -p 50036 webadmin@it.et.byu.edu'
-alias goet='ssh tylerjl@ssh.et.byu.edu'
-alias gonag='ssh tylerjl@nagios3.byu.edu'
-alias goshaw='ssh tylerjl@shaw.byu.edu'
-
+######################
+# OS-Specific settings
+#
 # These are for ease of use...
 txtblk='\e[0;30m' # Black - Regular
 txtred='\e[0;31m' # Red
@@ -106,7 +64,4 @@ bakpur='\e[45m'   # Purple
 bakcyn='\e[46m'   # Cyan
 bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
-
-# Set the default SVN editor
-export SVN_EDITOR=/usr/bin/vim
 
