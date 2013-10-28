@@ -65,3 +65,5 @@ bakcyn='\e[46m'   # Cyan
 bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
 
+export PS1="{\[\e[1;35m\]\d \@\[\e[m\] \[\e[1;34m\]\w\[\e[m\]}\n[\[\e[1;32m\]\u\[\e[m\]@\[\e[1;36m\]\H\[\e[m\]]\[\e[1;31m\]\$\[\e[m\] "
+
