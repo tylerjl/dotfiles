@@ -57,6 +57,8 @@ vmap <F2> :w !pbcopy<CR><CR>
 " Bind tab to <C-w> to ease viewport switching
 map <tab> <C-w>
 map <tab><tab> <C-w><C-w>
+" Enter insert mode surrounded by newlines
+nmap <C-a> o<Esc>O
 
 " ----------- Custom Leader Commands ------------
 " These are basically lil baby macros.
@@ -76,6 +78,8 @@ nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 nnoremap <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
 " ,p - Toggle paste mode
 set pastetoggle=<leader>p
+" ,i - Indent entire block
+nnoremap <leader>i vv[m>%`>
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
