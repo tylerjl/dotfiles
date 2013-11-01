@@ -14,7 +14,7 @@ if [ `uname -s` = "Darwin" ] ; then
   alias ndown='sudo launchctl unload -w /Library/LaunchDaemons/com.tenablesecurity.nessusd.plist'
   alias ls='ls -hFG'                 # classify files in colour
 else
-  if [ echo `uname -s` | grep -i 'cygwin' ] ; then
+  if echo `uname -s` | grep -i 'cygwin' &>/dev/null ; then
     # Customizations for Windows
     unset TMP
     unset TEMP
