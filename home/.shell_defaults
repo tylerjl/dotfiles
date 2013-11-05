@@ -59,6 +59,6 @@ alias goet='ssh tylerjl@ssh.et.byu.edu'
 alias piback='ssh hpi "tar -cvf - -X ~/rpi.excl /" | bzip2 > pineapple_$(date +"%Y%m%d").tar.bz2'
 
 if [ -f "${HOME}/.homesick/repos/homeshick/bin/homeshick.sh" ]; then
-  alias homeshick="source $HOME/.homesick/repos/homeshick/bin/homeshick.sh"
+  source $HOME/.homesick/repos/homeshick/homeshick.sh
 fi
 
