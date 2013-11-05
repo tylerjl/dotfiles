@@ -80,6 +80,8 @@ nnoremap <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
 set pastetoggle=<leader>p
 " ,i - Indent entire block
 nnoremap <leader>i vv[m>%`>
+" ,c - Invoke a manual syntax check
+nnoremap <leader>c :SyntasticCheck<CR>
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
