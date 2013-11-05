@@ -89,8 +89,9 @@ nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
 nnoremap <leader>l :CtrlPLine<CR>
 
-" netrw shortcut
-nnoremap <leader>n :call ToggleVExplorer()<CR>
+" NERDtree shortcut
+nnoremap <leader>n :NERDTree<CR>
+
 
 " Toggle search highlighting
 nmap <silent> <leader>/ :set hlsearch!<cr>
@@ -102,6 +103,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 " Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
