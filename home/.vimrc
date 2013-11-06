@@ -114,6 +114,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 Bundle 'bling/vim-airline'
+Bundle 'ludovicchabant/vim-lawrencium'
 
 filetype plugin indent on      " Required
 
@@ -173,6 +174,7 @@ let g:ctrlp_extenions = ['line']
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " Close NERDTree if it's the last window open
