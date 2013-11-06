@@ -17,6 +17,9 @@ set scrolloff=5                 " Move window ahead of cursor
 set mouse=a                     " Mouse support
 set ruler                       " Show the ruler
 set hidden                      " Allow unsaved buffers to be backgrounded
+set showbreak=↪\                 " Show line breaks
+set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
+set list                        "  ^   them all
 
 " --------------- Tab Settings ------------------
 " Remap tab-switching to Ctrl-T
@@ -41,8 +44,6 @@ set tabstop=4               " Configure the tabstop to four spaces
 set shiftwidth=4            " ^
 set softtabstop=4           " ^
 set expandtab               " ^
-set list                    " Set invisible chars to display
-set listchars=tab:▸\ ,eol:¬ " ^
 
 " ----------------- Commands --------------------
 " Write buffer through sudo
