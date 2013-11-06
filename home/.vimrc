@@ -83,6 +83,10 @@ set pastetoggle=<leader>p
 nnoremap <leader>i vv[m>%`>
 " ,c - Invoke a manual syntax check
 nnoremap <leader>c :SyntasticCheck<CR>
+" ,h - Show hidden files
+nnoremap <leader>h :let g:ctrlp_show_hidden=1<CR>:CtrlPClearCache<CR>
+" ,H - Hide hidden files
+nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
