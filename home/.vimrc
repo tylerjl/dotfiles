@@ -174,6 +174,9 @@ let g:netrw_banner = 0       " Default to tree view
 " CtrlP line search extension
 let g:ctrlp_extenions = ['line']
 
+" Custom syntastic flags
+let g:syntastic_puppet_puppetlint_args="--no-class_inherits_from_params_class-check"
+
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
