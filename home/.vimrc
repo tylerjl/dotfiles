@@ -176,6 +176,9 @@ let g:ctrlp_extenions = ['line']
 
 " Custom syntastic flags
 let g:syntastic_puppet_puppetlint_args="--no-class_inherits_from_params_class-check"
+" Fancy symbols
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
