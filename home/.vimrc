@@ -185,6 +185,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
 
+" Change CWD when NERDTree changes root
+let g:NERDTreeChDirMode=2
+
 " Close NERDTree if it's the last window open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
