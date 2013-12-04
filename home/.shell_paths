@@ -1,5 +1,13 @@
 
-for p in /usr/local/{s,}bin $HOME/{opt/,.,}bin ; do
+# Prepended paths
+for p in /usr/local/{s,}bin ; do
+  if [ -d "${p}" ] ; then
+    PATH=$p:${PATH}
+  fi
+done
+
+# Appended paths
+for p in $HOME/{opt/,.,}bin ; do
   echo $PATH | grep ":$p:" &>/dev/null && continue
   if [ -d "${p}" ] ; then
     PATH=${PATH}:$p
