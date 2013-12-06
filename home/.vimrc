@@ -143,6 +143,10 @@ endfunc
 
 " ---------------- Plugin Settings ---------------
 
+" ctags
+" Let colons work for tags
+set iskeyword=-,:,@,48-57,_,192-255
+
 " netrw
 
 " Supporting function: toggle netrw window
