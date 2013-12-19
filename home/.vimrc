@@ -71,10 +71,10 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>w <C-w>v<C-w>l
 " ,v - Fix interpolated puppet strings
 nnoremap <leader>v :.s/\(".*\$\)\([a-zA-Z_]\+\)\(.*"\)/\1{\2}\3/<CR>:let @/=''<CR>
-" ,t - Globally replace tabs white four-space tabs
-nnoremap <leader>t :%s/\t/    /e<CR>:let @/=''<CR>
-" ,T - Tabularize puppet code
-nnoremap <leader>T :Tab /=><CR>
+" ,T - Globally replace tabs white four-space tabs
+nnoremap <leader>T :%s/\t/    /e<CR>:let @/=''<CR>
+" ,a - Align puppet code
+nnoremap <leader>a :Tab /=><CR>
 " ,q - Replace quotes
 nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 " ,d - Delete current buffer without exiting
@@ -95,6 +95,7 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
 nnoremap <leader>l :CtrlPLine<CR>
+nnoremap <leader>t :CtrlPTag<CR>
 
 " NERDtree shortcut
 nnoremap <leader>n :NERDTree<CR>
