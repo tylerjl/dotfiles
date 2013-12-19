@@ -117,6 +117,8 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 Bundle 'bling/vim-airline'
 Bundle 'ludovicchabant/vim-lawrencium'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
 
 filetype plugin indent on      " Required
 
