@@ -1,24 +1,39 @@
-# ZSH Theme - Preview: http://gyazo.com/8becc8a7ed5ab54a0262a470555c3eed.png
-local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+#
+# Custom zsh theme
+#
+# Save these for later
+#
+# local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+# RPS1="${return_code}"
+# local vcs="%F{yellow}${branch}%{$reset_color%}"
+# # Get vcs branch
+# local branch="$(hg_get_branch_name)"
+# if [ -n "${branch}" ] ; then
+#     local branch="$(git_prompt_info)"
+# fi
 
-local user_host='%{$fg[green]%}%n%{$reset_color%}%{$fg[magenta]%}@%{$reset_color%}%{$fg[cyan]%}%m%{$reset_color%}'
-local current_dir='%{$fg[blue]%} %~%{$reset_color%}'
-local current_time='[ %{$fg[green]%}%D{%L:%M} %D{%p}%{$reset_color%} ]'
-local shebang='%{$fg[red]%}$%{$reset_color%}'
-local rvm_ruby=''
+# Load modules
+autoload -U colors && colors
+
+setopt promptsubst
+
+# Get RVM version, if available
 if which rvm-prompt &> /dev/null; then
-  rvm_ruby='%{$fg[red]%}‹$(rvm-prompt i v g)›%{$reset_color%}'
+  local rvm_ruby='%F{red}‹$(rvm-prompt v g)›%{$reset_color%}'
+elif which rbenv &> /dev/null; then
+  local rvm_ruby='%F{red}‹$(rbenv version | sed -e "s/ (set.*$//")›%{$reset_color%}'
 else
-  if which rbenv &> /dev/null; then
-    rvm_ruby='%{$fg[red]%}‹$(rbenv version | sed -e "s/ (set.*$//")›%{$reset_color%}'
-  fi
+  local rvm_ruby=''
 fi
-local git_branch='$(git_prompt_info)%{$reset_color%}'
 
-PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby} ${git_branch}
+# Prompt vars
+local user_host='%F{green}%n%{$reset_color%}%F{magenta}@%{$reset_color%}%F{cyan}%m%{$reset_color%}'
+local current_dir='%B%F{blue}% %~%{$reset_color%}'
+local current_time='[ %F{green}%D{%L:%M} %D{%p}%{$reset_color%} ]'
+local shebang='%F{red}$%{$reset_color%}'
+
+
+PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby} ${vcs}
 ╰ ${shebang} "
-RPS1="${return_code}"
-RPROMPT="${current_time}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
+RPROMPT="${current_time}"

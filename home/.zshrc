@@ -2,12 +2,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="gerard"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -31,8 +25,6 @@ plugins=(git mercurial vundle)
 if [ `uname -s` = "Darwin" ] ; then
   plugins+=(ruby rvm brew osx)
 fi
-
-source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
 unsetopt correct
@@ -62,3 +54,10 @@ bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="gerard"
+
+source $ZSH/oh-my-zsh.sh
