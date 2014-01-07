@@ -2,6 +2,8 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zsh
 
+fpath=($HOME/.zsh/site-functions $fpath)
+
 #################################
 # Source general-purpose defaults
 . $HOME/.shell_defaults
