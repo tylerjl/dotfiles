@@ -15,7 +15,7 @@
 # Load modules
 autoload -U colors && colors
 
-setopt promptsubst
+setopt prompt_subst
 
 # Get RVM version, if available
 if which rvm-prompt &> /dev/null; then
@@ -33,7 +33,7 @@ local current_time='[ %F{green}%D{%L:%M} %D{%p}%{$reset_color%} ]'
 local shebang='%F{red}$%{$reset_color%}'
 
 
-PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby} ${vcs}
+PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby}
 ╰ ${shebang} "
 
 RPROMPT="${current_time}"
