@@ -3,14 +3,8 @@
 #
 # Save these for later
 #
-# local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 # RPS1="${return_code}"
-# local vcs="%F{yellow}${branch}%{$reset_color%}"
-# # Get vcs branch
-# local branch="$(hg_get_branch_name)"
-# if [ -n "${branch}" ] ; then
-#     local branch="$(git_prompt_info)"
-# fi
+# local return_code="%(?)"
 
 # Load modules
 autoload -U colors && colors
@@ -30,9 +24,19 @@ fi
 local user_host='%F{green}%n%{$reset_color%}%F{magenta}@%{$reset_color%}%F{cyan}%m%{$reset_color%}'
 local current_dir='%B%F{blue}% %~%{$reset_color%}'
 local current_time='[ %F{green}%D{%L:%M} %D{%p}%{$reset_color%} ]'
-local shebang='%F{red}$%{$reset_color%}'
+local shebang='$(get_shebang)'
 local git_branch='$(git_prompt_info)'
 local hg_branch='$(hg_prompt_branch)'
+
+function get_shebang {
+    if [ -n "`git_prompt_info`" ] ; then
+        echo "%F{red}±%{$reset_color%}"
+    elif [ -n "`hg_prompt_branch`" ] ; then
+        echo "%F{red}☿%{$reset_color%}"
+    else
+        echo "%F{red}$%{$reset_color%}"
+    fi
+}
 
 function hg_prompt_branch {
     b=`hg_get_branch_name`
