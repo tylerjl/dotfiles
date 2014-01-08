@@ -89,6 +89,8 @@ nnoremap <leader>c :SyntasticCheck<CR>
 nnoremap <leader>h :let g:ctrlp_show_hidden=1<CR>:CtrlPClearCache<CR>
 " ,H - Hide hidden files
 nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
+" ,x - Close quickfix/preview windows
+nnoremap <leader>x :cclose<CR><C-w>z
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
