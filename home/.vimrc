@@ -91,6 +91,8 @@ nnoremap <leader>h :let g:ctrlp_show_hidden=1<CR>:CtrlPClearCache<CR>
 nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
 " ,x - Close quickfix/preview windows
 nnoremap <leader>x :cclose<CR><C-w>z
+" ,s - Search files using ack
+nnoremap <leader>s :Ack!<space>
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
@@ -122,6 +124,7 @@ Bundle 'bling/vim-airline'
 Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
+Bundle 'mileszs/ack.vim'
 
 filetype plugin indent on      " Required
 
