@@ -125,6 +125,7 @@ Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 Bundle 'mileszs/ack.vim'
+Bundle 'jnwhiteh/vim-golang'
 
 filetype plugin indent on      " Required
 
