@@ -58,6 +58,9 @@ alias goet='ssh tylerjl@ssh.et.byu.edu'
 # Shortcut to grab pineapple filesystem
 alias piback='ssh hpi "tar -cvf - -X ~/rpi.excl /" | bzip2 > pineapple_$(date +"%Y%m%d").tar.bz2'
 
+# Serve current directory
+alias serve='python -m SimpleHTTPServer'
+
 if [ -f "${HOME}/.homesick/repos/homeshick/bin/homeshick.sh" ]; then
   source $HOME/.homesick/repos/homeshick/homeshick.sh
 fi
