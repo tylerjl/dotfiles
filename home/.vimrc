@@ -21,6 +21,7 @@ set showbreak=↪\                 " Show line breaks
 set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
 set list                        "  ^   them all
 set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
+inoremap jk <Esc>               " Stop reaching for Esc
 
 " Correctly detect markdown files
 autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
