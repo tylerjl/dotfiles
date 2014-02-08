@@ -20,6 +20,8 @@ set hidden                      " Allow unsaved buffers to be backgrounded
 set showbreak=↪\                 " Show line breaks
 set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
 set list                        "  ^   them all
+set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
+
 " Correctly detect markdown files
 autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
 
