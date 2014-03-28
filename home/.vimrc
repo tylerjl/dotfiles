@@ -82,8 +82,8 @@ nnoremap <leader>a :Tab /=><CR>
 nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 " ,d - Delete current buffer without exiting
 nnoremap <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
-" ,p - Toggle paste mode
-set pastetoggle=<leader>p
+" ,P - Toggle paste mode
+set pastetoggle=<leader>P
 " ,i - Indent entire block
 nnoremap <leader>i vv[m>%`>
 " ,c - Invoke a manual syntax check
@@ -96,6 +96,11 @@ nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
 nnoremap <leader>x :cclose<CR><C-w>z
 " ,s - Search files using ack
 nnoremap <leader>s :Ack!<space>
+" ,p - Paste from system clipboard
+inoremap <leader>p <ESC>"+p
+nnoremap <leader>p "+p
+" ,y - Yank into system clipboard
+vnoremap <leader>y "+y
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
