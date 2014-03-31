@@ -69,3 +69,6 @@ if [ -f "${HOME}/.todo/todo_completion" ]; then
   source ${HOME}/.todo/todo_completion
 fi
 
+function http() {
+  curl http://httpcode.info/$1
+}
