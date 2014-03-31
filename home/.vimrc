@@ -134,6 +134,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 Bundle 'mileszs/ack.vim'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'tomtom/tcomment_vim'
 
 filetype plugin indent on      " Required
 
