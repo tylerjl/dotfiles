@@ -122,7 +122,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-" Bundle 'altercation/vim-colors-solarized'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
@@ -135,14 +135,16 @@ Bundle 'xolox/vim-easytags'
 Bundle 'mileszs/ack.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'chriskempson/base16-vim'
+Bundle 'Pychimp/vim-luna'
 
 filetype plugin indent on      " Required
 
 " ----------------- Theming ---------------------
 set t_Co=256                      " Fix color depth
 let g:solarized_termtrans = 1     " Fix glyph backgrounds
-colorscheme molokai               " From vundle
 set background=dark               " Use dark background
+colorscheme solarized               " From vundle
 hi SpecialKey ctermbg=None        " Smooth out colors, jeez
 set guifont=Source\ Code\ Pro:h15 " Non-standard but better font
 let g:rehash256 = 1
