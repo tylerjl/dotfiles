@@ -65,6 +65,8 @@ map <tab> <C-w>
 map <tab><tab> <C-w><C-w>
 " Enter insert mode surrounded by newlines
 nmap <C-a> o<Esc>O
+" Replace annoying Q behavior with more useful previous-end-of-word
+nnoremap Q ge
 
 " ----------- Custom Leader Commands ------------
 " These are basically lil baby macros.
