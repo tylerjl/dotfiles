@@ -83,7 +83,9 @@ nnoremap <leader>a :Tab /=><CR>
 " ,q - Replace quotes
 nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 " ,d - Delete current buffer without exiting
-nnoremap <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <leader>d :Bdelete<CR>
+" ,D - Delete /all/ buffers
+nnoremap <leader>D :bufdo :Bdelete<CR>
 " ,P - Toggle paste mode
 set pastetoggle=<leader>P
 " ,i - Indent entire block
@@ -137,6 +139,7 @@ Bundle 'xolox/vim-easytags'
 Bundle 'mileszs/ack.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'moll/vim-bbye'
 " Bundle 'chriskempson/base16-vim'
 " Bundle 'Pychimp/vim-luna'
 " Bundle 'tomasr/molokai'
