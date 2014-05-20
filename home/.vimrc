@@ -140,6 +140,10 @@ Bundle 'mileszs/ack.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'moll/vim-bbye'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
 " Bundle 'chriskempson/base16-vim'
 " Bundle 'Pychimp/vim-luna'
 " Bundle 'tomasr/molokai'
