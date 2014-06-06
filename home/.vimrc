@@ -99,7 +99,7 @@ nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
 " ,x - Close quickfix/preview windows
 nnoremap <leader>x :cclose<CR><C-w>z
 " ,s - Search files using ack
-nnoremap <leader>s :Ack!<space>
+nnoremap <leader>s :Ag<space>
 " ,p - Paste from system clipboard
 inoremap <leader>p <ESC>"+p
 nnoremap <leader>p "+p
@@ -136,7 +136,8 @@ Bundle 'bling/vim-airline'
 Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
-Bundle 'mileszs/ack.vim'
+" Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'moll/vim-bbye'
