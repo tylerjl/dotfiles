@@ -150,6 +150,7 @@ Bundle "honza/vim-snippets"
 " Bundle 'tomasr/molokai'
 " Bundle 'sickill/vim-monokai'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'd11wtq/ctrlp_bdelete.vim'
 
 filetype plugin indent on         " Required
 
@@ -170,16 +171,7 @@ set guifont=Source\ Code\ Pro:h15 " Non-standard but better font
 " let g:airline_theme = 'luna'
 
 " ----------- CTRLP Buffer Deletion -------------
-let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
-
-func! MyCtrlPMappings()
-    nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
-endfunc
-
-func! s:DeleteBuffer()
-    exec "bd" fnamemodify(getline('.')[2:], ':p')
-    exec "norm \<F5>"
-endfunc
+call ctrlp_bdelete#init()
 
 " ---------------- Plugin Settings ---------------
 
