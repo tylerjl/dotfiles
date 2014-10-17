@@ -2,9 +2,13 @@
 # Custom zsh theme
 #
 
-# Load modules
-autoload -U colors && colors
+# Define some variables for later use
+_HG_PROMPT='☿'
+_GIT_PROMPT='±'
+_DEFAULT_PROMPT='$'
 
+# Modules & Initialization
+autoload -U colors && colors
 setopt prompt_subst
 
 # Get RVM version, if available
@@ -16,26 +20,30 @@ else
   local rvm_ruby=''
 fi
 
+# Define shebang function, and set it
+function get_shebang {
+    git branch &>/dev/null && echo $_GIT_PROMPT     && return
+    hg root    &>/dev/null && echo $_HG_PROMPT      && return
+                              echo $_DEFAULT_PROMPT && return }
+local shebang='%F{red}$(get_shebang)%{$reset_color%}'
+
+function get_vcs_branch {
+    case "${1}" in
+        $_GIT_PROMPT)
+            git_prompt_info ;;
+        $_HG_PROMPT)
+            hg_prompt_info ;;
+    esac
+}
+
 # Prompt vars
 local return_code="%(?..%F{red}✗ %?%{$reset_color%})"
 local user_host='%F{green}%n%{$reset_color%}%F{magenta}@%{$reset_color%}%F{cyan}%m%{$reset_color%}'
 local current_dir='%B%F{blue}% %~%{$reset_color%}'
 local current_time='[ %F{green}%D{%L:%M} %D{%p}%{$reset_color%} ]'
-local shebang='$(get_shebang)'
-local git_branch='$(git_prompt_info)'
-local hg_branch='$(hg_prompt_info)'
+local branch='$(get_vcs_branch $(get_shebang))'
 
-function get_shebang {
-    if [ -n "`git_prompt_info`" ] ; then
-        echo "%F{red}±%{$reset_color%}"
-    elif [ -n "`hg_prompt_info`" ] ; then
-        echo "%F{red}☿%{$reset_color%}"
-    else
-        echo "%F{red}$%{$reset_color%}"
-    fi
-}
-
-PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby} ${git_branch}${hg_branch}
+PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby} ${branch}
 ╰ ${shebang} "
 RPROMPT="${return_code} ${current_time}"
 
