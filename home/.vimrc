@@ -186,6 +186,10 @@ set guifont=Source\ Code\ Pro:h15 " Non-standard but better font
 " let g:rehash256 = 1
 " let g:airline_theme = 'luna'
 
+" Make vertsplits cleaner
+highlight VertSplit ctermbg=236 ctermfg=236
+set fillchars+=vert:\ 
+
 " ----------- CTRLP Buffer Deletion -------------
 call ctrlp_bdelete#init()
 
