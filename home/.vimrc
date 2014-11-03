@@ -125,32 +125,46 @@ filetype off                   " Required
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" Generic bundles
 Bundle 'gmarik/vundle'
-" Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 Bundle 'bling/vim-airline'
-Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
-" Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
-Bundle 'jnwhiteh/vim-golang'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'moll/vim-bbye'
+
+" Language-specific support
+Bundle 'scrooloose/syntastic'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'rodjek/vim-puppet'
+
+" SnipMate and dependencies
+Bundle "garbas/vim-snipmate"
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
+" Bundle of snippets
 Bundle "honza/vim-snippets"
+
+" My default theme
+Bundle 'nanotech/jellybeans.vim'
+
+" Delete buffers in ctrlp
+Bundle 'd11wtq/ctrlp_bdelete.vim'
+
+" To handle git and hg repos, respectively
+Bundle 'tpope/vim-fugitive'
+Bundle 'ludovicchabant/vim-lawrencium'
+
+" Saving just in case.
 " Bundle 'chriskempson/base16-vim'
 " Bundle 'Pychimp/vim-luna'
 " Bundle 'tomasr/molokai'
 " Bundle 'sickill/vim-monokai'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'd11wtq/ctrlp_bdelete.vim'
+" Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on         " Required
 
