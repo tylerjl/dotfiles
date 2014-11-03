@@ -130,12 +130,13 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'godlygeek/tabular'
-Bundle 'bling/vim-airline'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
 Bundle 'rking/ag.vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'moll/vim-bbye'
+
+" Easytags and deps
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
 
 " Language-specific support
 Bundle 'scrooloose/syntastic'
@@ -149,8 +150,9 @@ Bundle "tomtom/tlib_vim"
 " Bundle of snippets
 Bundle "honza/vim-snippets"
 
-" My default theme
+" Theming
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'bling/vim-airline'
 
 " Delete buffers in ctrlp
 Bundle 'd11wtq/ctrlp_bdelete.vim'
@@ -229,6 +231,8 @@ let g:syntastic_puppet_puppetlint_args="--no-class_inherits_from_params_class-ch
 " Fancy symbols
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+" Lord it is slow
+let g:syntastic_mode_map = { "mode": "passive", "active_filetypes": [], "passive_filetypes": [] }
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -270,6 +274,9 @@ let g:netrw_altv = 1
 
 " Default to tree mode
 let g:netrw_liststyle=3
+
+" Turn on asynchronous ctag writing
+let g:easytags_async=1
 
 " Change directory to the current buffer when opening files.
 set autochdir
