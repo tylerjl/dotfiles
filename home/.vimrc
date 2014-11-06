@@ -73,41 +73,41 @@ nnoremap k gk
 
 " ----------- Custom Leader Commands ------------
 " These are basically lil baby macros.
-" ,W - Strip all trailing whitespace in the current file.
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-" ,w - Switch to a split view and use it
-nnoremap <leader>w <C-w>v<C-w>l
-" ,v - Fix interpolated puppet strings
-nnoremap <leader>v :.s/\(".*\$\)\([a-zA-Z_]\+\)\(.*"\)/\1{\2}\3/<CR>:let @/=''<CR>
-" ,T - Globally replace tabs white four-space tabs
-nnoremap <leader>T :%s/\t/    /e<CR>:let @/=''<CR>
 " ,a - Align puppet code
 nnoremap <leader>a :Tab /=><CR>
-" ,q - Replace quotes
-nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
-" ,d - Delete current buffer without exiting
-nnoremap <leader>d :Bdelete<CR>
-" ,D - Delete /all/ buffers
-nnoremap <leader>D :bufdo :Bdelete<CR>
-" ,P - Toggle paste mode
-set pastetoggle=<leader>P
-" ,i - Indent entire block
-nnoremap <leader>i vv[m>%`>
 " ,c - Invoke a manual syntax check
 nnoremap <leader>c :SyntasticCheck<CR>
-" ,h - Show hidden files
-nnoremap <leader>h :let g:ctrlp_show_hidden=1<CR>:CtrlPClearCache<CR>
+" ,D - Delete /all/ buffers
+nnoremap <leader>D :bufdo :Bdelete<CR>
+" ,d - Delete current buffer without exiting
+nnoremap <leader>d :Bdelete<CR>
 " ,H - Hide hidden files
 nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
-" ,x - Close quickfix/preview windows
-nnoremap <leader>x :cclose<CR><C-w>z
+" ,h - Show hidden files
+nnoremap <leader>h :let g:ctrlp_show_hidden=1<CR>:CtrlPClearCache<CR>
+" ,i - Indent entire block
+nnoremap <leader>i vv[m>%`>
+" ,P - Toggle paste mode
+set pastetoggle=<leader>P
+" ,p - Paste from system clipboard
+inoremap <leader>p <ESC>"+p
+nnoremap <leader>p "+p
+" ,q - Replace quotes
+nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 " ,r - Reload .vimrc
 nnoremap <leader>r :so ~/.vimrc<CR>
 " ,s - Search files using ack
 nnoremap <leader>s :Ag<space>
-" ,p - Paste from system clipboard
-inoremap <leader>p <ESC>"+p
-nnoremap <leader>p "+p
+" ,T - Globally replace tabs white four-space tabs
+nnoremap <leader>T :%s/\t/    /e<CR>:let @/=''<CR>
+" ,v - Fix interpolated puppet strings
+nnoremap <leader>v :.s/\(".*\$\)\([a-zA-Z_]\+\)\(.*"\)/\1{\2}\3/<CR>:let @/=''<CR>
+" ,W - Strip all trailing whitespace in the current file.
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" ,w - Switch to a split view and use it
+nnoremap <leader>w <C-w>v<C-w>l
+" ,x - Close quickfix/preview windows
+nnoremap <leader>x :cclose<CR><C-w>z
 " ,y - Yank into system clipboard
 vnoremap <leader>y "+y
 
