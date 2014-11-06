@@ -101,6 +101,8 @@ nnoremap <leader>h :let g:ctrlp_show_hidden=1<CR>:CtrlPClearCache<CR>
 nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
 " ,x - Close quickfix/preview windows
 nnoremap <leader>x :cclose<CR><C-w>z
+" ,r - Reload .vimrc
+nnoremap <leader>r :so ~/.vimrc<CR>
 " ,s - Search files using ack
 nnoremap <leader>s :Ag<space>
 " ,p - Paste from system clipboard
