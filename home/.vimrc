@@ -67,6 +67,9 @@ map <tab><tab> <C-w><C-w>
 nmap <C-a> o<Esc>O
 " Replace annoying Q behavior with more useful previous-end-of-word
 nnoremap Q ge
+" Traverse lines more intelligently
+nnoremap j gj
+nnoremap k gk
 
 " ----------- Custom Leader Commands ------------
 " These are basically lil baby macros.
