@@ -1,0 +1,15 @@
+#
+# Global git settings shared across work/personal
+#
+
+[user]
+	name = Tyler Langlois
+[color]
+	ui = true
+[merge]
+	tool = vimdiff
+[push]
+	default = simple
+
+[alias]
+	out = log --branches --not --remotes --simplify-by-decoration --decorate --oneline
