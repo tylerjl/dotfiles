@@ -234,6 +234,14 @@ let g:netrw_banner = 0       " Default to tree view
 
 " CtrlP line search extension
 let g:ctrlp_extenions = ['line']
+" Smart directory searching behavior in Ctrl-P:
+" 'c' - the directory of the current file.
+" 'r' - the nearest ancestor that contains one of these directories or files:
+"       .git .hg .svn .bzr
+" 'a' - like c, but only if the current working directory outside of CtrlP is
+"       not a direct ancestor of the directory of the current file.
+" 0 or '' (empty string) - disable this feature.
+let g:ctrlp_working_path_mode = 'ra'
 
 " Custom syntastic flags
 let g:syntastic_puppet_puppetlint_args="--no-class_inherits_from_params_class-check"
