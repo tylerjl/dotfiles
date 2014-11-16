@@ -21,7 +21,19 @@ set showbreak=↪\                 " Show line breaks
 set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
 set list                        "  ^   them all
 set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
-inoremap jk <Esc>               " Stop reaching for Esc
+
+" Train to stop reaching for escape (avoid trailing comment, it's weird)
+inoremap jk <Esc>
+
+" Disable arrow keys
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 " Correctly detect markdown files
 autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
