@@ -1,5 +1,14 @@
+# Pull in antigen
+source ~/.homesick/repos/antigen/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle vundle
+
+antigen apply
+
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zsh
 
 fpath=($HOME/.homesick/repos/homeshick/completions $HOME/.zsh/site-functions $fpath)
