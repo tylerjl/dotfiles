@@ -28,7 +28,7 @@ fpath=($HOME/.homesick/repos/homeshick/completions $HOME/.zsh/site-functions $fp
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # POWERLINE_DETECT_SSH="true"
-ZSH_THEME="gerard"
+ZSH_THEME="tjl-powerline"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
