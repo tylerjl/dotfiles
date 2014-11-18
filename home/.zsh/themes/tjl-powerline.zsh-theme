@@ -107,7 +107,7 @@ if [ $ZSH_POWERLINE_SHOW_IP = true ]; then
         # replace dot by dash
         IP=`echo -n $IP | tail -n 1 | sed "s/\./-/g"`
     fi
-    PROMPT=$PROMPT"$FG_COLOR_2 at$FG_COLOR_13 $IP "
+    PROMPT=$PROMPT"$FG_COLOR_2 @$FG_COLOR_13 $IP "
 fi
 
 PROMPT=$PROMPT"$FG_COLOR_7$BG_COLOR_8"$''
@@ -125,9 +125,9 @@ fi
 
 # current directory (%E hightline all line to end)
 PROMPT=$PROMPT"$FG_COLOR_15$BG_COLOR_0 $LOGO %2~"$'$(git_prompt_info)'" %E
-  "
+$BG_COLOR_8  "
 
-PROMPT=$PROMPT"$RESET$FG_COLOR_0"$''
+PROMPT=$PROMPT"$RESET$FG_COLOR_8"$''
 
 # resrt
 PROMPT=$PROMPT"$RESET "
