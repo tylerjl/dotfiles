@@ -4,6 +4,7 @@ source ~/.homesick/repos/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
+antigen bundle mercurial
 antigen bundle vundle
 
 antigen apply
