@@ -145,7 +145,7 @@ fi
 
 # current directory (%E hightline all line to end)
 PROMPT=$PROMPT"$FG_COLOR_15$BG_COLOR_0 $LOGO %2~"$'$(git_prompt_info)$(hg_prompt_info)'"  $RESET$FG_COLOR_0
-$RESET$FG_COLOR_15$BG_COLOR_8 "'$(get_shebang)'
+$RESET$FG_COLOR_15$BG_COLOR_8 "'$(get_shebang) '
 
 PROMPT=$PROMPT"$RESET$FG_COLOR_8"$''
 
