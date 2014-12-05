@@ -26,7 +26,7 @@ set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
 inoremap jk <Esc>
 
 " <Enter> in autocomplete selects, not newline
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Always highlight closest match
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
