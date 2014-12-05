@@ -4,8 +4,8 @@ set nu                          " Line numbers
 set ai                          " Autoindent
 set backspace=indent,eol,start  " Sane backspace
 set ls=2                        " Echo the file listing continuously
-nnoremap <tab> %                " Remap % to tab, easier bracket matching
-vnoremap <tab> %                " ^
+" nnoremap <tab> %                " Remap % to tab, easier bracket matching
+" vnoremap <tab> %                " ^
 set modelines=0                 " Security-related setting, so I hear
 let mapleader = ","             " Custom commands mapped to , instead of \
 syntax on                       " Syntax highlighting
