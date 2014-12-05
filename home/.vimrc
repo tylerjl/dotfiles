@@ -25,6 +25,13 @@ set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
 " Train to stop reaching for escape (avoid trailing comment, it's weird)
 inoremap jk <Esc>
 
+" <Enter> in autocomplete selects, not newline
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Always highlight closest match
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 " Disable arrow keys
 noremap <up> <nop>
 noremap <down> <nop>
@@ -211,6 +218,9 @@ set fillchars+=vert:\
 call ctrlp_bdelete#init()
 
 " ---------------- Plugin Settings ---------------
+
+" Enable omnicomplete
+set omnifunc=syntaxcomplete#Complete
 
 " ctags
 " Let colons work for tags
