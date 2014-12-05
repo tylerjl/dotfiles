@@ -83,7 +83,7 @@ vmap <F2> :w !pbcopy<CR><CR>
 map <tab> <C-w>
 map <tab><tab> <C-w><C-w>
 " Enter insert mode surrounded by newlines
-nmap <C-a> o<Esc>O
+nmap <C-a> o<Esc>O<Esc>o
 " Replace annoying Q behavior with more useful previous-end-of-word
 nnoremap Q ge
 " Traverse lines more intelligently
