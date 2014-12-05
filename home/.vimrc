@@ -157,6 +157,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'rking/ag.vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'moll/vim-bbye'
+Bundle 'Raimondi/delimitMate'
 
 " Easytags and deps
 Bundle 'xolox/vim-misc'
@@ -218,6 +219,10 @@ set fillchars+=vert:\
 call ctrlp_bdelete#init()
 
 " ---------------- Plugin Settings ---------------
+
+" delimitMate settings
+let delimitMate_expand_cr=1
+" let delimitMate_expand_space=1
 
 " Enable omnicomplete
 set omnifunc=syntaxcomplete#Complete
