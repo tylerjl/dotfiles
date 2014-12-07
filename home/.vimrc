@@ -1,7 +1,7 @@
 " -------------- Basic settings -----------------
 set nocompatible                " Get rid of obsolete compatability mode
-set nu                          " Line numbers
-set ai                          " Autoindent
+set number                      " Line numbers
+set smartindent                 " Autoindent
 set backspace=indent,eol,start  " Sane backspace
 set ls=2                        " Echo the file listing continuously
 " nnoremap <tab> %                " Remap % to tab, easier bracket matching
@@ -26,6 +26,7 @@ set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
 inoremap jk <Esc>
 
 " <Enter> in autocomplete selects, not newline
+" Disabled for now because it conflicts with delimitMate
 " inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Always highlight closest match
