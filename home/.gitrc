@@ -2,6 +2,9 @@
 # Global git settings shared across work/personal
 #
 
+[core]
+	excludesfile = ~/.gitignore
+
 [user]
 	name = Tyler Langlois
 [color]
