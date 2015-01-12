@@ -69,6 +69,11 @@ if [ -f "${HOME}/.todo/todo_completion" ]; then
   source ${HOME}/.todo/todo_completion
 fi
 
+# Load Nix environment if applicable
+if [ -e "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
+    source "${HOME}/.nix-profile/etc/profile.d/nix.sh"
+fi
+
 function http() {
   curl http://httpcode.info/$1
 }
