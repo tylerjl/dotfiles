@@ -46,6 +46,9 @@ inoremap <right> <nop>
 " Correctly detect markdown files
 autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
 
+" Correctly render erb files
+autocmd BufNew,BufNewFile,BufRead *.sh.erb setlocal ft=sh.eruby
+
 " --------------- Tab Settings ------------------
 " Remap tab-switching to Ctrl-T
 map <C-t><up> :tabr<cr>
