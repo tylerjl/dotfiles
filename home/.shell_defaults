@@ -61,6 +61,9 @@ alias piback='ssh hpi "tar -cvf - -X ~/rpi.excl /" | bzip2 > pineapple_$(date +"
 # Serve current directory
 alias serve='python -m SimpleHTTPServer'
 
+# Pretty-print json
+alias j='python -m json.tool'
+
 if [ -f "${HOME}/.homesick/repos/homeshick/homeshick.sh" ]; then
   source $HOME/.homesick/repos/homeshick/homeshick.sh
 fi
