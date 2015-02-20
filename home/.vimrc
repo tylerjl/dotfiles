@@ -49,6 +49,9 @@ autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markd
 " Correctly render erb files
 autocmd BufNew,BufNewFile,BufRead *.sh.erb setlocal ft=sh.eruby
 
+" I use a gitrc
+autocmd BufNew,BufNewFile,BufRead .gitrc setlocal ft=gitconfig
+
 " --------------- Tab Settings ------------------
 " Remap tab-switching to Ctrl-T
 map <C-t><up> :tabr<cr>
