@@ -13,6 +13,8 @@
 	tool = vimdiff
 [push]
 	default = simple
+[status]
+	submoduleSummary = true
 
 [alias]
 	out = log --pretty=oneline --abbrev-commit --graph @{u}..
