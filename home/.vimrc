@@ -86,16 +86,24 @@ nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
+
 " Bind tab to <C-w> to ease viewport switching
 map <tab> <C-w>
 map <tab><tab> <C-w><C-w>
+
 " Enter insert mode surrounded by newlines
 nmap <C-a> o<Esc>O<Esc>o
+
 " Replace annoying Q behavior with more useful previous-end-of-word
 nnoremap Q ge
+
 " Traverse lines more intelligently
 nnoremap j gj
 nnoremap k gk
+
+" Buffer navigation shortcuts
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
 
 " ----------- Custom Leader Commands ------------
 " These are basically lil baby macros.
@@ -146,7 +154,6 @@ nnoremap <leader>t :CtrlPTag<CR>
 
 " NERDtree shortcut
 nnoremap <leader>n :NERDTree<CR>
-
 
 " Toggle search highlighting
 nmap <silent> <leader>/ :set hlsearch!<cr>
