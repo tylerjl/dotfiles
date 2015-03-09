@@ -115,6 +115,8 @@ nnoremap <leader>c :SyntasticCheck<CR>
 nnoremap <leader>D :bufdo :Bdelete<CR>
 " ,d - Delete current buffer without exiting
 nnoremap <leader>d :Bdelete<CR>
+" ,e - Edit .vimrc
+nnoremap <leader>e :e ~/.vimrc<CR>
 " ,H - Hide hidden files
 nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
 " ,h - Show hidden files
