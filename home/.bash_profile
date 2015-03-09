@@ -12,5 +12,5 @@ if [ -e "${HOME}/.bashrc" ] ; then
   source "${HOME}/.bashrc"
 fi
 
+# Cross-shell $PATH setup file
 . $HOME/.shell_paths
-

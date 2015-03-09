@@ -1,18 +1,19 @@
+# .shell_defaults
+# ===============
+#
+# Meant to be a cross-shell (bash|zsh) script to set up aliases/etc
 
-#################################
 # General-purpose shell variables
-
 export SVN_EDITOR=/usr/bin/vim
 export EDITOR=/usr/bin/vim
 
-######################
 # OS-Specific settings
-
 if [ `uname -s` = "Darwin" ] ; then
   # Customizations for OSX
   alias nup='sudo launchctl load -w /Library/LaunchDaemons/com.tenablesecurity.nessusd.plist'
   alias ndown='sudo launchctl unload -w /Library/LaunchDaemons/com.tenablesecurity.nessusd.plist'
-  alias ls='ls -hFG'                 # classify files in colour
+  # Because OS X `ls` is goofy
+  alias ls='ls -hFG'
 else
   if echo `uname -s` | grep -i 'cygwin' &>/dev/null ; then
     # Customizations for Windows
