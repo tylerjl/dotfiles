@@ -14,6 +14,8 @@ if [ `uname -s` = "Darwin" ] ; then
   alias ndown='sudo launchctl unload -w /Library/LaunchDaemons/com.tenablesecurity.nessusd.plist'
   # Because OS X `ls` is goofy
   alias ls='ls -hFG'
+  # Use master branch of nixpkgs on 10.10
+  export NIX_PATH="${HOME}/Projects/nix/nixpkgs":nixpkgs="${HOME}/Projects/nix/nixpkgs"
 else
   if echo `uname -s` | grep -i 'cygwin' &>/dev/null ; then
     # Customizations for Windows
