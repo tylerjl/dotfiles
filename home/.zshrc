@@ -73,3 +73,8 @@ export TERM='xterm-256color'
 bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
+
+# Use direnv if available
+if (( $+commands[direnv] )) ; then
+    eval "$(direnv hook zsh)"
+fi
