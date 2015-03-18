@@ -1,8 +1,10 @@
 #
 # Powerline: because anything else would be too easy.
 #
-# Save these for something?
-# ✖ ➜ ═ ✭
+# Save these for something? ✖ ➜ ═ ✭
+#
+# By convention:
+# psvar[1]: Custom prompt sigil ($, #, etc.) If nothing is set, default to '$'
 
 # Provides source control utilities
 autoload -Uz vcs_info
@@ -10,33 +12,31 @@ autoload -Uz vcs_info
 # Configure vcs_info
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:hg:*' get-revision true # req'd for hg unstaged
+zstyle ':vcs_info:hg:*' hgrevformat '' # nuke the rev hash rendering in hg
 zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}✘%F{15}"
 zstyle ':vcs_info:*' stagedstr "%{$fg[cyan]%}✚%F{15}"
-zstyle ':vcs_info:*' formats "  %b %c%u%m"
-zstyle ':vcs_info:*+set-message:*' hooks vcs-set-clean
+zstyle ':vcs_info:*' formats "  %b %m%c%u"
+zstyle ':vcs_info:*+set-message:*' hooks vcs-set-misc-clean vcs-set-sigil
 
-# Easiest way I found to do clean repo logic
-function +vi-vcs-set-clean() {
-    # Detect absence of pending changes
+# Set %m with custom content
+function +vi-vcs-set-misc-clean() {
+    # Easiest way I found to do clean repo logic
     if [ -z "${hook_com[staged]}${hook_com[unstaged]}" ] ; then
         hook_com[misc]="%{$fg[green]%}✔%f%F{15}"
     fi
 }
 
-# Set relevant vcs variables before each prompt render
-function precmd() { vcs_info }
-
-# Only worry about setting the prompt character after moving directories
-# (using this over precmd to avoid as much PROMPT rendering latency as possible)
-function chpwd() {
-    case ${vcs_info_msg_0_## \(} in
-        git*) export _PROMPT_CHAR='±' ;;
-        hg*)  export _PROMPT_CHAR='☿' ;;
-        *)    export _PROMPT_CHAR='$' ;;
+# If in a vcs repo, set a custom sigil
+function +vi-vcs-set-sigil {
+    case $vcs in
+        git) psvar[1]='±' ;;
+        hg)  psvar[1]='☿' ;;
     esac
 }
-# Set the initial prompt to a one-time "new prompt" symbol
-_PROMPT_CHAR='✹'
+
+# Initialize psvar and set up vcs_info
+function precmd() { psvar=() ; vcs_info }
 
 # OS detection and logo settings
 [[ -n "${OS}" ]] || OS=$(uname)
@@ -46,7 +46,7 @@ else
     LOGO="🐧 "
 fi
 
-# Time format string
+# Time format string (1:00 PM)
 _ZSH_TIME="%D{%L:%M} %D{%p}"
 
 # Set some multiple-use colors
@@ -69,17 +69,17 @@ PROMPT="
 PROMPT="${PROMPT}%{$fg[green]%} @%{$fg[red]%} %m "
 PROMPT="${PROMPT}%{$fg[white]%}${BG_COLOR_SEAGREEN}"
 
-# Interpolate timestamp, powerline transition
+# Timestamp, powerline transition
 PROMPT="${PROMPT}%{$fg[white]%}${BG_COLOR_SEAGREEN} ${_ZSH_TIME} "
 PROMPT="${PROMPT}${FG_COLOR_SEAGREEN}${BG_COLOR_DARKBLUE}"
 
 # Logo, directory, vcs info
 PROMPT="${PROMPT}%{$fg[white]%}${BG_COLOR_DARKBLUE} ${LOGO} %2~"'${vcs_info_msg_0_}'
 
-# Powerline transition, newline, prompt, powerline transition
+# Powerline transition, newline, sigil, powerline transition
 PROMPT="${PROMPT} ${RESET}${FG_COLOR_DARKBLUE}
-${RESET}%{$fg[white]%}${BG_COLOR_SEAGREEN} "'${_PROMPT_CHAR} '
+${RESET}%{$fg[white]%}${BG_COLOR_SEAGREEN} %(1v.%1v.$) "
 PROMPT="${PROMPT}${RESET}${FG_COLOR_SEAGREEN}${RESET}"
 
-# Right prompt return code rendering (with zsh ternary!)
+# Right prompt return code
 RPROMPT="%(?..%{$fg[red]%}%? ↵${RESET})"
