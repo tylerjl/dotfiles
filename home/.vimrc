@@ -202,6 +202,9 @@ Bundle 'd11wtq/ctrlp_bdelete.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'ludovicchabant/vim-lawrencium'
 
+" When an itch needs scratching
+Bundle 'mtth/scratch.vim'
+
 " Saving just in case.
 " Bundle 'chriskempson/base16-vim'
 " Bundle 'Pychimp/vim-luna'
