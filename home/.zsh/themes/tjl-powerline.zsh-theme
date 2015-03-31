@@ -24,6 +24,9 @@ function +vi-vcs-set-misc-clean() {
     # Easiest way I found to do clean repo logic
     if [ -z "${hook_com[staged]}${hook_com[unstaged]}" ] ; then
         hook_com[misc]="%{$fg[green]%}✔%f%F{15}"
+    elif [ -n "${hook_com[staged]}" ] && [ -n "${hook_com[unstaged]}" ] ; then
+        # Space out {,un}staged sigils
+        hook_com[staged]="${hook_com[staged]} "
     fi
 }
 
