@@ -86,6 +86,8 @@ nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
+" F3 - Toggle 80 column marker
+nnoremap <F3> :call ToggleColorColumn()<CR>
 
 " Bind tab to <C-w> to ease viewport switching
 map <tab> <C-w>
@@ -368,3 +370,17 @@ let g:easytags_async=1
 
 " Change directory to the current buffer when opening files.
 set autochdir
+
+" --------------- Custom functions ---------------
+
+func! ToggleColorColumn()
+    if exists("b:colorcolumnon") && b:colorcolumnon
+        let b:colorcolumnon = 0
+        exec ':set colorcolumn=0'
+        echo '80 column marker off'
+    else
+        let b:colorcolumnon = 1
+        exec ':set colorcolumn=80'
+        echo '80 column marker on'
+    endif
+endfunc
