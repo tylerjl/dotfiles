@@ -123,6 +123,9 @@ nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
 nnoremap <leader>h :let g:ctrlp_show_hidden=1<CR>:CtrlPClearCache<CR>
 " ,i - Indent entire block
 nnoremap <leader>i vv[m>%`>
+" ,k - Scratch buffer
+nnoremap <leader>k :Scratch<CR>
+" ,l - <RESERVED> For Ctrl-P LRU files
 " ,P - Toggle paste mode
 set pastetoggle=<leader>P
 " ,p - Paste from system clipboard
@@ -132,7 +135,7 @@ nnoremap <leader>p "+p
 nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 " ,r - Reload .vimrc
 nnoremap <leader>r :so ~/.vimrc<CR>
-" ,s - Search files using ack
+" ,s - Search through files using ag
 nnoremap <leader>s :Ag<space>
 " ,T - Globally replace tabs white four-space tabs
 nnoremap <leader>T :%s/\t/    /e<CR>:let @/=''<CR>
