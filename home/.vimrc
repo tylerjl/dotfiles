@@ -43,6 +43,9 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+" Format golang files the canonical way
+autocmd BufNew,BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+
 " Correctly detect markdown files
 autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
 
