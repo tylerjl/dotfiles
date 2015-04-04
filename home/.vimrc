@@ -1,29 +1,32 @@
-" -------------- Basic settings -----------------
-set nocompatible                " Get rid of obsolete compatability mode
-set number                      " Line numbers
-set smartindent                 " Autoindent
-set backspace=indent,eol,start  " Sane backspace
-set ls=2                        " Echo the file listing continuously
-" nnoremap <tab> %                " Remap % to tab, easier bracket matching
-" vnoremap <tab> %                " ^
-set modelines=0                 " Security-related setting, so I hear
-let mapleader = ","             " Custom commands mapped to , instead of \
-syntax on                       " Syntax highlighting
-set sm                          " Short messages
-set completeopt=longest,menuone " Longest common match & always show menu
-set wildmode=longest,list,full  " Better autocomplete
-set wildmenu                    " ^
-set scrolloff=5                 " Move window ahead of cursor
-set mouse=a                     " Mouse support
-set ruler                       " Show the ruler
-set hidden                      " Allow unsaved buffers to be backgrounded
-set showbreak=↪\                 " Show line breaks
-set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
-set list                        "  ^   them all
-set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
+" ----------- Quick Initialization --------------
+" If vim-tiny or vim-small, skip lots of this
+if !1 | finish | endif
 
-" Train to stop reaching for escape (avoid trailing comment, it's weird)
-inoremap jk <Esc>
+" -------------- Basic settings -----------------
+if has('vim_starting')
+    set nocompatible                " Get rid of obsolete compatability mode
+    set number                      " Line numbers
+    set smartindent                 " Autoindent
+    set backspace=indent,eol,start  " Sane backspace
+    set ls=2                        " Echo the file listing continuously
+    " nnoremap <tab> %                " Remap % to tab, easier bracket matching
+    " vnoremap <tab> %                " ^
+    set modelines=0                 " Security-related setting, so I hear
+    let mapleader = ","             " Custom commands mapped to , instead of \
+    syntax on                       " Syntax highlighting
+    set sm                          " Short messages
+    set completeopt=longest,menuone " Longest common match & always show menu
+    set wildmode=longest,list,full  " Better autocomplete
+    set wildmenu                    " ^
+    set scrolloff=5                 " Move window ahead of cursor
+    set mouse=a                     " Mouse support
+    set ruler                       " Show the ruler
+    set hidden                      " Allow unsaved buffers to be backgrounded
+    set showbreak=↪\                 " Show line breaks
+    set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
+    set list                        "  ^   them all
+    set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
+endif
 
 " <Enter> in autocomplete selects, not newline
 " Disabled for now because it conflicts with delimitMate
@@ -33,21 +36,11 @@ inoremap jk <Esc>
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-" Disable arrow keys
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
 " Format golang files the canonical way
 autocmd BufNew,BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
 " Correctly detect markdown files
-autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
+autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setfiletype markdown
 
 " Correctly render erb files
 autocmd BufNew,BufNewFile,BufRead *.sh.erb setlocal ft=sh.eruby
@@ -84,6 +77,19 @@ set expandtab               " ^
 cnoreabbrev w!! w !sudo tee % >/dev/null
 
 " ------------------- Keymaps ------------------
+" Disable arrow keys
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" Train to stop reaching for escape (avoid trailing comment, it's weird)
+inoremap jk <Esc>
+
 " F1 = GUI paste, F2 = GUI copy
 nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
