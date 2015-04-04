@@ -168,50 +168,62 @@ nnoremap <leader>n :NERDTree<CR>
 " Toggle search highlighting
 nmap <silent> <leader>/ :set hlsearch!<cr>
 
-" ------------------ Vundle ---------------------
-filetype off                   " Required
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" ----------------- NeoBundle --------------------
+" Bundles indented to signify dependencies
+
+" Required NeoBundle prelude
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Manage NeoBundle itself, and use vimproc to handle operations
+NeoBundleFetch 'Shuogo/neobundle.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
 " Generic bundles
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'rking/ag.vim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'moll/vim-bbye'
-Bundle 'Raimondi/delimitMate'
-
-" Easytags and deps
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
+" NeoBundle 'gmarik/vundle'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'moll/vim-bbye'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mtth/scratch.vim'
+NeoBundle 'ludovicchabant/vim-lawrencium'
+NeoBundle 'xolox/vim-easytags'
+    NeoBundle 'xolox/vim-misc'
 
 " Language-specific support
-Bundle 'scrooloose/syntastic'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'rodjek/vim-puppet'
+" Bundle 'raichoo/haskell-vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'jnwhiteh/vim-golang'
+NeoBundle 'rodjek/vim-puppet'
+NeoBundle 'dag/vim2hs'
+NeoBundle 'eagletmt/ghcmod-vim'
+    " NeoBundle 'Shougo/vimproc'
 
 " SnipMate and dependencies
-Bundle "garbas/vim-snipmate"
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
+NeoBundle "garbas/vim-snipmate"
+    NeoBundle "MarcWeber/vim-addon-mw-utils"
+    NeoBundle "tomtom/tlib_vim"
 " Bundle of snippets
-Bundle "honza/vim-snippets"
+NeoBundle "honza/vim-snippets"
 
 " Theming
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'bling/vim-airline'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'bling/vim-airline'
 
 " Delete buffers in ctrlp
-Bundle 'd11wtq/ctrlp_bdelete.vim'
-
-" To handle git and hg repos, respectively
-Bundle 'tpope/vim-fugitive'
-Bundle 'ludovicchabant/vim-lawrencium'
-
-" When an itch needs scratching
-Bundle 'mtth/scratch.vim'
+NeoBundle 'd11wtq/ctrlp_bdelete.vim'
 
 " Saving just in case.
 " Bundle 'chriskempson/base16-vim'
@@ -220,7 +232,9 @@ Bundle 'mtth/scratch.vim'
 " Bundle 'sickill/vim-monokai'
 " Bundle 'altercation/vim-colors-solarized'
 
+call neobundle#end()
 filetype plugin indent on         " Required
+NeoBundleCheck
 
 " ----------------- Theming ---------------------
 let g:jellybeans_overrides = {
