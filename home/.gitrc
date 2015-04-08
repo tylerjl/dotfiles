@@ -13,8 +13,6 @@
 	tool = vimdiff
 [push]
 	default = simple
-[pull]
-	rebase = preserve
 [status]
 	submoduleSummary = true
 [diff]
