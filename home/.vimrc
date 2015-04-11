@@ -183,6 +183,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 " Generic bundles
 " NeoBundle 'gmarik/vundle'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'godlygeek/tabular'
