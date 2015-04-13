@@ -397,9 +397,6 @@ let g:netrw_liststyle=3
 " Turn on asynchronous ctag writing
 let g:easytags_async=1
 
-" Change directory to the current buffer when opening files.
-set autochdir
-
 " Haskell Plugin Settings
 " Stop stupid '.' conceals
 let g:haskell_conceal = 0
