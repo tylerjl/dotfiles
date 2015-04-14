@@ -346,6 +346,7 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " Custom syntastic flags
 let g:syntastic_puppet_puppetlint_args="--no-class_inherits_from_params_class-check"
+let g:syntastic_puppet_puppet_post_args="--parser future"
 " Fancy symbols
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
