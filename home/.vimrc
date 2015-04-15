@@ -115,7 +115,7 @@ nnoremap <leader>D :bufdo :Bdelete<CR>
 " ,d - Delete current buffer without exiting
 nnoremap <leader>d :Bdelete<CR>
 " ,E - Execute current line, appending output
-nnoremap <leader>E yyp!!bash<CR><Esc>
+nnoremap <leader>E "=system(getline('.'))<CR>p`]
 " ,e - Edit .vimrc
 nnoremap <leader>e :e ~/.vimrc<CR>
 " ,H - Hide hidden files
@@ -274,6 +274,11 @@ set fillchars+=vert:\
 call ctrlp_bdelete#init()
 
 " ---------------- Plugin Settings ---------------
+
+" Quick execution output into a scratch buffer
+nnoremap <C-c> V:ScratchSelection!<CR>"=system(getline('.'))<CR>p`]
+" I usually keep scratch open
+let g:scratch_autohide=0
 
 " delimitMate settings
 let delimitMate_expand_cr=1
