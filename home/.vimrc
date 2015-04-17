@@ -276,9 +276,11 @@ call ctrlp_bdelete#init()
 " ---------------- Plugin Settings ---------------
 
 " Quick execution output into a scratch buffer
-nnoremap <C-c> V:ScratchSelection!<CR>"=system(getline('.'))<CR>p`]
+nnoremap <C-c> V:ScratchSelection!<CR>"=system(getline('.'))<CR>p<C-w>p
 " I usually keep scratch open
 let g:scratch_autohide=0
+" Pop-open at bottom
+let g:scratch_top=0
 
 " delimitMate settings
 let delimitMate_expand_cr=1
