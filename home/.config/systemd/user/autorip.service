@@ -1,0 +1,12 @@
+[Unit]
+Description=Automatically rip inserted DVDs
+After=dev-cdrom.device
+
+[Service]
+RemainAfterExit=yes
+Type=oneshot
+ExecStart=/home/tylerjl/.bin/rip-dvd.sh
+StandardOutput=journal
+
+[Install]
+WantedBy=dev-cdrom.device
