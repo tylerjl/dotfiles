@@ -1,3 +1,4 @@
 *.*.swp
 .envrc
 *~
+.DS_Store
