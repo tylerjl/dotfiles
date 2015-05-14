@@ -78,3 +78,8 @@ bindkey '^[[1;9D' backward-word
 if (( $+commands[direnv] )) ; then
     eval "$(direnv hook zsh)"
 fi
+
+# Turn off zsh errors when globbing appears to fail. This fixes the problem
+# that comes up when attempting to scp something remotely with *, or when
+# switching to a git branch with # in the name.
+unsetopt nomatch
