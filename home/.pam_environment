@@ -1,0 +1,2 @@
+# Steam on Linux just minimizes on close without this
+STEAM_FRAME_FORCE_CLOSE DEFAULT=1
