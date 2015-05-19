@@ -246,6 +246,7 @@ autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setfiletype markd
 
 " Correctly render erb files
 autocmd BufNew,BufNewFile,BufRead *.sh.erb setlocal ft=sh.eruby
+autocmd BufNew,BufNewFile,BufRead *.py.erb setlocal ft=eruby.python
 
 " I use a gitrc
 autocmd BufNew,BufNewFile,BufRead .gitrc setlocal ft=gitconfig
