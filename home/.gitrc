@@ -14,7 +14,8 @@
 [push]
 	default = simple
 [status]
-	submoduleSummary = true
+	# Enable per-repo for useful submodule summaries
+	# submoduleSummary = true
 [diff]
 	submodule = log
 
