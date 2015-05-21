@@ -26,6 +26,7 @@ if has('vim_starting')
     set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
     set list                        "  ^   them all
     set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
+    set linebreak                   " Don't break words when wrapping
 endif
 
 " <Enter> in autocomplete selects, not newline
@@ -250,6 +251,9 @@ autocmd BufNew,BufNewFile,BufRead *.py.erb setlocal ft=eruby.python
 
 " I use a gitrc
 autocmd BufNew,BufNewFile,BufRead .gitrc setlocal ft=gitconfig
+
+" Correctly detect Vagrantfiles
+autocmd BufNew,BufNewFile,BufRead Vagrantfile setlocal ft=ruby
 
 " ----------------- Theming ---------------------
 let g:jellybeans_overrides = {
