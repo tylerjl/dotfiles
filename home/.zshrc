@@ -4,8 +4,16 @@ source ~/.homesick/repos/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
-antigen bundle mercurial
+antigen bundle rvm
+antigen bundle brew
+antigen bundle ruby
 antigen bundle vundle
+antigen bundle vagrant
+antigen bundle mercurial
+
+if [ `uname -s` = "Darwin" ] ; then
+  antigen bundle osx
+fi
 
 antigen apply
 
@@ -46,15 +54,6 @@ DISABLE_AUTO_UPDATE="true"
 # COMPLETION_WAITING_DOTS="true"
 
 DISABLE_CORRECTION="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial vundle)
-
-if [ `uname -s` = "Darwin" ] ; then
-  plugins+=(ruby rvm brew osx)
-fi
 
 source $ZSH/oh-my-zsh.sh
 
