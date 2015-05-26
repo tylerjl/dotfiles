@@ -4,6 +4,8 @@ if !1 | finish | endif
 
 " -------------- Basic settings -----------------
 if has('vim_starting')
+    let mapleader = ","             " Custom commands mapped to , instead of \
+    syntax on                       " Syntax highlighting
     set nocompatible                " Get rid of obsolete compatability mode
     set number                      " Line numbers
     set smartindent                 " Autoindent
@@ -11,9 +13,7 @@ if has('vim_starting')
     set ls=2                        " Echo the file listing continuously
     " nnoremap <tab> %                " Remap % to tab, easier bracket matching
     " vnoremap <tab> %                " ^
-    set modelines=0                 " Security-related setting, so I hear
-    let mapleader = ","             " Custom commands mapped to , instead of \
-    syntax on                       " Syntax highlighting
+    set modelines=0                 " Abstain from executing modelines (security)
     set sm                          " Short messages
     set completeopt=longest,menuone " Longest common match & always show menu
     set wildmode=longest,list,full  " Better autocomplete
@@ -27,6 +27,8 @@ if has('vim_starting')
     set list                        "  ^   them all
     set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
     set linebreak                   " Don't break words when wrapping
+    set virtualedit=block           " Select visual blocks unbounded by end-of-line
+    " set nobackup                    " Stop creating *~ files
 endif
 
 " <Enter> in autocomplete selects, not newline
@@ -100,6 +102,16 @@ nnoremap Q ge
 " Traverse lines more intelligently
 nnoremap j gj
 nnoremap k gk
+" Save old behavior
+nnoremap gj j
+nnoremap gk k
+
+" Center searching
+nnoremap n nzz
+nnoremap } }zz
+
+" yy already yanks a line - redefine Y to behave like D
+nnoremap Y y$
 
 " Buffer navigation shortcuts
 nnoremap <C-n> :bn<CR>
