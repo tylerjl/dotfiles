@@ -255,7 +255,7 @@ autocmd FileType haskell setlocal nofoldenable
 autocmd BufNew,BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
 " Correctly detect markdown files
-autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setfiletype markdown
+autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
 
 " Correctly render erb files
 autocmd BufNew,BufNewFile,BufRead *.sh.erb setlocal ft=sh.eruby
