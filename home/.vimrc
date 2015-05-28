@@ -369,6 +369,10 @@ let g:ctrlp_extenions = ['line']
 "       not a direct ancestor of the directory of the current file.
 " 0 or '' (empty string) - disable this feature.
 let g:ctrlp_working_path_mode = 'ra'
+" Change to 'search' mnemonic, I use C-p for previous buffer
+" (note: this doesn't work because it's a terminal signal, I use <leader>f
+" for ctrl-p anyway)
+let g:ctrlp_map = '<C-s>'
 
 " Custom syntastic flags
 let g:syntastic_puppet_puppetlint_args="--no-class_inherits_from_params_class-check"
@@ -410,8 +414,8 @@ function! ToggleVExplorer()
       let t:expl_buf_num = bufnr("%")
   endif
 endfunction
-" mnemonic - browse
-map <silent> <C-b> :call ToggleVExplorer()<CR>
+" mnemonic - eXplore
+map <silent> <C-x> :call ToggleVExplorer()<CR>
 
 " Hit enter in the file browser to open the selected
 " file with :vsplit to the right of the browser.
