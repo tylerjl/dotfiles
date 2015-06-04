@@ -4,7 +4,8 @@ if !1 | finish | endif
 
 " -------------- Basic settings -----------------
 if has('vim_starting')
-    let mapleader = ","             " Custom commands mapped to , instead of \
+    let mapleader = "\<Space>"      " Custom commands mapped to , instead of \
+    nnoremap <Space> <Nop>
     syntax on                       " Syntax highlighting
     set nocompatible                " Get rid of obsolete compatability mode
     set number                      " Line numbers
@@ -119,6 +120,8 @@ nnoremap <C-p> :bp<CR>
 
 " ----------- Custom Leader Commands ------------
 " These are basically lil baby macros.
+" ,1 -  Quit without saving (think <leader>!)
+nnoremap <leader>1 :qa!<CR>
 " ,a - Align puppet code
 nnoremap <leader>a :Tab /=><CR>
 " ,c - Invoke a manual syntax check
@@ -143,8 +146,8 @@ nnoremap <leader>k :Scratch<CR>
 " ,P - Toggle paste mode
 set pastetoggle=<leader>P
 " ,p - Paste from system clipboard
-inoremap <leader>p <ESC>"+p
 nnoremap <leader>p "+p
+nnoremap <leader>P "+P
 " ,q - Replace quotes
 nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 " ,r - Reload .vimrc
@@ -157,8 +160,8 @@ nnoremap <leader>T :%s/\t/    /e<CR>:let @/=''<CR>
 nnoremap <leader>v :.s/\(".*\$\)\([a-zA-Z_]\+\)\(.*"\)/\1{\2}\3/<CR>:let @/=''<CR>
 " ,W - Strip all trailing whitespace in the current file.
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-" ,w - Switch to a split view and use it
-nnoremap <leader>w <C-w>v<C-w>l
+" ,w - Shortcut to write file
+nnoremap <leader>w :w<CR>
 " ,x - Close quickfix/preview windows
 nnoremap <leader>x :cclose<CR><C-w>z
 " ,y - Yank into system clipboard
@@ -301,7 +304,7 @@ let g:scratch_top=0
 
 " delimitMate settings
 let delimitMate_expand_cr=1
-" let delimitMate_expand_space=1
+let delimitMate_expand_space=1
 
 " Enable omnicomplete
 set omnifunc=syntaxcomplete#Complete
