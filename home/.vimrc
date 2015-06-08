@@ -95,7 +95,9 @@ map <tab> <C-w>
 map <tab><tab> <C-w><C-w>
 
 " Enter insert mode surrounded by newlines
-nmap <C-a> o<Esc>O<Esc>o
+nnoremap <C-a> o<Esc>O<Esc>o
+" Add newline and skip insert mode
+nnoremap <C-o> O<Esc>
 
 " Replace annoying Q behavior with more useful previous-end-of-word
 nnoremap Q ge
@@ -120,51 +122,53 @@ nnoremap <C-p> :bp<CR>
 
 " ----------- Custom Leader Commands ------------
 " These are basically lil baby macros.
-" ,1 -  Quit without saving (think <leader>!)
+" <leader>1 -  Quit without saving (think <leader>!)
 nnoremap <leader>1 :qa!<CR>
-" ,a - Align puppet code
+" <leader>a - Align puppet code
 nnoremap <leader>a :Tab /=><CR>
-" ,c - Invoke a manual syntax check
+" <leader>c - Invoke a manual syntax check
 nnoremap <leader>c :SyntasticCheck<CR>
-" ,D - Delete /all/ buffers
+" <leader>D - Delete /all/ buffers
 nnoremap <leader>D :bufdo :Bdelete<CR>
-" ,d - Delete current buffer without exiting
+" <leader>d - Delete current buffer without exiting
 nnoremap <leader>d :Bdelete<CR>
-" ,E - Execute current line, appending output
+" <leader>E - Execute current line, appending output
 nnoremap <leader>E "=system(getline('.'))<CR>p`]
-" ,e - Edit .vimrc
+" <leader>e - Edit .vimrc
 nnoremap <leader>e :e ~/.vimrc<CR>
-" ,H - Hide hidden files
+" <leader>H - Hide hidden files
 nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
-" ,h - Show hidden files
+" <leader>h - Show hidden files
 nnoremap <leader>h :let g:ctrlp_show_hidden=1<CR>:CtrlPClearCache<CR>
-" ,i - Indent entire block
+" <leader>i - Indent entire block
 nnoremap <leader>i vv[m>%`>
-" ,k - Scratch buffer
+" <leader>I - Indent empty-line delimited block
+nnoremap <leader>I {v}>
+" <leader>k - Scratch buffer
 nnoremap <leader>k :Scratch<CR>
-" ,l - <RESERVED> For Ctrl-P LRU files
-" ,P - Toggle paste mode
+" <leader>l - <RESERVED> For Ctrl-P LRU files
+" <leader>P - Toggle paste mode
 set pastetoggle=<leader>P
-" ,p - Paste from system clipboard
+" <leader>p - Paste from system clipboard
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
-" ,q - Replace quotes
+" <leader>q - Replace quotes
 nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
-" ,r - Reload .vimrc
+" <leader>r - Reload .vimrc
 nnoremap <leader>r :so ~/.vimrc<CR>
-" ,s - Search through files using ag
+" <leader>s - Search through files using ag
 nnoremap <leader>s :Ag<space>
-" ,T - Globally replace tabs white four-space tabs
+" <leader>T - Globally replace tabs white four-space tabs
 nnoremap <leader>T :%s/\t/    /e<CR>:let @/=''<CR>
-" ,v - Fix interpolated puppet strings
+" <leader>v - Fix interpolated puppet strings
 nnoremap <leader>v :.s/\(".*\$\)\([a-zA-Z_]\+\)\(.*"\)/\1{\2}\3/<CR>:let @/=''<CR>
-" ,W - Strip all trailing whitespace in the current file.
+" <leader>W - Strip all trailing whitespace in the current file.
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-" ,w - Shortcut to write file
+" <leader>w - Shortcut to write file
 nnoremap <leader>w :w<CR>
-" ,x - Close quickfix/preview windows
+" <leader>x - Close quickfix/preview windows
 nnoremap <leader>x :cclose<CR><C-w>z
-" ,y - Yank into system clipboard
+" <leader>y - Yank into system clipboard
 vnoremap <leader>y "+y
 
 " Ctrl-P Shortcuts
