@@ -4,32 +4,32 @@ if !1 | finish | endif
 
 " -------------- Basic settings -----------------
 if has('vim_starting')
-    let mapleader = "\<Space>"      " Custom commands mapped to , instead of \
-    nnoremap <Space> <Nop>
-    syntax on                       " Syntax highlighting
-    set nocompatible                " Get rid of obsolete compatability mode
-    set number                      " Line numbers
-    set smartindent                 " Autoindent
-    set backspace=indent,eol,start  " Sane backspace
-    set ls=2                        " Echo the file listing continuously
-    " nnoremap <tab> %                " Remap % to tab, easier bracket matching
-    " vnoremap <tab> %                " ^
-    set modelines=0                 " Abstain from executing modelines (security)
-    set sm                          " Short messages
-    set completeopt=longest,menuone " Longest common match & always show menu
-    set wildmode=longest,list,full  " Better autocomplete
-    set wildmenu                    " ^
-    set scrolloff=5                 " Move window ahead of cursor
-    set mouse=a                     " Mouse support
-    set ruler                       " Show the ruler
-    set hidden                      " Allow unsaved buffers to be backgrounded
-    set showbreak=↪\                 " Show line breaks
-    set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
-    set list                        "  ^   them all
-    set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
-    set linebreak                   " Don't break words when wrapping
-    set virtualedit=block           " Select visual blocks unbounded by end-of-line
-    " set nobackup                    " Stop creating *~ files
+  let mapleader = "\<Space>"      " Custom commands mapped to , instead of \
+  nnoremap <Space> <Nop>
+  syntax on                       " Syntax highlighting
+  set nocompatible                " Get rid of obsolete compatability mode
+  set number                      " Line numbers
+  set smartindent                 " Autoindent
+  set backspace=indent,eol,start  " Sane backspace
+  set ls=2                        " Echo the file listing continuously
+  " nnoremap <tab> %                " Remap % to tab, easier bracket matching
+  " vnoremap <tab> %                " ^
+  set modelines=0                 " Abstain from executing modelines (security)
+  set sm                          " Short messages
+  set completeopt=longest,menuone " Longest common match & always show menu
+  set wildmode=longest,list,full  " Better autocomplete
+  set wildmenu                    " ^
+  set scrolloff=5                 " Move window ahead of cursor
+  set mouse=a                     " Mouse support
+  set ruler                       " Show the ruler
+  set hidden                      " Allow unsaved buffers to be backgrounded
+  set showbreak=↪\                 " Show line breaks
+  set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
+  set list                        "  ^   them all
+  set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
+  set linebreak                   " Don't break words when wrapping
+  set virtualedit=block           " Select visual blocks unbounded by end-of-line
+  " set nobackup                    " Stop creating *~ files
 endif
 
 " <Enter> in autocomplete selects, not newline
@@ -217,7 +217,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mtth/scratch.vim'
 NeoBundle 'ludovicchabant/vim-lawrencium'
 NeoBundle 'xolox/vim-easytags'
-    NeoBundle 'xolox/vim-misc'
+  NeoBundle 'xolox/vim-misc'
 
 " Language-specific support
 " Bundle 'raichoo/haskell-vim'
@@ -226,12 +226,12 @@ NeoBundle 'jnwhiteh/vim-golang'
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/ghcmod-vim'
-    " NeoBundle 'Shougo/vimproc'
+  " NeoBundle 'Shougo/vimproc'
 
 " SnipMate and dependencies
 NeoBundle "garbas/vim-snipmate"
-    NeoBundle "MarcWeber/vim-addon-mw-utils"
-    NeoBundle "tomtom/tlib_vim"
+  NeoBundle "MarcWeber/vim-addon-mw-utils"
+  NeoBundle "tomtom/tlib_vim"
 " Bundle of snippets
 NeoBundle "honza/vim-snippets"
 
@@ -255,24 +255,33 @@ NeoBundleCheck
 
 " ------------ Language Settings ----------------
 
-" The dag/vim2hs bundle has /awful/ auto-folding behavior
-autocmd FileType haskell setlocal nofoldenable
-"
-" Format golang files the canonical way
-autocmd BufNew,BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+" Wrap in an autocommand group to avoid this problem:
+" http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
+augroup custom_filetypes
+  autocmd!
 
-" Correctly detect markdown files
-autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
+  " The dag/vim2hs bundle has /awful/ auto-folding behavior
+  autocmd FileType haskell setlocal nofoldenable
 
-" Correctly render erb files
-autocmd BufNew,BufNewFile,BufRead *.sh.erb setlocal ft=sh.eruby
-autocmd BufNew,BufNewFile,BufRead *.py.erb setlocal ft=eruby.python
+  autocmd FileType vim setlocal sts=2 sw=2
 
-" I use a gitrc
-autocmd BufNew,BufNewFile,BufRead .gitrc setlocal ft=gitconfig
+  " Format golang files the canonical way
+  autocmd BufNew,BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
-" Correctly detect Vagrantfiles
-autocmd BufNew,BufNewFile,BufRead Vagrantfile setlocal ft=ruby
+  " Correctly detect markdown files
+  autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
+
+  " Correctly render erb files
+  autocmd BufNew,BufNewFile,BufRead *.sh.erb setlocal ft=sh.eruby
+  autocmd BufNew,BufNewFile,BufRead *.py.erb setlocal ft=eruby.python
+
+  " I use a gitrc
+  autocmd BufNew,BufNewFile,BufRead .gitrc setlocal ft=gitconfig
+
+  " Correctly detect Vagrantfiles
+  autocmd BufNew,BufNewFile,BufRead Vagrantfile setlocal ft=ruby sts=2 sw=2
+
+augroup END
 
 " ----------------- Theming ---------------------
 let g:jellybeans_overrides = {
@@ -407,8 +416,11 @@ let g:airline_powerline_fonts = 1
 let g:NERDTreeChDirMode=2
 
 " Close NERDTree if it's the last window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup nerdtree_close
+  autocmd!
 
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
@@ -451,13 +463,13 @@ let g:haskell_conceal_enumerations = 0
 " --------------- Custom functions ---------------
 
 func! ToggleColorColumn()
-    if exists("b:colorcolumnon") && b:colorcolumnon
-        let b:colorcolumnon = 0
-        exec ':set colorcolumn=0'
-        echo '80 column marker off'
-    else
-        let b:colorcolumnon = 1
-        exec ':set colorcolumn=80'
-        echo '80 column marker on'
-    endif
+  if exists("b:colorcolumnon") && b:colorcolumnon
+    let b:colorcolumnon = 0
+    exec ':set colorcolumn=0'
+    echo '80 column marker off'
+  else
+    let b:colorcolumnon = 1
+    exec ':set colorcolumn=80'
+    echo '80 column marker on'
+  endif
 endfunc
