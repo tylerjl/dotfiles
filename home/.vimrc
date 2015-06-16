@@ -414,6 +414,8 @@ let g:airline_powerline_fonts = 1
 
 " Change CWD when NERDTree changes root
 let g:NERDTreeChDirMode=2
+" Smaller default window size
+let g:NERDTreeWinSize=20
 
 " Close NERDTree if it's the last window open
 augroup nerdtree_close
