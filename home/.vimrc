@@ -227,6 +227,7 @@ NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/ghcmod-vim'
   " NeoBundle 'Shougo/vimproc'
+NeoBundle "Matt-Deacalion/vim-systemd-syntax"
 
 " SnipMate and dependencies
 NeoBundle "garbas/vim-snipmate"

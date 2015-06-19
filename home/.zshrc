@@ -82,3 +82,6 @@ fi
 # that comes up when attempting to scp something remotely with *, or when
 # switching to a git branch with # in the name.
 unsetopt nomatch
+
+# Beeps are really just annoying
+setopt no_beep
