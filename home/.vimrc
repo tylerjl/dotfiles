@@ -158,6 +158,8 @@ nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 nnoremap <leader>r :so ~/.vimrc<CR>
 " <leader>s - Search through files using ag
 nnoremap <leader>s :Ag<space>
+" <leader>S - Edit .ssh/known_hosts
+nnoremap <leader>S :e ~/.ssh/known_hosts<CR>
 " <leader>T - Globally replace tabs white four-space tabs
 nnoremap <leader>T :%s/\t/    /e<CR>:let @/=''<CR>
 " <leader>v - Fix interpolated puppet strings
