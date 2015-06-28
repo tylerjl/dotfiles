@@ -2,3 +2,6 @@
 .envrc
 *~
 .DS_Store
+*.tar.gz
+*.zip
+*.tar.xz
