@@ -1,11 +1,15 @@
 [Unit]
 Description=Automatically rip inserted DVDs
 After=dev-cdrom.device
+BindsTo=dev-cdrom.device
+Requisite=dev-cdrom.device
 
 [Service]
-RemainAfterExit=yes
+UMask=0002
+WorkingDirectory=/srv/storage/downloads/incoming
 Type=oneshot
 ExecStart=/home/tylerjl/.bin/rip-dvd.sh
+ExecStart=/usr/bin/eject /dev/cdrom
 StandardOutput=journal
 
 [Install]
