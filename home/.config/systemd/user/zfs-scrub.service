@@ -1,0 +1,6 @@
+[Unit]
+Description=perform a zfs scrub
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sudo zpool scrub tank
