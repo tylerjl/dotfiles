@@ -2,4 +2,4 @@
 Description=schedule regular zfs scrubs
 
 [Timer]
-OnCalendar=Sunday *-*-* 02:00:00
+OnCalendar=Monday *-*-* 02:00:00
