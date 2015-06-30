@@ -1,0 +1,6 @@
+[Unit]
+Description=check whether the zpool is healthy
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c 'sudo zpool status | grep -i "no known data errors"'
