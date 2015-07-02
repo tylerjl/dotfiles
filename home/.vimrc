@@ -284,6 +284,9 @@ augroup custom_filetypes
   " Correctly detect Vagrantfiles
   autocmd BufNew,BufNewFile,BufRead Vagrantfile setlocal ft=ruby sts=2 sw=2
 
+  " .path files are systemd units
+  autocmd BufNew,BufNewFile,BufRead *.path setlocal ft=systemd
+
 augroup END
 
 " ----------------- Theming ---------------------
