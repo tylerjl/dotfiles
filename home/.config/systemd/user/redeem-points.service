@@ -1,0 +1,7 @@
+[Unit]
+Description=redeem ipt bonus points
+
+[Service]
+Type=oneshot
+ExecStart=/home/tylerjl/.bin/ribp.rb
+StandardOutput=journal
