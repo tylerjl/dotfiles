@@ -30,73 +30,82 @@ override_utf8_locale yes
 
 maximum_width 350
 
+# Required to set window type that compositors will recognize
+own_window_type override
+
 #color1 DC143C
 color1 cyan
 color2 DC143C
 
+# leet chars: ┤┤└└┴┴┐┐││┘┘┌┌├├┬┬┼┼┴┴── ││ ▽▼△▲▵▴▾▿
+
 TEXT
-#leet chars: ┤┤└└┴┴┐┐││┘┘┌┌├├┬┬┼┼┴┴── ││ ▽▼△▲▵▴▾▿
-${alignr}${offset -80}${voffset -10}${font DejaVu Sans:pixelsize=30}${color2}Arch${color}Linux${font} 
-${alignr}$font▲                
-${alignr}$font└─────────────┐  
-${alignr}$font │  
-${alignr}$font ${nodename} ──┤  
-${alignr}$font ${color1}${color1}[${color}${color} ${kernel} ${color1}]${color}  kernel ──┤    │  
-${alignr}$font ${color1}[${color} $machine ${color1}]${color}    arch ──┤    │  
-${alignr}$font ${color1}[${color} $uptime ${color1}]${color}  uptime ──┤    │  
-${alignr}$font ${color1}[${color} ${battery BAT0} ${color1}]${color} battery ──┘    │  
-${alignr}$font │  
+${alignr}${offset -79}${voffset -10}${font DejaVu Sans:pixelsize=30}${color2}Arch${color}Linux${font}
+${alignr}▲              
+${alignr}└─────────────┐
+${alignr}│
+${alignr}$font ${nodename} ──┤
+${alignr}${color2}[${color} ${kernel} ${color2}]${color}  kernel ──┤    │
+${alignr}${color2}[${color} $machine ${color2}]${color}    arch ──┤    │
+${alignr}${color2}[${color} $uptime ${color2}]${color}  uptime ──┤    │
+${alignr}${color2}[${color} ${battery BAT0} ${color2}]${color} battery ──┘    │
+${alignr}│
 # ${alignr}${cpugraph 1 10,10 ${color} ${color1}}
-${alignr}$font system ─${color1}─┤${color}  
-${alignr}$font cpu ──┤    │  
-${alignr}$font used ──┤    │    │  
-${alignr}$font ${color2}[${cpu 1}%]${color} CPU1 ${color2}[${color}${color2}${cpu 2}%]${color} CPU2 ──┤    │    │    │  
-${alignr}$font ${color2}[${cpu 3}%]${color} CPU3 ${color2}[${color}${color2}${cpu 4}%]${color} CPU4 ──┘    │    │    │  
-${alignr}$font freq ──┤    │    │  
-${alignr}$font ${color1}[${color} ${freq 1}mhz ${color1}]${color} cpu1 ──┤    │    │    │  
-${alignr}$font ${color1}[${color} ${freq 2}mhz ${color1}]${color} cpu2 ──┤    │    │    │  
-${alignr}$font ${color1}[${color} ${freq 3}mhz ${color1}]${color} cpu3 ──┤    │    │    │  
-${alignr}$font ${color1}[${color} ${freq 4}mhz ${color1}]${color} cpu4 ──┘    │    │    │  
-${alignr}$font ${color1}[${color} $loadavg ${color1}]${color} load ──┤    │    │  
-${alignr}$font ${color2}[${color} ${top name 1}  ${top cpu 1} ${color2}]${color} ──┤    │    │  
-${alignr}$font ${color2}[${color} ${top name 2}  ${top cpu 2} ${color2}]${color} ──┤    │    │  
-${alignr}$font ${color2}[${color} ${top name 3}  ${top cpu 3} ${color2}]${color} ──┤    │    │  
-${alignr}$font ${color2}[${color} ${top name 4}  ${top cpu 4} ${color2}]${color} ──┤    │    │  
-${alignr}$font ${color2}[${color} ${top name 5}  ${top cpu 5} ${color2}]${color} ──┘    │    │  
-${alignr}$font processes ──┤    │  
-${alignr}$font ${color1}[${color} $processes ${color1}]${color}   total ──┤    │    │  
-${alignr}$font ${color1}[${color} $running_processes ${color1}]${color} running ──┘    │    │  
-${alignr}$font temperature °C ──┘    │  
-${alignr}$font ${color1}[${color} ${acpitemp} ${color1}]${color}  acpi ──┤         │  
-${alignr}$font ${color1}[${color} ${hwmon temp 1} ${hwmon temp 2} ${hwmon temp 3} ${hwmon temp 4} ${color1}]${color} cores ──┘         │  
+${alignr}system ──┤
+${alignr}cpu ──┤    │
+${alignr}used ──┤    │    │
+${alignr}${color2}[${color1} ${cpu 1}% ${color2}]${color1} CPU1 ${color2}[${color1} ${cpu 2}% ${color2}]${color1} CPU2 ──┤    │    │    │
+${alignr}${color2}[${color1} ${cpu 3}% ${color2}]${color1} CPU3 ${color2}[${color1} ${cpu 4}% ${color2}]${color1} CPU4 ──┘    │    │    │
+${alignr}│    │    │
+${alignr}freq ──┤    │    │
+${alignr}${color2}[${color} ${freq 1}mhz ${color2}]${color} cpu1 ──┤    │    │    │
+${alignr}${color2}[${color} ${freq 2}mhz ${color2}]${color} cpu2 ──┤    │    │    │
+${alignr}${color2}[${color} ${freq 3}mhz ${color2}]${color} cpu3 ──┤    │    │    │
+${alignr}${color2}[${color} ${freq 4}mhz ${color2}]${color} cpu4 ──┘    │    │    │
+${alignr}│    │    │
+${alignr}${color2}[${color} $loadavg ${color2}]${color} load ──┤    │    │
+${alignr}${color2}[${color} ${top name 1}  ${top cpu 1} ${color2}]${color} ──┤    │    │
+${alignr}${color2}[${color} ${top name 2}  ${top cpu 2} ${color2}]${color} ──┤    │    │
+${alignr}${color2}[${color} ${top name 3}  ${top cpu 3} ${color2}]${color} ──┤    │    │
+${alignr}${color2}[${color} ${top name 4}  ${top cpu 4} ${color2}]${color} ──┤    │    │
+${alignr}${color2}[${color} ${top name 5}  ${top cpu 5} ${color2}]${color} ──┘    │    │
+${alignr}│    │
+${alignr}${color2}[${color} $processes ${color2}]${color} processes ──┤    │
+${alignr}│    │
+${alignr}temperature °C ──┘    │
+${alignr}${color2}[${color} ${acpitemp} ${color2}]${color}  acpi ──┤        │
+${alignr}${color2}[${color} ${hwmon temp 1} ${hwmon temp 2} ${color2}]${color} cores ──┘        │
 # ENABLE THIS LINE IF YOU WANT COLOR BASED ON CPU% USAGE
 # WARNING: ${exec} functions update conky, based on the update interval time (1 second), therefore the line above is resource-eater.
 #
-#${alignr}$font ${color1}[${color} ${if_match ${exec sensors | grep -m 1 temp1 | awk '{print $2}' | cut -c 2-3}>=65}${color2}${exec sensors | grep -m 1 temp1 | awk '{print $2}' | cut -c 2-3}${else}${color1}${exec sensors | grep -m 1 temp1 | awk '{print $2}' | cut -c 2-3}${endif}${color}${color} ${color1}]${color} tmp1 -─┘         │  
-${alignr}$font │  
-${alignr}$font resources ──┤  
-${alignr}$font ${color1}[${color} ${diskio_read /dev/sda} ${color1}]${color}  read ──┤    │  
-${alignr}$font ${color1}[${color} ${diskio_write /dev/sda} ${color1}]${color} write ──┤    │  
-${alignr}$font ram ──┤    │  
-${alignr}$font ${color1}[${color} $memperc% ${color1}]${color} used ──┤    │    │  
-${alignr}$font ${color1}[${color} $mem/$memmax ${color1}]${color} ──┘    │    │    │  
-${alignr}$font ${color2}[${color} ${top_mem name 1}  ${top_mem mem 1} ${color2}]${color} ──┤    │    │  
-${alignr}$font ${color2}[${color} ${top_mem name 2}  ${top_mem mem 2} ${color2}]${color} ──┤    │    │  
-${alignr}$font ${color2}[${color} ${top_mem name 3}  ${top_mem mem 3} ${color2}]${color} ──┤    │    │  
-${alignr}$font ${color2}[${color} ${top_mem name 4}  ${top_mem mem 4} ${color2}]${color} ──┤    │    │  
-${alignr}$font ${color2}[${color} ${top_mem name 5}  ${top_mem mem 5} ${color2}]${color} ──┘    │    │  
-${alignr}$font ${color1}[${color} $swapperc% - $swap/$swapmax ${color1}]${color} swap ──┤    │  
-${alignr}$font ${color1}[${color} ${swapbar 5,120} ${color1}]${color} ──┘    │    │  
-${alignr}$font ${color1}[${color} ${fs_used /}/${fs_size /} ${color1}]${color} root ──┘    │  
-${alignr}$font ${color1}[${color} ${fs_bar 5,120 /} ${color1}]${color} ──┘         │  
-# ${alignr}$font ${color1}[${color} ${fs_used /home}/${fs_size /home} ${color1}]${color} home ──┤    │  
-# ${alignr}$font ${color1}[${color} ${fs_bar 5,120 $HOME} ${color1}]${color} ──┘    │    │  
-${alignr}$font │  
-${alignr}$font net ──┘  
-${alignr}$font ${color1}[${color} ${tcp_portmon 1 65535 count} ${color1}]${color}  connections ──┤       
-${alignr}$font ${color1}[${color} ${tcp_portmon 1 32767 count} ${color1}]${color}  in / locale ──┤       
-${alignr}$font ${color1}[${color} ${tcp_portmon 32768 61000 count} ${color1}]${color} out / remote ──┤       
-${alignr}$font ${color1}[${color} ${upspeed wlp4s0} k/s ${color1}]${color}   up ──┤       
-${alignr}$font ${color1}${color} ${upspeedgraph wlp4s0 10,120 DC143C DC143C} ${color1}${color} ──┘    │       
-${alignr}$font ${color1}[${color} ${downspeed wlp4s0} k/s ${color1}]${color} down ──┘       
-${alignr}$font ${color1}${color} ${downspeedgraph wlp4s0 10,120 DC143C DC143C} ${color1}${color} ──┘            
+#${alignr}${color1}[${color} ${if_match ${exec sensors | grep -m 1 temp1 | awk '{print $2}' | cut -c 2-3}>=65}${color2}${exec sensors | grep -m 1 temp1 | awk '{print $2}' | cut -c 2-3}${else}${color1}${exec sensors | grep -m 1 temp1 | awk '{print $2}' | cut -c 2-3}${endif}${color}${color} ${color1}]${color} tmp1 -─┘         │  
+${alignr}│
+${alignr}resources ──┤
+${alignr}${color2}[${color} ${diskio_read /dev/sda} ${color2}]${color}  read ──┤    │
+${alignr}${color2}[${color} ${diskio_write /dev/sda} ${color2}]${color} write ──┤    │
+${alignr}│    │
+${alignr}ram ──┤    │
+${alignr}${color2}[${color} $memperc% ${color2}]${color} used ──┤    │    │
+${alignr}${color2}[${color} $mem/$memmax ${color2}]${color} ──┘    │    │    │
+${alignr}${color2}[${color} ${top_mem name 1}  ${top_mem mem 1} ${color2}]${color} ──┤    │    │
+${alignr}${color2}[${color} ${top_mem name 2}  ${top_mem mem 2} ${color2}]${color} ──┤    │    │
+${alignr}${color2}[${color} ${top_mem name 3}  ${top_mem mem 3} ${color2}]${color} ──┤    │    │
+${alignr}${color2}[${color} ${top_mem name 4}  ${top_mem mem 4} ${color2}]${color} ──┤    │    │
+${alignr}${color2}[${color} ${top_mem name 5}  ${top_mem mem 5} ${color2}]${color} ──┘    │    │
+${alignr}│    │
+${alignr}${color1}[${color} $swapperc% - $swap/$swapmax ${color2}]${color} swap ──┤    │
+${alignr}${color2}[${color} ${swapbar 5,120} ${color2}]${color} ──┘    │    │
+${alignr}${color2}[${color} ${fs_used /}/${fs_size /} ${color2}]${color} root ──┘    │
+${alignr}${color2}[${color} ${fs_bar 5,120 /} ${color2}]${color} ──┘         │
+# ${alignr}${color1}[${color} ${fs_used /home}/${fs_size /home} ${color1}]${color} home ──┤    │
+# ${alignr}${color1}[${color} ${fs_bar 5,120 $HOME} ${color1}]${color} ──┘    │    │
+${alignr}│
+${alignr}net ──┘
+${alignr}${color2}[${color} ${tcp_portmon 1 65535 count} ${color2}]${color}  connections ──┤     
+${alignr}${color2}[${color} ${tcp_portmon 1 32767 count} ${color2}]${color}  in /  local ──┤     
+${alignr}${color2}[${color} ${tcp_portmon 32768 61000 count} ${color2}]${color} out / remote ──┤     
+${alignr}│     
+${alignr}${color2}[${color} ${upspeed wlp4s0} k/s ${color2}]${color} ▲ ──┤     
+${alignr}${upspeedgraph wlp4s0 10,120 DC143C DC143C} ──┘   │     
+${alignr}${color2}[${color} ${downspeed wlp4s0} k/s ${color2}]${color} ▼ ──┘     
+${alignr}${downspeedgraph wlp4s0 10,120 DC143C DC143C} ──┘         
