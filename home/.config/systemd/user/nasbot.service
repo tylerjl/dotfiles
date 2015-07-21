@@ -1,0 +1,8 @@
+[Unit]
+Description=slack bot
+
+[Service]
+Type=simple
+WorkingDirectory=%h/.lib/ruby/nasbot
+ExecStart=/home/tylerjl/.lib/ruby/nasbot/nasbot.rb
+StandardOutput=journal
