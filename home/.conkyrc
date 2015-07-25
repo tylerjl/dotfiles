@@ -31,7 +31,11 @@ override_utf8_locale yes
 maximum_width 350
 
 # Required to set window type that compositors will recognize
-own_window_type override
+own_window_type desktop
+
+# Pad percents to avoid jumpy re-draws when magnitudes change
+pad_percents 2
+use_spacer left
 
 #color1 DC143C
 color1 cyan
