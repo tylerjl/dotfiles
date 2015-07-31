@@ -1,7 +1,0 @@
-[Unit]
-Description=notify slack about recent events for %i
-
-[Service]
-Type=oneshot
-ExecStart=/home/tylerjl/.bin/notify-slack.rb %i
-StandardOutput=journal

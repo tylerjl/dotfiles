@@ -1,0 +1,7 @@
+[Unit]
+Description=notify slack about recent journal entries
+
+[Service]
+ExecStart=/home/tylerjl/.bin/notify-slack.rb
+StandardOutput=journal
+StandardError=journal

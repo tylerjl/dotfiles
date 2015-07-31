@@ -1,7 +1,6 @@
 [Unit]
 Description=check whether the zpool is healthy
-Wants=notify-slack@%p.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/bash -c 'sudo zpool status | grep -io "no known data errors"'
+ExecStart=/home/tylerjl/.bin/zfs-check.rb
