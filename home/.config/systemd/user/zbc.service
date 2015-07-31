@@ -1,0 +1,10 @@
+[Unit]
+Description=check success of latest ZFS backups
+OnFailure=notify-slack@%p.service
+Before=notify-slack@%p.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/tylerjl/.bin/zbc.rb
+StandardOutput=journal
+StandardError=journal
