@@ -5,3 +5,6 @@ Description=notify slack about recent journal entries
 ExecStart=/home/tylerjl/.bin/notify-slack.rb
 StandardOutput=journal
 StandardError=journal
+
+[Install]
+WantedBy=default.target

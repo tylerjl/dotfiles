@@ -3,3 +3,6 @@ Description=schedule to check ZFS backup replication
 
 [Timer]
 OnCalendar=12:00
+
+[Install]
+WantedBy=default.target

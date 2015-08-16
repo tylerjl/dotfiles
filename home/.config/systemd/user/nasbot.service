@@ -6,3 +6,6 @@ Type=simple
 WorkingDirectory=%h/.lib/ruby/nasbot
 ExecStart=/home/tylerjl/.lib/ruby/nasbot/nasbot.rb
 StandardOutput=journal
+
+[Install]
+WantedBy=default.target

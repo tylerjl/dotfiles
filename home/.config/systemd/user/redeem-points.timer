@@ -3,3 +3,6 @@ Description=schedule to redeem iptorrents points
 
 [Timer]
 OnCalendar=10:00
+
+[Install]
+WantedBy=default.target
