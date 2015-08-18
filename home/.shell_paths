@@ -13,7 +13,7 @@ for p in /usr/local/{s,}bin ; do
 done
 
 # Appended paths
-for p in $HOME/{opt/,.,.cabal/,$GODIR/}bin ; do
+for p in $HOME/{opt/,.,.cabal/,$GODIR/,.local/}bin ; do
   echo $PATH | grep ":$p:" &>/dev/null && continue
   if [ -d "${p}" ] ; then
     PATH=${PATH}:$p
