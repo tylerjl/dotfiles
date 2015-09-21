@@ -6,6 +6,8 @@ Type=simple
 WorkingDirectory=%h/.lib/ruby/nasbot
 ExecStart=/home/tylerjl/.lib/ruby/nasbot/nasbot.rb
 StandardOutput=journal
+EnvironmentFile=%h/.local/etc/slack
+EnvironmentFile=%h/.local/etc/iptorrents
 
 [Install]
 WantedBy=default.target
