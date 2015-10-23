@@ -247,6 +247,9 @@ NeoBundle 'bling/vim-airline'
 " Delete buffers in ctrlp
 NeoBundle 'd11wtq/ctrlp_bdelete.vim'
 
+" Markdown (depends on tabular)
+NeoBundle 'plasticboy/vim-markdown'
+
 " Saving just in case.
 " Bundle 'chriskempson/base16-vim'
 " Bundle 'Pychimp/vim-luna'
@@ -469,6 +472,10 @@ let g:easytags_async=1
 " Stop stupid '.' conceals
 let g:haskell_conceal = 0
 let g:haskell_conceal_enumerations = 0
+
+" Markdown plugin settings
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_folding_disabled = 1
 
 " --------------- Custom functions ---------------
 
