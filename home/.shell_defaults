@@ -3,12 +3,12 @@
 #
 # Meant to be a cross-shell (bash|zsh) script to set up aliases/etc
 
-# General-purpose shell variables
-export SVN_EDITOR=/usr/bin/vim
-export EDITOR=/usr/bin/vim
-
 # OS-Specific settings
 if [ `uname -s` = "Darwin" ] ; then
+
+  export SVN_EDITOR=/usr/local/bin/vim
+  export EDITOR=/usr/local/bin/vim
+
   # Customizations for OSX
   alias nup='sudo launchctl load -w /Library/LaunchDaemons/com.tenablesecurity.nessusd.plist'
   alias ndown='sudo launchctl unload -w /Library/LaunchDaemons/com.tenablesecurity.nessusd.plist'
@@ -17,11 +17,16 @@ if [ `uname -s` = "Darwin" ] ; then
   # Use master branch of nixpkgs on 10.10
   export NIX_PATH="${HOME}/Projects/nix/nixpkgs":nixpkgs="${HOME}/Projects/nix/nixpkgs"
 else
+
+  export SVN_EDITOR=/usr/bin/vim
+  export EDITOR=/usr/bin/vim
+
   if echo `uname -s` | grep -i 'cygwin' &>/dev/null ; then
     # Customizations for Windows
     unset TMP
     unset TEMP
   fi
+
   # Classify files in colour
   alias ls='ls -hF --color=tty'
 fi
