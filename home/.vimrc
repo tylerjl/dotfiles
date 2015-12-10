@@ -10,6 +10,7 @@ if has('vim_starting')
   set nocompatible                " Get rid of obsolete compatability mode
   set number                      " Line numbers
   set smartindent                 " Autoindent
+  set breakindent                 " Make wrapped lines match line indent level
   set backspace=indent,eol,start  " Sane backspace
   set ls=2                        " Echo the file listing continuously
   " nnoremap <tab> %                " Remap % to tab, easier bracket matching
