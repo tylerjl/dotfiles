@@ -251,6 +251,8 @@ NeoBundle 'd11wtq/ctrlp_bdelete.vim'
 " Markdown (depends on tabular)
 NeoBundle 'plasticboy/vim-markdown'
 
+NeoBundle 'floobits/floobits-neovim'
+
 " Saving just in case.
 " Bundle 'chriskempson/base16-vim'
 " Bundle 'Pychimp/vim-luna'
