@@ -10,4 +10,10 @@ username = Tyler Langlois
 #
 # pager =
 # progress =
-# color =
+color =
+record =
+highlight =
+mq =
+
+[web]
+style = monoblue
