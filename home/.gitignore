@@ -1,8 +1,18 @@
+# Editor-generated swapfiles
 *.*.swp
 .swp
-.envrc
 *~
+
+# I use these frequently
+.envrc
+
+# Gross
 .DS_Store
+
+# Binary archives almost never needed
 *.tar.gz
 *.zip
 *.tar.xz
+
+# Language-specific
+.stack-work
