@@ -9,6 +9,7 @@ if [ `uname -s` = "Darwin" ] ; then
   export SVN_EDITOR=/usr/local/bin/vim
   export EDITOR=/usr/local/bin/vim
   export VAGRANT_DEFAULT_PROVIDER=virtualbox
+  export JAVA_HOME=/Library/Java/Home
 
   # Customizations for OSX
   alias nup='sudo launchctl load -w /Library/LaunchDaemons/com.tenablesecurity.nessusd.plist'
