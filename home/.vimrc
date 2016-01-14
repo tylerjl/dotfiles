@@ -233,6 +233,7 @@ NeoBundle 'eagletmt/ghcmod-vim'
   " NeoBundle 'Shougo/vimproc'
 NeoBundle "Matt-Deacalion/vim-systemd-syntax"
 NeoBundle 'raichoo/purescript-vim'
+NeoBundle 'rust-lang/rust.vim'
 
 " SnipMate and dependencies
 NeoBundle "garbas/vim-snipmate"
