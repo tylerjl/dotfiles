@@ -26,3 +26,11 @@
 	sdiff = diff --staged --color-words="[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
 	d = diff --color-words="[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
 	ci = commit --verbose
+
+# Because apparently checking object integrity isn't default???
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+[receive]
+	fsckobjects = true
