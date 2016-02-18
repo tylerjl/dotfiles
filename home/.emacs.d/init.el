@@ -28,7 +28,6 @@
     '(
       evil
       evil-leader
-      evil-escape
       flycheck
       haskell-mode
       puppet-mode
@@ -60,13 +59,27 @@
 (sml/setup)
 (powerline-default-theme)
 
-; Use the evil-escape plugin to use a custom escape sequence. I tried using
-; key-chords for this originally, but the delay is too noticable.
-(setq-default evil-escape-key-sequence "jk")
-(evil-escape-mode)
+; This escape strategy is the best I've found - using key-chord or
+; evil-escape introduces a noticeable lag/delay when using the prefix key,
+; this simulates vim's behavior (type the first letter, backtrack if the
+; combination appears.)
+(define-key evil-insert-state-map "j" #'cofi/maybe-exit)
 
-; The following line is an example of how I had to tune the delay to work...
-; (setq key-chord-two-keys-delay 0.015)
+(evil-define-command cofi/maybe-exit ()
+  :repeat change
+  (interactive)
+  (let ((modified (buffer-modified-p)))
+    (insert "j")
+    (let ((evt (read-event (format "Insert %c to exit insert state" ?j)
+               nil 0.5)))
+      (cond
+       ((null evt) (message ""))
+       ((and (integerp evt) (char-equal evt ?k))
+    (delete-char -1)
+    (set-buffer-modified-p modified)
+    (push 'escape unread-command-events))
+       (t (setq unread-command-events (append unread-command-events
+                          (list evt))))))))
 
 ; Flycheck
 ; ========
