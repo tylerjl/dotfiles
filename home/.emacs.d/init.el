@@ -26,13 +26,12 @@
 ; Define list of packages we want...
 (defvar my/install-packages
     '(
+      airline-themes
       evil
       evil-leader
       flycheck
       haskell-mode
       puppet-mode
-      smart-mode-line
-      powerline
       ))
 
 ; ...and install them if needed.
@@ -53,11 +52,11 @@
 (evil-leader/set-leader "<SPC>")
 (evil-leader/set-key "e" 'find-file)
 
-; Load smart-mode-line and its powerline theme. These lines require both
-; smart-mode-line and powerline packages.
-(setq sml/theme 'dark)
-(sml/setup)
-(powerline-default-theme)
+; airline-themes pulls in powerline, but doesn't require cl out-of-the box so
+; we do that manually. behelit is a decent out-of-the-box theme.
+(require 'airline-themes)
+(require 'cl)
+(load-theme 'airline-behelit)
 
 ; This escape strategy is the best I've found - using key-chord or
 ; evil-escape introduces a noticeable lag/delay when using the prefix key,
@@ -91,9 +90,6 @@
 
 ; General-purpose settings
 ; ========================
-
-; My custom theme
-(load-theme 'gerard)
 
 ; Turn off the menu bar
 (menu-bar-mode -1)
