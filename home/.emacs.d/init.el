@@ -32,6 +32,7 @@
       flycheck
       haskell-mode
       puppet-mode
+      monokai-theme
       ))
 
 ; ...and install them if needed.
@@ -57,6 +58,14 @@
 (require 'airline-themes)
 (require 'cl)
 (load-theme 'airline-behelit)
+
+; Tweak monokai face colors that I prefer
+(load-theme 'monokai t)
+(custom-set-faces
+ '(default ((t (:background "#151515"))))
+;  '(flycheck-error ((t (:background nil))))
+;  '(flycheck-warning ((t (:background nil))))
+ '(font-lock-string-face ((t (:foreground "#61ce3c")))))
 
 ; This escape strategy is the best I've found - using key-chord or
 ; evil-escape introduces a noticeable lag/delay when using the prefix key,
