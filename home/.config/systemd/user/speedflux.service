@@ -1,0 +1,11 @@
+[Unit]
+Description=record network performance
+
+[Service]
+Environment=PYTHONPATH=%h/.lib/python
+EnvironmentFile=%h/.local/etc/influxdb
+ExecStart=/home/tylerjl/.bin/speedflux.py
+StandardOutput=journal
+
+[Install]
+WantedBy=default.target
