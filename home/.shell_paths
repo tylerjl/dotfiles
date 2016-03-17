@@ -20,6 +20,10 @@ for p in $HOME/{opt/,.,$GODIR/,.local/}bin ; do
   fi
 done
 
+if [ -d "$HOME/.lib/python" ] ; then
+  export PYTHONPATH="$HOME/.lib/python":$PYTHONPATH
+fi
+
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
