@@ -491,3 +491,6 @@ func! ToggleColorColumn()
     echo '80 column marker on'
   endif
 endfunc
+
+" Load the builtin matchit macro (for things like ruby block %-ing)
+runtime macros/matchit.vim
