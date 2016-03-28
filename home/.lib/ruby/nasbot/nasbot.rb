@@ -9,12 +9,12 @@ module NASBot
     end
 
     class IPTorrents < SlackRubyBot::Commands::Base
-        match /(?:iptorrents|ipt) .*(?:balance|points|bonus)/i do |data, _match|
+        match /(?:iptorrents|ipt) .*(?:balance|points|bonus)/i do |client, data, _match|
             password = ENV['IPTORRENTS_PASSWORD']
             username = ENV['IPTORRENTS_USERNAME']
 
             unless password
-                send_message data.channel, "Whoops, missing a password for #{username}."
+                client.say(channel: data.channel, text: "Whoops, missing a password for #{username}.")
             else
                 agent = Mechanize.new
                 agent.get('https://iptorrents.com') do |login_page|
@@ -27,9 +27,9 @@ module NASBot
                     bonus_page = authenticated.link_with(:href => '/mybonus.php').click
 
                     bonus_points = bonus_page.search("//font[@id='totalBP']").text.to_i
-                    send_message data.channel, "#{username} has #{bonus_points} bonus points."
+                    client.say(channel: data.channel, text: "#{username} has #{bonus_points} bonus points.")
                     puts 'Logging out...'
-                    logout = authenticated.form_with(:action => '/log-out.php')
+                    logout = authenticated.form_with(:action => '/lout.php')
                     agent.submit(logout)
                 end
             end
