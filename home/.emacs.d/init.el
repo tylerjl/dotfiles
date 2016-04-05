@@ -52,21 +52,7 @@
 
 ; Configure my preferred leader (space) and some simple shortcuts
 (evil-leader/set-leader "<SPC>")
-(evil-leader/set-key "e" 'find-file)
-
-; airline-themes pulls in powerline, but doesn't require cl out-of-the box so
-; we do that manually. behelit is a decent out-of-the-box theme.
-(require 'airline-themes)
-(require 'cl)
-(load-theme 'airline-behelit)
-
-; Tweak monokai face colors that I prefer
-(load-theme 'monokai t)
-(custom-set-faces
- '(default ((t (:background "#151515"))))
-;  '(flycheck-error ((t (:background nil))))
-;  '(flycheck-warning ((t (:background nil))))
- '(font-lock-string-face ((t (:foreground "#61ce3c")))))
+(evil-leader/set-key "f" 'projectile-find-file)
 
 ; This escape strategy is the best I've found - using key-chord or
 ; evil-escape introduces a noticeable lag/delay when using the prefix key,
@@ -80,29 +66,72 @@
   (let ((modified (buffer-modified-p)))
     (insert "j")
     (let ((evt (read-event (format "Insert %c to exit insert state" ?j)
-               nil 0.5)))
+                           nil 0.5)))
       (cond
        ((null evt) (message ""))
        ((and (integerp evt) (char-equal evt ?k))
-    (delete-char -1)
-    (set-buffer-modified-p modified)
-    (push 'escape unread-command-events))
+        (delete-char -1)
+        (set-buffer-modified-p modified)
+        (push 'escape unread-command-events))
        (t (setq unread-command-events (append unread-command-events
-                          (list evt))))))))
+                                              (list evt))))))))
+
+; Appearance
+; ==========
+
+; Set the font for XEmacs
+(add-to-list 'default-frame-alist '(font . "Source Code Pro" ))
+(set-face-attribute 'default t :font "Source Code Pro" )
+(set-face-attribute 'default (selected-frame) :height 100)
+
+; Ensure terminals use UTF-8
+(set-terminal-coding-system 'utf-8-unix)
+
+; airline-themes pulls in powerline, but doesn't require cl out-of-the box so
+; we do that manually. behelit is a decent out-of-the-box theme.
+; (require 'airline-themes)
+; (require 'cl)
+; (load-theme 'airline-behelit)
+; (require 'spaceline-config)
+; (spaceline-spacemacs-theme)
+; (powerline-default-separator)
+
+; Tweak monokai face colors that I prefer
+(load-theme 'ujelly t)
+; (custom-set-faces
+;  '(default ((t (:background "#151515"))))
+;  '(flycheck-error ((t (:background nil))))
+;  '(flycheck-warning ((t (:background nil))))
+;  '(font-lock-string-face ((t (:foreground "#61ce3c")))))
 
 ; Flycheck
 ; ========
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
-; Helm
-; ====
-(require 'helm-config)
+; Org-Mode
+; ========
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((sh . t)
+   ))
+
+; Projectile
+; ==========
+(projectile-global-mode)
+
+; Haskell development
+; ===================
+(custom-set-variables '(haskell-process-type 'stack-ghci))
 
 ; General-purpose settings
 ; ========================
 
 ; Turn off the menu bar
 (menu-bar-mode -1)
+; Disable toolbars in XEmacs
+(tool-bar-mode -1)
 
 ; Enable the mouse
 (xterm-mouse-mode)
