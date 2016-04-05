@@ -1,5 +1,4 @@
-
-;; ===== Emacs init.el =====
+; ===== Emacs init.el =====
 ; Or, I miss vim already(tm)
 
 ; NOTE: As I'm still new to emacs, I annotate things that would be obivous to
@@ -25,15 +24,17 @@
 
 ; Define list of packages we want...
 (defvar my/install-packages
-    '(
-      airline-themes
-      evil
-      evil-leader
-      flycheck
-      haskell-mode
-      puppet-mode
-      monokai-theme
-      ))
+  '(
+    ag
+    evil
+    evil-leader
+    flycheck
+    flycheck-haskell
+    haskell-mode
+    ujelly-theme
+    puppet-mode
+    projectile
+    ))
 
 ; ...and install them if needed.
 (dolist (pack my/install-packages)
