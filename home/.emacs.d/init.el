@@ -52,7 +52,10 @@
 
 ; Configure my preferred leader (space) and some simple shortcuts
 (evil-leader/set-leader "<SPC>")
+(evil-leader/set-key "b" 'projectile-switch-to-buffer)
 (evil-leader/set-key "f" 'projectile-find-file)
+(evil-leader/set-key "p" 'projectile-switch-project)
+(evil-leader/set-key "t" '(lambda() (interactive) (ansi-term "zsh")))
 
 ; This escape strategy is the best I've found - using key-chord or
 ; evil-escape introduces a noticeable lag/delay when using the prefix key,
@@ -80,9 +83,8 @@
 ; ==========
 
 ; Set the font for XEmacs
-(add-to-list 'default-frame-alist '(font . "Source Code Pro" ))
-(set-face-attribute 'default t :font "Source Code Pro" )
-(set-face-attribute 'default (selected-frame) :height 100)
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-15" ))
+(set-face-attribute 'default t :font "Source Code Pro-15" )
 
 ; Ensure terminals use UTF-8
 (set-terminal-coding-system 'utf-8-unix)
