@@ -10,6 +10,7 @@ antigen bundle ruby
 antigen bundle vundle
 antigen bundle vagrant
 antigen bundle mercurial
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 if [ `uname -s` = "Darwin" ] ; then
   antigen bundle osx
