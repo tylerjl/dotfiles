@@ -480,6 +480,13 @@ let g:haskell_conceal_enumerations = 0
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
 
+" Disable Background Color Erase (BCE) so that color schemes
+" render properly when inside 256-color tmux and GNU screen.
+" see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+if &term =~ '256color'
+  set t_ut=
+endif
+"
 " --------------- Custom functions ---------------
 
 func! ToggleColorColumn()
