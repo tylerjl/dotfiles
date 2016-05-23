@@ -65,9 +65,6 @@ source $ZSH/oh-my-zsh.sh
 # Make directories more visible
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-# Fix colorscheme kinda
-export TERM='xterm-256color'
-
 # Bind Alt+(f|b) to word movement
 bindkey -e
 bindkey '^[[1;9C' forward-word
