@@ -90,3 +90,7 @@ fi
 function http() {
   curl http://httpcode.info/$1
 }
+
+if type scmpuff &>/dev/null ; then
+  eval "$(scmpuff init -s)"
+fi
