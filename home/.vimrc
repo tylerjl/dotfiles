@@ -32,6 +32,7 @@ if has('vim_starting')
   set virtualedit=block           " Select visual blocks unbounded by end-of-line
   " set nobackup                    " Stop creating *~ files
   set cursorline                  " Highlight active line
+  set display=lastline            " Don't hide long wrapped lines
 endif
 
 " <Enter> in autocomplete selects, not newline
