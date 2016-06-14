@@ -189,72 +189,55 @@ nnoremap <leader>n :NERDTree<CR>
 " Toggle search highlighting
 nmap <silent> <leader>/ :set hlsearch!<cr>
 
-" ----------------- NeoBundle --------------------
-" Bundles indented to signify dependencies
+" ----------------- vim-plug --------------------
 
-" Required NeoBundle prelude
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle/'))
+" Required vim-plug prelude
+call plug#begin()
 
-" Manage NeoBundle itself, and use vimproc to handle operations
-NeoBundleFetch 'Shuogo/neobundle.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-
-" Generic bundles
-" NeoBundle 'gmarik/vundle'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'moll/vim-bbye'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mtth/scratch.vim'
-NeoBundle 'ludovicchabant/vim-lawrencium'
-NeoBundle 'xolox/vim-easytags'
-  NeoBundle 'xolox/vim-misc'
+" Generic plugins
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'godlygeek/tabular'
+Plug 'rking/ag.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'moll/vim-bbye'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-fugitive'
+Plug 'mtth/scratch.vim'
+Plug 'ludovicchabant/vim-lawrencium'
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 
 " Language-specific support
 " Bundle 'raichoo/haskell-vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'jnwhiteh/vim-golang'
-NeoBundle 'rodjek/vim-puppet'
-NeoBundle 'dag/vim2hs'
-NeoBundle 'eagletmt/ghcmod-vim'
-  " NeoBundle 'Shougo/vimproc'
-NeoBundle "Matt-Deacalion/vim-systemd-syntax"
-NeoBundle 'raichoo/purescript-vim'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'vim-ruby/vim-ruby'
+Plug 'scrooloose/syntastic'
+Plug 'jnwhiteh/vim-golang'
+Plug 'rodjek/vim-puppet'
+Plug 'dag/vim2hs'
+Plug 'eagletmt/ghcmod-vim'
+  " Plug 'Shougo/vimproc'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'raichoo/purescript-vim'
+Plug 'rust-lang/rust.vim'
+Plug 'vim-ruby/vim-ruby'
 
 " SnipMate and dependencies
-NeoBundle "garbas/vim-snipmate"
-  NeoBundle "MarcWeber/vim-addon-mw-utils"
-  NeoBundle "tomtom/tlib_vim"
+Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
+
 " Bundle of snippets
-NeoBundle "honza/vim-snippets"
+Plug 'honza/vim-snippets'
 
 " Theming
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'bling/vim-airline'
+Plug 'nanotech/jellybeans.vim'
+Plug 'bling/vim-airline'
 
 " Delete buffers in ctrlp
-NeoBundle 'd11wtq/ctrlp_bdelete.vim'
+Plug 'd11wtq/ctrlp_bdelete.vim'
 
 " Markdown (depends on tabular)
-NeoBundle 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 
-NeoBundle 'floobits/floobits-neovim'
+Plug 'floobits/floobits-neovim'
 
 " Saving just in case.
 " Bundle 'chriskempson/base16-vim'
@@ -263,9 +246,8 @@ NeoBundle 'floobits/floobits-neovim'
 " Bundle 'sickill/vim-monokai'
 " Bundle 'altercation/vim-colors-solarized'
 
-call neobundle#end()
-filetype plugin indent on         " Required
-NeoBundleCheck
+call plug#end()
+filetype plugin indent on " Required
 
 " ------------ Language Settings ----------------
 
