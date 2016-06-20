@@ -220,6 +220,7 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'raichoo/purescript-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'LnL7/vim-nix'
 
 " SnipMate and dependencies
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
@@ -238,6 +239,8 @@ Plug 'd11wtq/ctrlp_bdelete.vim'
 Plug 'plasticboy/vim-markdown'
 
 Plug 'floobits/floobits-neovim'
+
+Plug 'ingo-library' | Plug 'SyntaxRange'
 
 " Saving just in case.
 " Bundle 'chriskempson/base16-vim'
