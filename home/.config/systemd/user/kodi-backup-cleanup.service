@@ -1,0 +1,5 @@
+[Unit]
+Description=clean up old kodi backups
+
+[Service]
+ExecStart=/usr/bin/find /srv/storage/backups/kodi -type f -name '*.zip' -mtime +40 -delete

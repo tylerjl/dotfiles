@@ -1,0 +1,8 @@
+[Unit]
+Description=regularly clean kodi backups
+
+[Timer]
+OnCalendar=Thursday *-*-* 02:00:00
+
+[Install]
+WantedBy=default.target
