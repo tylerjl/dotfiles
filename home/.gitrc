@@ -7,6 +7,7 @@
 
 [user]
 	name = Tyler Langlois
+	signingkey = 6447478B
 [color]
 	ui = true
 [merge]
