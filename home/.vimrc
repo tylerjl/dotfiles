@@ -150,6 +150,8 @@ nnoremap <leader>I {v}>
 " <leader>k - Scratch buffer
 nnoremap <leader>k :Scratch<CR>
 " <leader>l - <RESERVED> For Ctrl-P LRU files
+" <leader>M - Markdown preview
+nnoremap <leader>M :InstantMarkdownPreview<CR>
 " <leader>P - Toggle paste mode
 set pastetoggle=<leader>P
 " <leader>p - Paste from system clipboard
@@ -237,6 +239,7 @@ Plug 'd11wtq/ctrlp_bdelete.vim'
 
 " Markdown (depends on tabular)
 Plug 'plasticboy/vim-markdown'
+Plug 'suan/vim-instant-markdown'
 
 Plug 'floobits/floobits-neovim'
 
@@ -471,7 +474,10 @@ let g:vim_markdown_folding_disabled = 1
 if &term =~ '256color'
   set t_ut=
 endif
-"
+
+" Disable automatic live markdown previews
+let g:instant_markdown_autostart = 0
+
 " --------------- Custom functions ---------------
 
 func! ToggleColorColumn()
