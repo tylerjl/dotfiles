@@ -265,13 +265,11 @@ augroup custom_filetypes
   " The dag/vim2hs bundle has /awful/ auto-folding behavior
   autocmd FileType haskell setlocal nofoldenable
 
-  autocmd FileType vim setlocal sts=2 sw=2
-
   " Format golang files the canonical way
   autocmd BufNew,BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
   " Correctly detect markdown files
-  autocmd BufNew,BufNewFile,BufRead *.txt,*.text,*.md,*.markdown setlocal ft=markdown
+  autocmd FileType markdown setlocal spell
 
   " Correctly render erb files
   autocmd BufNew,BufNewFile,BufRead *.sh.erb setlocal ft=sh.eruby
