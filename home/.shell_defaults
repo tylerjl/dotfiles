@@ -60,6 +60,7 @@ alias ll='ls -l'               # long list
 alias la='ls -A'               # all but . and ..
 alias l='ls -CF'
 alias t='todo.sh'
+alias tt='timetrap'
 
 # Should probably clean these up someday
 alias gosl='ssh tylerjl@sl1web.byu.edu'
