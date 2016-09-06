@@ -128,8 +128,10 @@ nnoremap <C-p> :bp<CR>
 " These are basically lil baby macros.
 " <leader>1 -  Quit without saving (think <leader>!)
 nnoremap <leader>1 :qa!<CR>
+" <leader>A - Align along equals
+nnoremap <leader>A :Tabularize /=<CR>
 " <leader>a - Align puppet code
-nnoremap <leader>a :Tab /=><CR>
+nnoremap <leader>a :Tabularize /=><CR>
 " <leader>c - Invoke a manual syntax check
 nnoremap <leader>c :SyntasticCheck<CR>
 " <leader>D - Delete /all/ buffers
