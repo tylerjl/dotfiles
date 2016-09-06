@@ -290,8 +290,8 @@ augroup custom_filetypes
   " .path files are systemd units
   autocmd BufNew,BufNewFile,BufRead *.path setlocal ft=systemd
 
-  " PKGBUILD scripts
-  autocmd BufNew,BufNewFile,BufRead PKGBUILD setlocal filetype=sh
+  " Non-standard shell scripts
+  autocmd BufNew,BufNewFile,BufRead PKGBUILD,.envrc setlocal filetype=sh
 
 augroup END
 
