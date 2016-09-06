@@ -215,17 +215,20 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 
 " Language-specific support
 " Bundle 'raichoo/haskell-vim'
+Plug 'myfreeweb/intero.nvim'
 Plug 'scrooloose/syntastic'
 Plug 'jnwhiteh/vim-golang'
 Plug 'rodjek/vim-puppet'
 Plug 'dag/vim2hs'
 Plug 'eagletmt/ghcmod-vim'
-  " Plug 'Shougo/vimproc'
+  Plug 'Shougo/vimproc'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'raichoo/purescript-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'LnL7/vim-nix'
+Plug 'hashivim/vim-terraform'
+Plug 'ElmCast/elm-vim'
 
 " SnipMate and dependencies
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
@@ -478,6 +481,12 @@ endif
 
 " Disable automatic live markdown previews
 let g:instant_markdown_autostart = 0
+
+" Stop elm-vim from hijacking leader shortcuts
+let g:elm_setup_keybindings = 0
+
+" Automatically format terraform files
+let g:terraform_fmt_on_save = 1
 
 " --------------- Custom functions ---------------
 
