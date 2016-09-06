@@ -33,6 +33,7 @@ if has('vim_starting')
   " set nobackup                    " Stop creating *~ files
   set cursorline                  " Highlight active line
   set display=lastline            " Don't hide long wrapped lines
+  set nolazyredraw                " Workaround tmux+iTerm2 redraw issues
 endif
 
 " <Enter> in autocomplete selects, not newline
