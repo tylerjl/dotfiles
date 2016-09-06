@@ -29,7 +29,7 @@ plugins=(bundler tmux web-search wd)
 # Plugin settings
 #
 # When opening or closing a shell, automatically (dis)connect to tmux
-ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOSTART=true
 
 #################################
 # Source general-purpose defaults
