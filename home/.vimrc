@@ -152,9 +152,10 @@ nnoremap <leader>i vv[m>%`>
 nnoremap <leader>I {v}>
 " <leader>k - Scratch buffer
 nnoremap <leader>k :Scratch<CR>
-" <leader>l - <RESERVED> For Ctrl-P LRU files
 " <leader>M - Markdown preview
 nnoremap <leader>M :InstantMarkdownPreview<CR>
+" <leader>n - Open NERDtree
+nnoremap <leader>n :NERDTree<CR>
 " <leader>P - Toggle paste mode
 set pastetoggle=<leader>P
 " <leader>p - Paste from system clipboard
@@ -180,6 +181,8 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>x :cclose<CR><C-w>z
 " <leader>y - Yank into system clipboard
 vnoremap <leader>y "+y
+" <leader>z - Neomake (because all other shortcuts are taken?)
+nnoremap <leader>z :Neomake<CR>
 
 " Ctrl-P Shortcuts
 nnoremap <leader>b :CtrlPBuffer<CR>
@@ -188,11 +191,13 @@ nnoremap <leader>m :CtrlPMRU<CR>
 nnoremap <leader>l :CtrlPLine<CR>
 nnoremap <leader>t :CtrlPTag<CR>
 
-" NERDtree shortcut
-nnoremap <leader>n :NERDTree<CR>
-
 " Toggle search highlighting
 nmap <silent> <leader>/ :set hlsearch!<cr>
+
+nnoremap <silent> tw :GhcModTypeInsert<CR>
+nnoremap <silent> ts :GhcModSplitFunCase<CR>
+nnoremap <silent> tq :GhcModType<CR>
+nnoremap <silent> te :GhcModTypeClear<CR>
 
 " ----------------- vim-plug --------------------
 
@@ -217,6 +222,7 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 " Bundle 'raichoo/haskell-vim'
 Plug 'myfreeweb/intero.nvim'
 Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 Plug 'jnwhiteh/vim-golang'
 Plug 'rodjek/vim-puppet'
 Plug 'dag/vim2hs'
