@@ -17,7 +17,7 @@ module NASBot
                 client.say(channel: data.channel, text: "Whoops, missing a password for #{username}.")
             else
                 agent = Mechanize.new
-                agent.get('https://iptorrents.com') do |login_page|
+                agent.get('https://iptorrents.eu/login.php') do |login_page|
                     login_form = login_page.form
                     login_form.username = username
                     login_form.password = password
