@@ -275,7 +275,8 @@ augroup custom_filetypes
   autocmd!
 
   " The dag/vim2hs bundle has /awful/ auto-folding behavior
-  autocmd FileType haskell setlocal nofoldenable
+  " We also want to use hindent for good formatting
+  autocmd FileType haskell setlocal nofoldenable formatprg=hindent
 
   " Format golang files the canonical way
   autocmd BufNew,BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
