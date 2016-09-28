@@ -27,11 +27,11 @@ if has('vim_starting')
   set showbreak=↪\                 " Show line breaks
   set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
   set list                        "  ^   them all
-  set tags=./.tags;,~/.vimtags    " Prefer localized tags, then global
   set linebreak                   " Don't break words when wrapping
   set virtualedit=block           " Select visual blocks unbounded by end-of-line
   " set nobackup                    " Stop creating *~ files
-  set cursorline                  " Highlight active line
+  set cursorline                  " Highlight active line, x axis
+  set cursorcolumn                " Highlight active line, y axis
   set display=lastline            " Don't hide long wrapped lines
   set nolazyredraw                " Workaround tmux+iTerm2 redraw issues
 endif
@@ -229,7 +229,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim'
 " - Mercurial integration
 Plug 'ludovicchabant/vim-lawrencium'
-Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
+" - Better tags support
+Plug 'ludovicchabant/vim-gutentags'
 
 " Language-specific support
 "
@@ -468,9 +469,6 @@ let g:netrw_altv = 1
 " Default to tree mode
 let g:netrw_liststyle=3
 
-" Turn on asynchronous ctag writing
-let g:easytags_async=1
-
 " Haskell Plugin Settings
 " Stop stupid '.' conceals
 let g:haskell_conceal = 0
@@ -495,6 +493,9 @@ let g:elm_setup_keybindings = 0
 
 " Automatically format terraform files
 let g:terraform_fmt_on_save = 1
+
+" Use a hidden tag file
+let g:gutentags_tagfile = ".tags"
 
 " --------------- Custom functions ---------------
 
