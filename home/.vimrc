@@ -132,8 +132,7 @@ nnoremap <leader>1 :qa!<CR>
 nnoremap <leader>A :Tabularize /=<CR>
 " <leader>a - Align puppet code
 nnoremap <leader>a :Tabularize /=><CR>
-" <leader>c - Invoke a manual syntax check
-nnoremap <leader>c :SyntasticCheck<CR>
+" <leader>c - Empty
 " <leader>D - Delete /all/ buffers
 nnoremap <leader>D :bufdo :Bdelete<CR>
 " <leader>d - Delete current buffer without exiting
@@ -205,30 +204,46 @@ nnoremap <silent> te :GhcModTypeClear<CR>
 call plug#begin()
 
 " Generic plugins
+"
+" - Surround with cs/ys
 Plug 'tpope/vim-surround'
+" - Lots of bracket matching movement
+Plug 'tpope/vim-unimpaired'
+" - Filesystem tree browsing
 Plug 'scrooloose/nerdtree'
+" - Fuzzy matching for buffers/files/etc.
 Plug 'kien/ctrlp.vim'
+" - Auto-alignment for arbitrary delimiteres
 Plug 'godlygeek/tabular'
+" - Fast grepping
 Plug 'rking/ag.vim'
+" - <C--> commenting shortcuts
 Plug 'tomtom/tcomment_vim'
+" - Better buffer deletion
 Plug 'moll/vim-bbye'
+" - Auto-closing for quotes/parens/etc.
 Plug 'Raimondi/delimitMate'
+" - Somewhat okay git integration
 Plug 'tpope/vim-fugitive'
+" - Better scratch buffer
 Plug 'mtth/scratch.vim'
+" - Mercurial integration
 Plug 'ludovicchabant/vim-lawrencium'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 
 " Language-specific support
-" Bundle 'raichoo/haskell-vim'
+"
+" - Enhanced Haskell IDE
 Plug 'myfreeweb/intero.nvim'
-Plug 'scrooloose/syntastic'
-Plug 'neomake/neomake'
-Plug 'jnwhiteh/vim-golang'
-Plug 'rodjek/vim-puppet'
 Plug 'dag/vim2hs'
 Plug 'eagletmt/ghcmod-vim'
   Plug 'Shougo/vimproc'
+" - Better than syntastic (so far) asynchronous syntax checking
+Plug 'neomake/neomake'
+" - Self-explanatory language support bundles:
 Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'jnwhiteh/vim-golang'
+Plug 'rodjek/vim-puppet'
 Plug 'raichoo/purescript-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-ruby/vim-ruby'
@@ -253,16 +268,11 @@ Plug 'd11wtq/ctrlp_bdelete.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'suan/vim-instant-markdown'
 
+" - Shared editing
 Plug 'floobits/floobits-neovim'
 
+" - Highlight a visual range with a specific syntax
 Plug 'ingo-library' | Plug 'SyntaxRange'
-
-" Saving just in case.
-" Bundle 'chriskempson/base16-vim'
-" Bundle 'Pychimp/vim-luna'
-" Bundle 'tomasr/molokai'
-" Bundle 'sickill/vim-monokai'
-" Bundle 'altercation/vim-colors-solarized'
 
 call plug#end()
 filetype plugin indent on " Required
@@ -410,15 +420,6 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<C-s>'
 " Retrieve file list from git, if possible
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" Custom syntastic flags
-let g:syntastic_puppet_puppetlint_args="--no-class_inherits_from_params_class-check"
-let g:syntastic_puppet_puppet_post_args="--parser future"
-" Fancy symbols
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-" Lord it is slow
-let g:syntastic_mode_map = { "mode": "passive", "active_filetypes": [], "passive_filetypes": [] }
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
