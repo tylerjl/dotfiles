@@ -14,5 +14,8 @@
 *.zip
 *.tar.xz
 
+# Generated from ctags
+.tags
+
 # Language-specific
 .stack-work
