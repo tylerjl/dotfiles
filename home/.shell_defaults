@@ -78,6 +78,14 @@ alias j='python -m json.tool'
 # 'c'heck - verify an env var is present
 alias c='env | grep -i'
 
+# Purge all docker containers
+function kd() {
+  for x in $(docker ps -a | sed 1d | awk '{ print $1; }') ; do
+    docker stop $x
+    docker rm $x
+  done
+}
+
 if [ -f "${HOME}/.homesick/repos/homeshick/homeshick.sh" ]; then
   source $HOME/.homesick/repos/homeshick/homeshick.sh
 fi
