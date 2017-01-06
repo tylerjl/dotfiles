@@ -6,6 +6,7 @@ Environment=PYTHONPATH=%h/.lib/python
 ExecStart=/home/tylerjl/.bin/speedphite.py
 StandardOutput=journal
 Restart=on-failure
+RestartSec=5m
 
 [Install]
 WantedBy=default.target
