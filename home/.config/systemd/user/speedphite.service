@@ -1,0 +1,11 @@
+[Unit]
+Description=record network performance
+
+[Service]
+Environment=PYTHONPATH=%h/.lib/python
+ExecStart=/home/tylerjl/.bin/speedphite.py
+StandardOutput=journal
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
