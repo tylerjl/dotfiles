@@ -4,7 +4,7 @@ Description=slack bot
 [Service]
 Type=simple
 WorkingDirectory=%h/.lib/ruby/nasbot
-ExecStart=/home/tylerjl/.lib/ruby/nasbot/nasbot.rb
+ExecStart=/usr/bin/bundle exec /home/tylerjl/.lib/ruby/nasbot/nasbot.rb
 StandardOutput=journal
 EnvironmentFile=%h/.local/etc/slack
 EnvironmentFile=%h/.local/etc/iptorrents

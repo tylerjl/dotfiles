@@ -2,7 +2,8 @@
 Description=redeem ipt bonus points
 
 [Service]
+WorkingDirectory=%h/.lib/ruby
+ExecStart=/usr/bin/bundle exec /home/tylerjl/.bin/ribp.rb
 Type=oneshot
-ExecStart=/home/tylerjl/.bin/ribp.rb
 StandardOutput=journal
 EnvironmentFile=%h/.local/etc/iptorrents

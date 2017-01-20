@@ -3,6 +3,7 @@ Description=check success of latest ZFS backups
 
 [Service]
 Type=oneshot
-ExecStart=/home/tylerjl/.bin/zbc.rb
+WorkingDirectory=%h/.lib/ruby
+ExecStart=/usr/bin/bundle exec %h/.bin/zbc.rb
 StandardOutput=journal
 StandardError=journal

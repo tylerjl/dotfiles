@@ -3,7 +3,8 @@ Description=notify slack about recent journal entries
 After=network.target
 
 [Service]
-ExecStart=/home/tylerjl/.bin/notify-slack.rb
+WorkingDirectory=%h/.lib/ruby
+ExecStart=/usr/bin/bundle exec /home/tylerjl/.bin/notify-slack.rb
 StandardOutput=journal
 StandardError=journal
 EnvironmentFile=%h/.local/etc/slack

@@ -1,4 +1,8 @@
 source 'http://rubygems.org'
 
+gem 'celluloid-io'
+gem 'activesupport', '~> 5.0'
+gem 'json', github: 'flori/json', branch: 'v1.8'
+gem 'oj', '~> 2.16.1'
 gem 'slack-ruby-bot'
 gem 'mechanize'
