@@ -4,6 +4,8 @@ require 'rubygems'
 require 'slack-ruby-bot'
 require 'mechanize'
 
+SlackRubyBot::Client.logger.level = Logger::WARN
+
 module NASBot
     class App < SlackRubyBot::App
     end
