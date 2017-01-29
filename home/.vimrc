@@ -323,7 +323,7 @@ let g:jellybeans_overrides = {
 " set t_Co=256                      " Fix color depth
 " let g:solarized_termtrans = 1     " Fix glyph backgrounds
 " set background=dark               " Use dark background
-colorscheme jellybeans                  " From vundle
+colorscheme badwolf                 " From homeshick
 hi SpecialKey ctermbg=None        " Smooth out colors, jeez
 set guifont=Source\ Code\ Pro:h15 " Non-standard but better font
 " let g:rehash256 = 1
