@@ -4,8 +4,8 @@ source ~/.homesick/repos/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
-antigen bundle rvm
 antigen bundle brew
+antigen bundle rbenv
 antigen bundle ruby
 antigen bundle vundle
 antigen bundle vagrant

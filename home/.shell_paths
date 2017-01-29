@@ -24,11 +24,11 @@ if [ -d "$HOME/.lib/python" ] ; then
   export PYTHONPATH="$HOME/.lib/python":$PYTHONPATH
 fi
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # Added by the travis gem
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
+
+# rbenv
+eval "$(rbenv init -)"
 
 # Added by Nix installer
 [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ] && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
