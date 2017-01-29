@@ -1,0 +1,68 @@
+# Basic setup
+# ===========
+#
+# Username
+set imap_user = ty
+# Remote connection
+set folder = imaps://lovelace.tjll.net/
+# Default spool
+set spoolfile = +INBOX
+# Store mail in modern format
+set mbox_type = Maildir
+
+# Index
+# =====
+#
+# Don't ask to delete deleted messages, delete them!
+set delete = yes
+
+# Sidebar
+# =======
+#
+# Enable, make pretty, and smaller
+set sidebar_visible = yes
+set sidebar_divider_char = ' │'
+set sidebar_width = 24
+# Default folders to show in the sidebar
+mailboxes +INBOX \
+          +Listservs \
+          +Archive \
+          +Deleted\ Messages
+
+# Pager settings
+# ==============
+#
+# Don't skip to next message at end
+set pager_stop
+# Use tilde for more content (like vim)
+set tilde
+# Parse common formatting
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+# Appearance
+# ==========
+#
+# Status bar
+set status_chars = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+# Theme
+source ~/.local/etc/mutt/badwolf.muttrc
+
+# Keybindings
+# ===========
+#
+# vim-like navigation in the index
+bind index gg first-entry
+bind index G last-entry
+# ...and the pager
+bind pager k previous-line
+bind pager j next-line
+bind pager gg top
+bind pager G bottom
+# use vim hjkl for movement, repurpose arrows for sidebar movement
+bind index,pager <down> sidebar-next
+bind index,pager <up> sidebar-prev
+bind index,pager <right> sidebar-open
+# Url opener
+macro index,pager \Cu "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>" "view URLs"
