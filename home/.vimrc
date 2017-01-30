@@ -260,7 +260,8 @@ Plug 'honza/vim-snippets'
 
 " Theming
 Plug 'nanotech/jellybeans.vim'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Delete buffers in ctrlp
 Plug 'd11wtq/ctrlp_bdelete.vim'
@@ -327,7 +328,7 @@ colorscheme jellybeans              " From homeshick
 hi SpecialKey ctermbg=None        " Smooth out colors, jeez
 set guifont=Source\ Code\ Pro:h15 " Non-standard but better font
 " let g:rehash256 = 1
-" let g:airline_theme = 'luna'
+let g:airline_theme = 'jellybeans'
 
 " Make vertsplits cleaner
 highlight VertSplit ctermbg=236 ctermfg=236
