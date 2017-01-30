@@ -201,7 +201,7 @@ nnoremap <silent> te :GhcModTypeClear<CR>
 " ----------------- vim-plug --------------------
 
 " Required vim-plug prelude
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Generic plugins
 "
