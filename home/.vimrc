@@ -210,11 +210,11 @@ Plug 'tpope/vim-surround'
 " - Lots of bracket matching movement
 Plug 'tpope/vim-unimpaired'
 " - Filesystem tree browsing
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle'] }
 " - Fuzzy matching for buffers/files/etc.
 Plug 'kien/ctrlp.vim'
 " - Auto-alignment for arbitrary delimiteres
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', { 'on': 'Tab' }
 " - Fast grepping
 Plug 'rking/ag.vim'
 " - <C--> commenting shortcuts
@@ -238,20 +238,20 @@ Plug 'neomake/neomake'
 " Language-specific support
 "
 " - Enhanced Haskell IDE
-Plug 'myfreeweb/intero.nvim'
-Plug 'dag/vim2hs'
-Plug 'eagletmt/ghcmod-vim'
+Plug 'myfreeweb/intero.nvim', { 'for': 'haskell' }
+Plug 'dag/vim2hs', { 'for': 'haskell' }
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
   Plug 'Shougo/vimproc'
 " - Self-explanatory language support bundles:
 Plug 'Matt-Deacalion/vim-systemd-syntax'
-Plug 'jnwhiteh/vim-golang'
-Plug 'rodjek/vim-puppet'
-Plug 'raichoo/purescript-vim'
-Plug 'rust-lang/rust.vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'LnL7/vim-nix'
-Plug 'hashivim/vim-terraform'
-Plug 'ElmCast/elm-vim'
+Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
+Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
+Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'LnL7/vim-nix', { 'for': 'nix' }
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 
 " SnipMate and dependencies
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
@@ -268,8 +268,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'd11wtq/ctrlp_bdelete.vim'
 
 " Markdown (depends on tabular)
-Plug 'plasticboy/vim-markdown'
-Plug 'suan/vim-instant-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
 " - Shared editing
 Plug 'floobits/floobits-neovim'
