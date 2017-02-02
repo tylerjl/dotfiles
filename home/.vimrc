@@ -231,6 +231,9 @@ Plug 'mtth/scratch.vim'
 Plug 'ludovicchabant/vim-lawrencium'
 " - Better tags support
 Plug 'ludovicchabant/vim-gutentags'
+" - Syntax checking and linting
+Plug 'neomake/neomake'
+  Plug 'dojoteef/neomake-autolint'
 
 " Language-specific support
 "
@@ -239,8 +242,6 @@ Plug 'myfreeweb/intero.nvim'
 Plug 'dag/vim2hs'
 Plug 'eagletmt/ghcmod-vim'
   Plug 'Shougo/vimproc'
-" - Better than syntastic (so far) asynchronous syntax checking
-Plug 'neomake/neomake'
 " - Self-explanatory language support bundles:
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'jnwhiteh/vim-golang'
@@ -497,6 +498,9 @@ let g:terraform_fmt_on_save = 1
 
 " Use a hidden tag file
 let g:gutentags_tagfile = ".tags"
+
+" Neomake
+let g:neomake_autolint_sign_column_always = 1
 
 " --------------- Custom functions ---------------
 
