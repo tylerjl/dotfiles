@@ -33,8 +33,8 @@ else
   alias ls='ls -hF --color=tty'
 fi
 
-#########
 # Aliases
+# =======
 
 # df and du defaults
 alias df='df -h'
@@ -77,6 +77,12 @@ alias j='python -m json.tool'
 
 # 'c'heck - verify an env var is present
 alias c='env | grep -i'
+
+# Rebind date to gdate for OS X
+command -v gdate &>/dev/null && alias date=gdate
+
+# Custom functions
+# ================
 
 # Purge all docker containers
 function kd() {
