@@ -86,6 +86,16 @@ function kd() {
   done
 }
 
+function http() {
+  curl http://httpcode.info/$1
+}
+
+# Useful time-related functions
+source "${HOME}/.config/time.sh"
+
+# Third-party sources
+# ===================
+
 if [ -f "${HOME}/.homesick/repos/homeshick/homeshick.sh" ]; then
   source $HOME/.homesick/repos/homeshick/homeshick.sh
 fi
@@ -98,10 +108,6 @@ fi
 if [ -e "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
     source "${HOME}/.nix-profile/etc/profile.d/nix.sh"
 fi
-
-function http() {
-  curl http://httpcode.info/$1
-}
 
 if type scmpuff &>/dev/null ; then
   eval "$(scmpuff init -s)"
