@@ -62,10 +62,6 @@ alias l='ls -CF'
 alias t='todo.sh'
 alias tt='timetrap'
 
-# Should probably clean these up someday
-alias gosl='ssh tylerjl@sl1web.byu.edu'
-alias goet='ssh tylerjl@ssh.et.byu.edu'
-
 # Shortcut to grab pineapple filesystem
 alias piback='ssh hpi "tar -cvf - -X ~/rpi.excl /" | bzip2 > pineapple_$(date +"%Y%m%d").tar.bz2'
 
