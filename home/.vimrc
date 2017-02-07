@@ -238,6 +238,8 @@ Plug 'neomake/neomake'
   Plug 'dojoteef/neomake-autolint'
 " - Highlight parenthesis
 Plug 'luochen1990/rainbow'
+" - SLIME!
+Plug 'jpalardy/vim-slime'
 
 " Language-specific support
 "
@@ -508,6 +510,9 @@ let g:neomake_autolint_sign_column_always = 1
 
 " Rainbow parentheses
 let g:rainbow_active = 1
+
+" SLIME
+let g:slime_target = "tmux"
 
 " --------------- Custom functions ---------------
 
