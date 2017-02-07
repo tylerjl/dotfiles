@@ -93,6 +93,8 @@ nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
 " F3 - Toggle 80 column marker
 nnoremap <F3> :call ToggleColorColumn()<CR>
+" F4 - Initiate Gundo
+nnoremap <F4> :GundoToggle<CR>
 
 " Bind tab to <C-w> to ease viewport switching
 map <tab> <C-w>
@@ -240,6 +242,8 @@ Plug 'neomake/neomake'
 Plug 'luochen1990/rainbow'
 " - SLIME!
 Plug 'jpalardy/vim-slime'
+" - Better graphical undo
+Plug 'sjl/gundo.vim'
 
 " Language-specific support
 "
