@@ -164,6 +164,8 @@ nnoremap <leader>P "+P
 nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 " <leader>r - Reload .vimrc
 nnoremap <leader>r :so ~/.vimrc<CR>
+" <leader>R - Toggle rainbow parenthsese
+nnoremap <leader>R :RainbowToggle<CR>
 " <leader>s - Search through files using ag
 nnoremap <leader>s :Ag<space>
 " <leader>S - Edit .ssh/known_hosts
@@ -234,6 +236,8 @@ Plug 'ludovicchabant/vim-gutentags'
 " - Syntax checking and linting
 Plug 'neomake/neomake'
   Plug 'dojoteef/neomake-autolint'
+" - Highlight parenthesis
+Plug 'luochen1990/rainbow'
 
 " Language-specific support
 "
@@ -501,6 +505,9 @@ let g:gutentags_tagfile = ".tags"
 
 " Neomake
 let g:neomake_autolint_sign_column_always = 1
+
+" Rainbow parentheses
+let g:rainbow_active = 1
 
 " --------------- Custom functions ---------------
 
