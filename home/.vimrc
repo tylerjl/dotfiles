@@ -34,6 +34,7 @@ if has('vim_starting')
   set cursorcolumn                " Highlight active line, y axis
   set display=lastline            " Don't hide long wrapped lines
   set nolazyredraw                " Workaround tmux+iTerm2 redraw issues
+  set textwidth=79                " Wrap comments automatically
 endif
 
 " <Enter> in autocomplete selects, not newline
