@@ -1,5 +1,14 @@
+# Set PATH per several locations. Important that this is set early (before
+# antigen bundles get applied).
+. $HOME/.shell_paths
+
 # Pull in antigen
 source ~/.homesick/repos/antigen/antigen.zsh
+
+# Set some antigen settings before installation
+#
+# Load node lazily since it's monstrous
+export NVM_LAZY_LOAD=true
 
 antigen use oh-my-zsh
 
@@ -9,6 +18,7 @@ antigen bundle rbenv
 antigen bundle ruby
 antigen bundle vundle
 antigen bundle vagrant
+antigen bundle lukechilds/zsh-nvm
 antigen bundle mercurial
 antigen bundle zsh-users/zsh-syntax-highlighting
 
@@ -34,11 +44,6 @@ plugins=(bundler tmux web-search wd)
 #################################
 # Source general-purpose defaults
 . $HOME/.shell_defaults
-
-############################
-# PATH settings and the like
-
-. $HOME/.shell_paths
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
