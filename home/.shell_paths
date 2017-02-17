@@ -1,4 +1,3 @@
-
 # Go
 GODIR=Projects/go
 if [ -d "${HOME}/${GODIR}" ] ; then
@@ -26,9 +25,6 @@ fi
 
 # Added by the travis gem
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
-
-# rbenv
-eval "$(rbenv init -)"
 
 # Added by Nix installer
 [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ] && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
