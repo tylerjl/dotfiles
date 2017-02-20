@@ -8,6 +8,7 @@ ExecStart=/usr/bin/bundle exec /home/tylerjl/.lib/ruby/nasbot/nasbot.rb
 StandardOutput=journal
 EnvironmentFile=%h/.local/etc/slack
 EnvironmentFile=%h/.local/etc/iptorrents
+EnvironmentFile=%h/.local/etc/youtube
 Restart=on-failure
 
 [Install]
