@@ -13,13 +13,13 @@ module NASBot
 
   # Auto-fetching video tracks
   class YouTubeDL < SlackRubyBot::Commands::Base
-    match(/^(?:download) (?<url>[^\s]+)/i) do |client, data, match|
+    match(/^(?:download) <(?<url>[^>]+)>/i) do |client, data, match|
       stdout = `
         cd $HOME/memecd
-        youtube-dl --extract-audio
-                   --prefer-ffmpeg
-                   --audio-format mp3
-                   --audio-quality 3
+        youtube-dl --extract-audio \
+                   --prefer-ffmpeg \
+                   --audio-format mp3 \
+                   --audio-quality 3 \
                    "#{match[:url]}"
         cd -`
 
