@@ -17,7 +17,7 @@ def video_title(id)
       URI(format("#{api}?#{qs}", id, ENV['YOUTUBE_API_KEY']))
     )
   )['items'].first['snippet']['title']
-end 
+end
 
 def fetch_song(id)
   old_pwd = Dir.pwd
