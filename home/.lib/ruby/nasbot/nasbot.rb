@@ -60,55 +60,74 @@ def fetch_song(id)
   r
 end
 
-module NASBot
-  class App < SlackRubyBot::App
-  end
+class NASBot < SlackRubyBot::Bot
+  help do
+    title 'NAS Bot'
+    desc 'A bot running on the fileserver to do lotsa stuff.'
 
-  # Auto-fetching video tracks
-  class YouTubeDL < SlackRubyBot::Commands::Base
-    match(/^(?:download) (?<id>.+)$/i) do |client, data, match|
-      client.say(
-        channel: data.channel,
-        text: "Roger. Fetching '#{video_title(match[:id])}'..."
-      )
-      client.say(
-        channel: data.channel,
-        text: fetch_song(match[:id]) + " (for <@#{data.user}>)"
-      )
+    command 'download <youtube id>' do
+      desc 'Download and save a youtube video as an mp3'
+      long_desc 'Use: download <youtube id>'
+    end
+
+    command 'song list' do
+      desc 'List the currrently downloaded songs.'
+    end
+
+    command 'ipt points' do
+      desc 'Find the number of bonus points on ipt.'
     end
   end
 
-  # Some web site automation
-  class IPTorrents < SlackRubyBot::Commands::Base
-    match(/(?:iptorrents|ipt) .*(?:balance|points|bonus)/i) do |client, data, _match|
-      password = ENV['IPTORRENTS_PASSWORD']
-      username = ENV['IPTORRENTS_USERNAME']
+  match(/^(?:download) (?<id>.+)$/i) do |client, data, match|
+    client.say(
+      channel: data.channel,
+      text: "Roger. Fetching '#{video_title(match[:id])}'..."
+    )
+    client.say(
+      channel: data.channel,
+      text: fetch_song(match[:id]) + " (for <@#{data.user}>)"
+    )
+  end
 
-      if password
-        agent = Mechanize.new
-        agent.get('https://iptorrents.eu/login.php') do |login_page|
-          login_form = login_page.form
-          login_form.username = username
-          login_form.password = password
+  match(/^song\s+list/i) do |client, data, match|
+    list = Dir[File.join(ENV['HOME'], 'memecd') + '/*'].map do |song|
+      File.basename song
+    end.sort.join("\n")
+    client.say(
+      channel: data.channel,
+      text: "```#{list}```"
+    )
+  end
 
-          authenticated = agent.submit(login_form, login_form.buttons.first)
+  match(/(?:iptorrents|ipt) .*(?:balance|points|bonus)/i) do |client, data, _match|
+    password = ENV['IPTORRENTS_PASSWORD']
+    username = ENV['IPTORRENTS_USERNAME']
 
-          bonus_page = authenticated.link_with(:href => '/mybonus.php').click
+    if password
+      agent = Mechanize.new
+      agent.get('https://iptorrents.eu/login.php') do |login_page|
+        login_form = login_page.form
+        login_form.username = username
+        login_form.password = password
 
-          bonus_points = bonus_page.search("//font[@id='totalBP']").text.to_i
-          client.say(channel: data.channel, text: "#{username} has #{bonus_points} bonus points.")
-          puts 'Logging out...'
-          logout = authenticated.form_with(:action => '/lout.php')
-          agent.submit(logout)
-        end
-      else
-        client.say(
-          channel: data.channel,
-          text: "Whoops, missing a password for #{username}."
-        )
+        authenticated = agent.submit(login_form, login_form.buttons.first)
+
+        bonus_page = authenticated.link_with(:href => '/mybonus.php').click
+
+        bonus_points = bonus_page.search("//font[@id='totalBP']").text.to_i
+        client.say(channel: data.channel, text: "#{username} has #{bonus_points} bonus points.")
+        puts 'Logging out...'
+        logout = authenticated.form_with(:action => '/lout.php')
+        agent.submit(logout)
       end
+    else
+      client.say(
+        channel: data.channel,
+        text: "Whoops, missing a password for #{username}."
+      )
     end
   end
 end
 
-NASBot::App.instance.run
+NASBot.run
