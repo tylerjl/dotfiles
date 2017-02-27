@@ -20,44 +20,44 @@ def video_title(id)
 end
 
 def fetch_song(id)
-  old_pwd = Dir.pwd
-  Dir.chdir(File.join(ENV['HOME'], 'memecd'))
+  Dir.chdir(File.join(ENV['HOME'], 'memecd')) do
 
-  stdout = `
-    youtube-dl --extract-audio \
-               --prefer-ffmpeg \
-               --audio-format mp3 \
-               --audio-quality 3 \
-               "https://www.youtube.com/watch?v=#{id}"`
+    stdout = `
+      youtube-dl --extract-audio \
+                 --prefer-ffmpeg \
+                 --audio-format mp3 \
+                 --audio-quality 3 \
+                 "https://www.youtube.com/watch?v=#{id}"`
 
-  r = if $CHILD_STATUS.success?
-        if (m = stdout.match(/.ffmpeg. Destination: (?<song>[^\n]+)/))
-          # size_mb = File.size(ENV['HOME']+'/memecd/'+m[:song]).to_f / 2**20
-          dl = m[:song].match(/^(?<title>.+)-[^.]+[.]mp3$/)
-          next_track = Dir['[0-9]*'].sort.last.split('/').last.split(' ').first
-            .to_i.succ.to_s.rjust(2, '0')
-          begin
-            File.rename "#{m[:song]}", "#{next_track} #{dl[:title]}.mp3"
-          rescue Errno::ENOENT => e
-            "Downloaded '#{m[:song]}' but failed to rename: #{e}"
-          else
-            cd_size = `du -sx .`.match(/^(?<size>\d+)/)[:size].to_i / 1024
-            format(
-              'Fetched song successfully: "%s". CD directory is %iMB of 600MB (%i%% full)',
-              dl[:title],
-              cd_size,
-              (cd_size.to_f / 600) * 100
-            )
-          end
+    if $CHILD_STATUS.success?
+      if (m = stdout.match(/.ffmpeg. Destination: (?<song>[^\n]+)/))
+        # size_mb = File.size(ENV['HOME']+'/memecd/'+m[:song]).to_f / 2**20
+        dl = m[:song].match(/^(?<title>.+)-[^.]+[.]mp3$/)
+        if !(files = Dir['[0-9]*']).empty?
+          next_track = files.sort.last.split('/').last.split(' ').first.to_i.succ.to_s.rjust(2, '0')
         else
-          'Hmm, could not parse command output from youtube-dl.'
+          next_track = '00'
+        end
+        begin
+          File.rename "#{m[:song]}", "#{next_track} #{dl[:title]}.mp3"
+        rescue Errno::ENOENT => e
+          "Downloaded '#{m[:song]}' but failed to rename: #{e}"
+        else
+          cd_size = `du -sx .`.match(/^(?<size>\d+)/)[:size].to_i / 1024
+          format(
+            'Fetched song successfully: "%s". CD directory is %iMB of 600MB (%i%% full)',
+            dl[:title],
+            cd_size,
+            (cd_size.to_f / 600) * 100
+          )
         end
       else
-        "Error: #{stdout}"
+        'Hmm, could not parse command output from youtube-dl.'
       end
-
-  Dir.chdir old_pwd
-  r
+    else
+      "Error: #{stdout}"
+    end
+  end
 end
 
 class NASBot < SlackRubyBot::Bot
