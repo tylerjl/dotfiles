@@ -513,7 +513,7 @@ let g:elm_setup_keybindings = 0
 let g:terraform_fmt_on_save = 1
 
 " Use a hidden tag file
-let g:gutentags_tagfile = ".tags"
+let g:gutentags_ctags_tagfile = ".tags"
 
 " Neomake
 let g:neomake_autolint_sign_column_always = 1
