@@ -189,6 +189,19 @@
 (use-package puppet-mode
   :ensure t)
 
+;; Ruby
+;; ====
+(use-package robe
+  :ensure t
+  :init
+  (add-hook 'ruby-mode-hook 'robe-mode))
+
+;; Twitter
+(use-package twittering-mode
+  :ensure t
+  :config
+  (setq twittering-icon-mode t))
+
 ;; General-purpose settings
 ;; ========================
 ;; Use UTF-8 for all encoding
