@@ -41,46 +41,6 @@
 ;; Set to t to debug package loading or nil to disable
 (setq use-package-verbose nil)
 
-;; Eeeeeeevil
-;; ==========
-
-(use-package evil
-  :ensure t
-  :init
-  (use-package evil-leader
-    :ensure t
-    :init
-    (global-evil-leader-mode))
-  (evil-mode 1)
-  :config
-  ;; Configure my preferred leader (space) and some simple shortcuts
-  (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key "b" 'projectile-switch-to-buffer)
-  (evil-leader/set-key "f" 'projectile-find-file)
-  (evil-leader/set-key "p" 'projectile-switch-project)
-  (evil-leader/set-key "t" (lambda() (interactive) (ansi-term "zsh")))
-  ;; This escape strategy is the best I've found - using key-chord or
-  ;; evil-escape introduces a noticeable lag/delay when using the prefix key,
-  ;; this simulates vim's behavior (type the first letter, backtrack if the
-  ;; combination appears.)
-  (evil-define-command
-   cofi/maybe-exit ()
-   :repeat change
-   (interactive)
-   (let ((modified (buffer-modified-p)))
-     (insert "j")
-     (let ((evt (read-event (format "Insert %c to exit insert state" ?j)
-                            nil 0.5)))
-       (cond
-        ((null evt) (message ""))
-        ((and (integerp evt) (char-equal evt ?k))
-         (delete-char -1)
-         (set-buffer-modified-p modified)
-         (push 'escape unread-command-events))
-        (t (setq unread-command-events (append unread-command-events
-                                               (list evt))))))))
-
-  (define-key evil-insert-state-map "j" #'cofi/maybe-exit))
 ;; Appearance
 ;; ==========
 
@@ -129,6 +89,60 @@
   ;;  '(flycheck-warning ((t (:background nil))))
   ;;  '(font-lock-string-face ((t (:foreground "#61ce3c")))))
   )
+
+;; Eeeeeeevil
+;; ==========
+
+(use-package evil
+  :ensure t
+  :init
+  (use-package evil-leader
+    :ensure t
+    :init
+    (global-evil-leader-mode))
+  (use-package evil-org
+    :ensure t)
+  (use-package evil-matchit
+    :ensure t
+    :init
+    (global-evil-matchit-mode 1))
+  (evil-mode 1)
+  :config
+  ;; Configure my preferred leader (space) and some simple shortcuts
+  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-key "b" 'projectile-switch-to-buffer)
+  (evil-leader/set-key "f" 'projectile-find-file)
+  (evil-leader/set-key "p" 'projectile-switch-project)
+  (evil-leader/set-key "t" (lambda() (interactive) (ansi-term "zsh")))
+  ;; This escape strategy is the best I've found - using key-chord or
+  ;; evil-escape introduces a noticeable lag/delay when using the prefix key,
+  ;; this simulates vim's behavior (type the first letter, backtrack if the
+  ;; combination appears.)
+  (evil-define-command
+   cofi/maybe-exit ()
+   :repeat change
+   (interactive)
+   (let ((modified (buffer-modified-p)))
+     (insert "j")
+     (let ((evt (read-event (format "Insert %c to exit insert state" ?j)
+                            nil 0.5)))
+       (cond
+        ((null evt) (message ""))
+        ((and (integerp evt) (char-equal evt ?k))
+         (delete-char -1)
+         (set-buffer-modified-p modified)
+         (push 'escape unread-command-events))
+        (t (setq unread-command-events (append unread-command-events
+                                               (list evt))))))))
+
+  (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
+  (define-key evil-normal-state-map (kbd "TAB TAB") 'other-window))
+
+;; Parens/bracket matching
+(use-package smartparens
+  :ensure t
+  :config
+  (smartparens-global-mode t))
 
 ;; Flycheck
 ;; ========
