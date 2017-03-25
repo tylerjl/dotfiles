@@ -2,44 +2,19 @@
 # antigen bundles get applied).
 . $HOME/.shell_paths
 
-# Pull in antigen
-source ~/.homesick/repos/antigen/antigen.zsh
-
-# Set some antigen settings before installation
-#
-# Load node lazily since it's monstrous
-export NVM_LAZY_LOAD=true
-
-antigen use oh-my-zsh
-
-antigen bundle git
-antigen bundle brew
-antigen bundle rbenv
-antigen bundle ruby
-antigen bundle vundle
-antigen bundle vagrant
-antigen bundle lukechilds/zsh-nvm
-antigen bundle mercurial
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-if [ `uname -s` = "Darwin" ] ; then
-  antigen bundle osx
-fi
-
-antigen apply
+export ZSH=$HOME/.oh-my-zsh
 
 # Path to your oh-my-zsh configuration.
 ZSH_CUSTOM=$HOME/.zsh
 
 fpath=($HOME/.homesick/repos/homeshick/completions $HOME/.zsh/site-functions $fpath)
 
-# oh-my-zsh plugins
-plugins=(bundler tmux web-search wd)
-
 # Plugin settings
 #
 # When opening or closing a shell, automatically (dis)connect to tmux
 # ZSH_TMUX_AUTOSTART=true
+
+plugins=(osx git brew bundler rbenv ruby tmux vundle vagrant mercurial web-search wd)
 
 #################################
 # Source general-purpose defaults
