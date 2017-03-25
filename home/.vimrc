@@ -85,7 +85,7 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 " Train to stop reaching for escape (avoid trailing comment, it's weird)
-inoremap jk <Esc>
+inoremap fd <Esc>
 
 " F1 = GUI paste, F2 = GUI copy
 nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
