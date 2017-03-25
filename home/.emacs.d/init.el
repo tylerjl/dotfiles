@@ -141,6 +141,11 @@
 ;; Parens/bracket matching
 (use-package smartparens
   :ensure t
+  :init
+  (use-package evil-smartparens
+    :ensure t
+    :init
+    (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
   :config
   (smartparens-global-mode t))
 
