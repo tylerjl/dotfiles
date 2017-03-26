@@ -29,6 +29,7 @@ plugins=(
   vundle
   wd
   web-search
+  zsh-syntax-highlighting
 )
 
 #################################
