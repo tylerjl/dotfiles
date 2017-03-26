@@ -18,6 +18,9 @@ fpath=(
 # When opening or closing a shell, automatically (dis)connect to tmux
 # ZSH_TMUX_AUTOSTART=true
 
+# Multi selection seems generally useful?
+FZF_DEFAULT_OPTIONS="--multi"
+
 plugins=(
   brew
   bundler
