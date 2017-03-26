@@ -14,7 +14,20 @@ fpath=($HOME/.homesick/repos/homeshick/completions $HOME/.zsh/site-functions $fp
 # When opening or closing a shell, automatically (dis)connect to tmux
 # ZSH_TMUX_AUTOSTART=true
 
-plugins=(osx git brew bundler rbenv ruby tmux vundle vagrant mercurial web-search wd)
+plugins=(
+  brew
+  bundler
+  git
+  mercurial
+  osx
+  rbenv
+  ruby
+  tmux
+  vagrant
+  vundle
+  wd
+  web-search
+)
 
 #################################
 # Source general-purpose defaults
