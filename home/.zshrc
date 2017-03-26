@@ -81,3 +81,6 @@ unsetopt nomatch
 
 # Beeps are really just annoying
 setopt no_beep
+
+# fzf (get the shell sources with the `install` utility)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

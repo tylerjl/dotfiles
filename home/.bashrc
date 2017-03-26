@@ -67,3 +67,5 @@ txtrst='\e[0m'    # Text Reset
 
 export PS1="{\[\e[1;35m\]\d \@\[\e[m\] \[\e[1;34m\]\w\[\e[m\]}\n[\[\e[1;32m\]\u\[\e[m\]@\[\e[1;36m\]\H\[\e[m\]]\[\e[1;31m\]\$\[\e[m\] "
 
+# fzf (get the shell sources with the `install` utility)
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
