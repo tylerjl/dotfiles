@@ -7,7 +7,11 @@ export ZSH=$HOME/.oh-my-zsh
 # Path to your oh-my-zsh customizations.
 ZSH_CUSTOM=$HOME/.zsh
 
-fpath=($HOME/.zsh/site-functions $fpath)
+fpath=(
+  $HOME/.homesick/repos/homeshick/completions
+  $HOME/.zsh/site-functions
+  $fpath
+)
 
 # Plugin settings
 
