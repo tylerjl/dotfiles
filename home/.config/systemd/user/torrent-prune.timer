@@ -1,0 +1,8 @@
+[Unit]
+Description=regularly prune extra torrents
+
+[Timer]
+OnCalendar=11:00
+
+[Install]
+WantedBy=default.target
