@@ -1,16 +1,16 @@
 # Set PATH per several locations. Important that this is set early (before
-# antigen bundles get applied).
-. $HOME/.shell_paths
+# zsh plugins get applied).
+source $HOME/.shell_paths
 
 export ZSH=$HOME/.oh-my-zsh
 
-# Path to your oh-my-zsh configuration.
+# Path to your oh-my-zsh customizations.
 ZSH_CUSTOM=$HOME/.zsh
 
-fpath=($HOME/.homesick/repos/homeshick/completions $HOME/.zsh/site-functions $fpath)
+fpath=($HOME/.zsh/site-functions $fpath)
 
 # Plugin settings
-#
+
 # When opening or closing a shell, automatically (dis)connect to tmux
 # ZSH_TMUX_AUTOSTART=true
 
@@ -30,8 +30,8 @@ plugins=(
 )
 
 #################################
-# Source general-purpose defaults
-. $HOME/.shell_defaults
+# Source general-purpose defaults. Any plugin aliases may be overwritten.
+source $HOME/.shell_defaults
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -40,39 +40,21 @@ plugins=(
 # POWERLINE_DETECT_SSH="true"
 ZSH_THEME="tjl-powerline"
 
-# Comment this out to disable weekly auto-update checks
+# Custom oh-my-zsh switches.
 DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
 DISABLE_CORRECTION="true"
 
 source $ZSH/oh-my-zsh.sh
 
 # ---------------- Custom settings ----------------------
 
-##########################
-# Set some shell variables
-
-# Make directories more visible
-export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-
 # Bind Alt+(f|b) to word movement
 bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
-# Use direnv if available
-if (( $+commands[direnv] )) ; then
-    eval "$(direnv hook zsh)"
-fi
+# Make directories more visible
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 # Turn off zsh errors when globbing appears to fail. This fixes the problem
 # that comes up when attempting to scp something remotely with *, or when
@@ -81,6 +63,14 @@ unsetopt nomatch
 
 # Beeps are really just annoying
 setopt no_beep
+
+###############
+# Utility hooks
+
+# Use direnv if available
+if (( $+commands[direnv] )) ; then
+  eval "$(direnv hook zsh)"
+fi
 
 # fzf (get the shell sources with the `install` utility)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
