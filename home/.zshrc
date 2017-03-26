@@ -17,6 +17,8 @@ fpath=($HOME/.zsh/site-functions $fpath)
 plugins=(
   brew
   bundler
+  docker
+  encode64
   git
   mercurial
   osx
