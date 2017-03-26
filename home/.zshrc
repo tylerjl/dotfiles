@@ -40,9 +40,6 @@ plugins=(
 # POWERLINE_DETECT_SSH="true"
 ZSH_THEME="tjl-powerline"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
 # Comment this out to disable weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"
 
