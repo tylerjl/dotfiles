@@ -21,6 +21,9 @@ fpath=(
 # Multi selection seems generally useful?
 FZF_DEFAULT_OPTIONS="--multi"
 
+# Lazily load node stuff
+export NVM_LAZY_LOAD=true
+
 plugins=(
   brew
   bundler
@@ -36,6 +39,7 @@ plugins=(
   vundle
   wd
   web-search
+  zsh-nvm
   zsh-syntax-highlighting
 )
 
