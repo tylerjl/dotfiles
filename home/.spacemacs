@@ -29,6 +29,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     purescript
+     auto-completion
      javascript
      haskell
      python
