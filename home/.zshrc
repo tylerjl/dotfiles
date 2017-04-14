@@ -22,7 +22,7 @@ fpath=(
 FZF_DEFAULT_OPTIONS="--multi"
 
 # Lazily load node stuff
-export NVM_LAZY_LOAD=true
+# export NVM_LAZY_LOAD=true
 
 plugins=(
   brew
