@@ -283,7 +283,7 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
 " - Shared editing
-Plug 'floobits/floobits-neovim'
+" Plug 'floobits/floobits-neovim'
 
 " - Highlight a visual range with a specific syntax
 Plug 'ingo-library' | Plug 'SyntaxRange'
