@@ -3,6 +3,6 @@ Description=prune old torrents
 
 [Service]
 WorkingDirectory=%h/.local/lib/ruby
-ExecStart=%h/.rbenv/shims/bundle exec %h/.bin/prune-transmission.rb
+ExecStart=/home/tylerjl/.rbenv/shims/bundle exec %h/.bin/prune-transmission.rb
 Type=oneshot
 StandardOutput=journal
