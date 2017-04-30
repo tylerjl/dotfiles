@@ -1,8 +1,11 @@
 source 'http://rubygems.org'
 
+gem 'bcrypt_pbkdf'
 gem 'celluloid-io'
 gem 'activesupport', '~> 5.0'
 gem 'json', github: 'flori/json', branch: 'v1.8'
 gem 'oj', '~> 2.16.1'
+gem 'net-ssh'
+gem 'rbnacl'
 gem 'slack-ruby-bot'
 gem 'mechanize'

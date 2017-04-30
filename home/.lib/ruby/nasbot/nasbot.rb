@@ -5,6 +5,7 @@ require 'rubygems'
 require 'slack-ruby-bot'
 require 'mechanize'
 require 'net/http'
+require 'net/ssh'
 require 'json'
 
 SlackRubyBot::Client.logger.level = Logger::WARN
@@ -77,6 +78,14 @@ class NASBot < SlackRubyBot::Bot
     command 'ipt points' do
       desc 'Find the number of bonus points on ipt.'
     end
+
+    command 'webcam' do
+      desc 'Get the status of the webcam.'
+    end
+
+    command 'webcam (on|off)' do
+      desc 'Turn the webcam on or off.'
+    end
   end
 
   match(/^(?:download) (?<id>.+)$/i) do |client, data, match|
@@ -127,6 +136,23 @@ class NASBot < SlackRubyBot::Bot
         text: "Whoops, missing a password for #{username}."
       )
     end
+  end
+
+  match(/^(?:webcam)(?: (?<cmd>on|off))?$/i) do |client, data, match|
+    action = case match[:cmd]
+             when 'on'
+               'start'
+             when 'off'
+               'stop'
+             else
+               'is-active'
+             end
+    command = "systemctl #{action} motioneye"
+    stdout = Net::SSH.start('feynman').exec!(command).strip
+    client.say(
+      channel: data.channel,
+      text: "Command `#{command}` returned #{stdout.exitstatus}: '#{stdout}'"
+    )
   end
 end
 
