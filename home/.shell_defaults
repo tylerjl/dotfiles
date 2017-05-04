@@ -114,3 +114,7 @@ fi
 if type scmpuff &>/dev/null ; then
   eval "$(scmpuff init -s)"
 fi
+
+if type keychain &>/dev/null ; then
+  eval "$(keychain --eval --agents ssh)"
+fi
