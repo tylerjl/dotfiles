@@ -286,7 +286,7 @@ Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 " Plug 'floobits/floobits-neovim'
 
 " - Highlight a visual range with a specific syntax
-Plug 'ingo-library' | Plug 'SyntaxRange'
+Plug 'vim-scripts/ingo-library' | Plug 'vim-scripts/SyntaxRange'
 
 call plug#end()
 filetype plugin indent on " Required
