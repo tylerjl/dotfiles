@@ -58,7 +58,28 @@ ZSH_THEME="tjl-powerline"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_CORRECTION="true"
 
-source $ZSH/oh-my-zsh.sh
+# In some cases (as when tramp initiates an ssh connection), we want a plain
+# terminal. This sets a generic prompt and leaves aside everything oh-my-zsh
+# related.
+case "$TERM" in
+  "dumb")
+    PROMPT="> "
+    ;;
+  *)
+    source $ZSH/oh-my-zsh.sh
+
+    ###############
+    # Utility hooks
+
+    # Use direnv if available
+    if (( $+commands[direnv] )) ; then
+      eval "$(direnv hook zsh)"
+    fi
+
+    # fzf (get the shell sources with the `install` utility)
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    ;;
+esac
 
 # ---------------- Custom settings ----------------------
 
@@ -77,14 +98,3 @@ unsetopt nomatch
 
 # Beeps are really just annoying
 setopt no_beep
-
-###############
-# Utility hooks
-
-# Use direnv if available
-if (( $+commands[direnv] )) ; then
-  eval "$(direnv hook zsh)"
-fi
-
-# fzf (get the shell sources with the `install` utility)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
