@@ -63,16 +63,8 @@ RESET=%{$reset_color%}
 
 # BUILD DAT PROMPT
 # ################
-#
-# Note that the entirety is wrapped in a check for TERM, since things like
-# tramp will request a dumb prompt
-#
+
 # Newline and username
-case "$TERM" in
-"dumb")
-PROMPT="> "
-;;
-*)
 PROMPT="
 %{$fg[blue]%}%{$bg[white]%}%n"
 
@@ -94,5 +86,3 @@ PROMPT="${PROMPT}${RESET}${FG_COLOR_SEAGREEN}${RESET}"
 
 # Right prompt return code
 RPROMPT="%(?..%{$fg[red]%}%? ↵${RESET})"
-;;
-esac
