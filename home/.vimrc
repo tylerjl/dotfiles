@@ -255,6 +255,7 @@ Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
   Plug 'Shougo/vimproc'
 " - Self-explanatory language support bundles:
 Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'robbles/logstash.vim'
 Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
