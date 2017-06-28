@@ -381,7 +381,7 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol t)
- '(fci-rule-color "#161616" t)
+ '(fci-rule-color "#161616")
  '(org-agenda-files (quote ("~/Projects/docs/writing/notes.org" "~/org")))
  '(package-selected-packages
    (quote
@@ -408,7 +408,8 @@ you should place your code here."
      (320 . "#F6F6F6")
      (340 . "#F9F9F9")
      (360 . "#F9F9F9"))))
- '(vc-annotate-very-old-color "#D9D9D9"))
+ '(vc-annotate-very-old-color "#D9D9D9")
+ '(yaml-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
