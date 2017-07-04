@@ -1,7 +1,9 @@
 source 'http://rubygems.org'
 
 # General-use
+gem 'awesome_print'
 gem 'elif'
+gem 'pry'
 
 # For slack bot
 gem 'slack-ruby-bot'
