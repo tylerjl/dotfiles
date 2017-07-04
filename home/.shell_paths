@@ -12,7 +12,7 @@ for p in /usr/local/{s,}bin ; do
 done
 
 # Appended paths
-for p in $HOME/{opt/,.,$GODIR/,.local/,.rbenv/}bin ; do
+for p in $HOME/{opt/,.,$GODIR/,.local/,.rbenv/,.pyenv/}bin ; do
   echo $PATH | grep ":$p:" &>/dev/null && continue
   if [ -d "${p}" ] ; then
     PATH=${PATH}:$p
