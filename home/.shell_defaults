@@ -88,7 +88,7 @@ function kd() {
   done
 }
 
-function http() {
+function httpcode() {
   curl http://httpcode.info/$1
 }
 
