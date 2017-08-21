@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     elm
      csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -66,7 +67,7 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     ;; spell-checking
+     spell-checking
      syntax-checking
      terraform
      vagrant
@@ -371,6 +372,9 @@ you should place your code here."
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((gnuplot . t) (python . t) (ruby . t) (sh . t) (shell . t))))
+
+  (setq org-default-notes-file (concat org-directory "/refile.org"))
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -382,10 +386,12 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol t)
  '(fci-rule-color "#161616")
- '(org-agenda-files (quote ("~/Projects/docs/writing/notes.org" "~/org")))
+ '(org-agenda-files
+   (quote
+    ("~/Work/puppet-elasticsearch/TODOs.org" "~/Work/puppet-kibana/TODOs.org" "~/Projects/org/refile.org" "~/Projects/org/index.org" "~/Projects/docs/writing/notes.org" "/Users/tylerjl/org/from-mobile.org" "/Users/tylerjl/org/notes.org")))
  '(package-selected-packages
    (quote
-    (org-preview-html dockerfile-mode docker tablist docker-tramp csv-mode vagrant-tramp vagrant enh-ruby-mode pkgbuild-mode toml-mode racer flycheck-rust seq cargo rust-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data winum fuzzy flymd company-ansible psci purescript-mode psc-ide helm-company helm-c-yasnippet company-tern dash-functional tern company-statistics company-cabal company-anaconda auto-yasnippet ac-ispell auto-complete web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode intero hlint-refactor hindent helm-hoogle haskell-snippets yasnippet flycheck-haskell company-ghci company-ghc ghc company haskell-mode cmm-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic terraform-mode hcl-mode magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht jinja2-mode ansible-doc ansible git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl yaml-mode rainbow-mode rainbow-identifiers color-identifiers-mode tao-theme flycheck-pos-tip pos-tip flycheck flyspell-correct-helm flyspell-correct auto-dictionary ox-gfm org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help puppet-mode smeargle orgit org magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby gmail-message-mode ham-mode html-to-markdown edit-server vimrc-mode dactyl-mode mmm-mode markdown-toc markdown-mode gh-md ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme)))
+    (flycheck-elm elm-mode org-preview-html dockerfile-mode docker tablist docker-tramp csv-mode vagrant-tramp vagrant enh-ruby-mode pkgbuild-mode toml-mode racer flycheck-rust seq cargo rust-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data winum fuzzy flymd company-ansible psci purescript-mode psc-ide helm-company helm-c-yasnippet company-tern dash-functional tern company-statistics company-cabal company-anaconda auto-yasnippet ac-ispell auto-complete web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode intero hlint-refactor hindent helm-hoogle haskell-snippets yasnippet flycheck-haskell company-ghci company-ghc ghc company haskell-mode cmm-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic terraform-mode hcl-mode magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht jinja2-mode ansible-doc ansible git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl yaml-mode rainbow-mode rainbow-identifiers color-identifiers-mode tao-theme flycheck-pos-tip pos-tip flycheck flyspell-correct-helm flyspell-correct auto-dictionary ox-gfm org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help puppet-mode smeargle orgit org magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby gmail-message-mode ham-mode html-to-markdown edit-server vimrc-mode dactyl-mode mmm-mode markdown-toc markdown-mode gh-md ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme)))
  '(paradox-github-token t)
  '(vc-annotate-background "#0E0E0E")
  '(vc-annotate-color-map
