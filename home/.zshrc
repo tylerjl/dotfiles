@@ -30,6 +30,7 @@ plugins=(
   docker
   encode64
   git
+  kubectl
   mercurial
   osx
   rbenv
