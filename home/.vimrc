@@ -4,7 +4,7 @@ if !1 | finish | endif
 
 " -------------- Basic settings -----------------
 if has('vim_starting')
-  let mapleader = "\<Space>"      " Custom commands mapped to , instead of \
+  let mapleader = "\<Space>"      " Custom commands mapped to space instead of \
   nnoremap <Space> <Nop>
   syntax on                       " Syntax highlighting
   set nocompatible                " Get rid of obsolete compatability mode
@@ -13,18 +13,16 @@ if has('vim_starting')
   set breakindent                 " Make wrapped lines match line indent level
   set backspace=indent,eol,start  " Sane backspace
   set ls=2                        " Echo the file listing continuously
-  " nnoremap <tab> %                " Remap % to tab, easier bracket matching
-  " vnoremap <tab> %                " ^
   set modelines=0                 " Abstain from executing modelines (security)
   set sm                          " Short messages
   set completeopt=longest,menuone " Longest common match & always show menu
   set wildmode=longest,list,full  " Better autocomplete
   set wildmenu                    " ^
-  set scrolloff=5                 " Move window ahead of cursor
+  set scrolloff=3                 " Move window ahead of cursor
   set mouse=a                     " Mouse support
   set ruler                       " Show the ruler
   set hidden                      " Allow unsaved buffers to be backgrounded
-  set showbreak=↪\                 " Show line breaks
+  set showbreak=↪\                " Show line breaks
   set listchars=tab:▸\ ,eol:¬     "  ^   tabs and end of lines
   set list                        "  ^   them all
   set linebreak                   " Don't break words when wrapping
@@ -74,17 +72,7 @@ set expandtab               " ^
 cnoreabbrev w!! w !sudo tee % >/dev/null
 
 " ------------------- Keymaps ------------------
-" Disable arrow keys
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
-" Train to stop reaching for escape (avoid trailing comment, it's weird)
+" Stop reaching
 inoremap fd <Esc>
 
 " F1 = GUI paste, F2 = GUI copy
@@ -204,7 +192,6 @@ nnoremap <silent> tq :GhcModType<CR>
 nnoremap <silent> te :GhcModTypeClear<CR>
 
 " ----------------- vim-plug --------------------
-
 " Required vim-plug prelude
 call plug#begin('~/.local/share/nvim/plugged')
 
