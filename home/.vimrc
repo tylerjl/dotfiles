@@ -269,6 +269,7 @@ Plug 'd11wtq/ctrlp_bdelete.vim'
 " Markdown (depends on tabular)
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+Plug 'rhysd/vim-gfm-syntax', { 'for': 'markdown' }
 
 " - Shared editing
 " Plug 'floobits/floobits-neovim'
