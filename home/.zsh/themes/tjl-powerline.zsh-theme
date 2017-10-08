@@ -64,13 +64,17 @@ RESET=%{$reset_color%}
 # BUILD DAT PROMPT
 # ################
 
-# Newline and username
+# Newline; we want to inject an empty line between last output and prompt
 PROMPT="
-%{$fg[blue]%}%{$bg[white]%}%n"
+"
 
-# Machine name, powerline transition
-PROMPT="${PROMPT}%{$fg[green]%} @%{$fg[red]%} %m "
-PROMPT="${PROMPT}%{$fg[white]%}${BG_COLOR_SEAGREEN}"
+# If we're on a remote host, include the username and password.
+if [[ -n $SSH_CONNECTION ]] ; then
+  # Machine name, powerline transition
+  PROMPT="%{$fg[blue]%}%{$bg[white]%}%n"
+  PROMPT="${PROMPT}%{$fg[green]%} @%{$fg[red]%} %m "
+  PROMPT="${PROMPT}%{$fg[white]%}${BG_COLOR_SEAGREEN}"
+fi
 
 # Timestamp, powerline transition
 PROMPT="${PROMPT}%{$fg[white]%}${BG_COLOR_SEAGREEN} ${_ZSH_TIME} "
