@@ -61,6 +61,7 @@ values."
      markdown
      (org :variables
           org-enable-github-support t)
+     plantuml
      puppet
      (ruby :variables
            ruby-enable-enh-ruby-mode t
