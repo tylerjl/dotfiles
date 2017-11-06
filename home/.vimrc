@@ -132,10 +132,6 @@ nnoremap <leader>d :Bdelete<CR>
 nnoremap <leader>E "=system(getline('.'))<CR>p`]
 " <leader>e - Edit .vimrc
 nnoremap <leader>e :e ~/.vimrc<CR>
-" <leader>H - Hide hidden files
-nnoremap <leader>H :let g:ctrlp_show_hidden=0<CR>:CtrlPClearCache<CR>
-" <leader>h - Show hidden files
-nnoremap <leader>h :let g:ctrlp_show_hidden=1<CR>:CtrlPClearCache<CR>
 " <leader>i - Indent entire block
 nnoremap <leader>i vv[m>%`>
 " <leader>I - Indent empty-line delimited block
@@ -157,8 +153,7 @@ nnoremap <leader>q :.s/"\([^"]\+\)"/'\1'/<CR>:let @/=''<CR>
 nnoremap <leader>r :so ~/.vimrc<CR>
 " <leader>R - Toggle rainbow parenthsese
 nnoremap <leader>R :RainbowToggle<CR>
-" <leader>s - Search through files using ag
-nnoremap <leader>s :Ag<space>
+" <leader>s - Reserved with fzf.vim shortcuts
 " <leader>S - Edit .ssh/known_hosts
 nnoremap <leader>S :e ~/.ssh/known_hosts<CR>
 " <leader>T - Globally replace tabs white four-space tabs
@@ -176,12 +171,13 @@ vnoremap <leader>y "+y
 " <leader>z - Neomake (because all other shortcuts are taken?)
 nnoremap <leader>z :Neomake<CR>
 
-" Ctrl-P Shortcuts
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>m :CtrlPMRU<CR>
-nnoremap <leader>l :CtrlPLine<CR>
-nnoremap <leader>t :CtrlPTag<CR>
+" fzf.vim  Shortcuts
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :GFiles<CR>
+nnoremap <leader>m :History<CR>
+nnoremap <leader>l :BLines<CR>
+nnoremap <leader>s :Rg<CR>
+nnoremap <leader>t :Tags<CR>
 
 " Toggle search highlighting
 nmap <silent> <leader>/ :set hlsearch!<cr>
@@ -203,8 +199,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " - Filesystem tree browsing
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle'] }
-" - Fuzzy matching for buffers/files/etc.
-Plug 'kien/ctrlp.vim'
 " - Auto-alignment for arbitrary delimiteres
 Plug 'godlygeek/tabular', { 'on': 'Tab' }
 " - Fast grepping
@@ -232,6 +226,9 @@ Plug 'luochen1990/rainbow'
 Plug 'jpalardy/vim-slime'
 " - Better graphical undo
 Plug 'sjl/gundo.vim'
+" - fzf integration (handle installing the binary separately)
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Language-specific support
 "
@@ -262,9 +259,6 @@ Plug 'honza/vim-snippets'
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Delete buffers in ctrlp
-Plug 'd11wtq/ctrlp_bdelete.vim'
 
 " Markdown (depends on tabular)
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -335,9 +329,6 @@ let g:airline_theme = 'jellybeans'
 highlight VertSplit ctermbg=236 ctermfg=236
 set fillchars+=vert:\ 
 
-" ----------- CTRLP Buffer Deletion -------------
-call ctrlp_bdelete#init()
-
 " ---------------- Plugin Settings ---------------
 
 " Quick execution output into a scratch buffer
@@ -406,28 +397,6 @@ let g:netrw_browse_split = 4 " Open new files in a vertical split
 let g:netrw_altv = 1         " ^
 let g:netrw_liststyle = 3    " Default to tree view
 let g:netrw_banner = 0       " Default to tree view
-
-" CtrlP line search extension
-let g:ctrlp_extenions = ['line']
-" Smart directory searching behavior in Ctrl-P:
-" 'c' - the directory of the current file.
-" 'r' - the nearest ancestor that contains one of these directories or files:
-"       .git .hg .svn .bzr
-" 'a' - like c, but only if the current working directory outside of CtrlP is
-"       not a direct ancestor of the directory of the current file.
-" 0 or '' (empty string) - disable this feature.
-let g:ctrlp_working_path_mode = 'ra'
-" Change to 'search' mnemonic, I use C-p for previous buffer
-" (note: this doesn't work because it's a terminal signal, I use <leader>f
-" for ctrl-p anyway)
-let g:ctrlp_map = '<C-s>'
-" Retrieve file list from git, if possible
-let g:ctrlp_user_command = {
-  \ 'types': {
-    \ 1: ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'],
-    \ },
-  \ 'fallback': 'find %s -type f'
-  \ }
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -512,6 +481,15 @@ let g:rainbow_active = 1
 
 " SLIME
 let g:slime_target = "tmux"
+
+" fzf.vim
+" Use ripgrep
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " --------------- Custom functions ---------------
 
