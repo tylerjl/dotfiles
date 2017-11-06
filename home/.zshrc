@@ -19,7 +19,10 @@ fpath=(
 # ZSH_TMUX_AUTOSTART=true
 
 # Multi selection seems generally useful?
-FZF_DEFAULT_OPTIONS="--multi"
+export FZF_DEFAULT_OPTIONS="--multi"
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Lazily load node stuff
 # export NVM_LAZY_LOAD=true
