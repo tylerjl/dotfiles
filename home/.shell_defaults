@@ -86,6 +86,9 @@ alias c='env | grep -i'
 # Rebind date to gdate for OS X
 command -v gdate &>/dev/null && alias date=gdate
 
+# Shortcut to skip adding host to known hosts file
+alias tssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+
 # Custom functions
 # ================
 
