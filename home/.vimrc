@@ -160,6 +160,8 @@ nnoremap <leader>S :e ~/.ssh/known_hosts<CR>
 nnoremap <leader>T :%s/\t/    /e<CR>:let @/=''<CR>
 " <leader>v - Fix interpolated puppet strings
 nnoremap <leader>v :.s/\(".*\$\)\([a-zA-Z_]\+\)\(.*"\)/\1{\2}\3/<CR>:let @/=''<CR>
+" <leader>V - VimPlug install
+nnoremap <leader>V :PlugInstall<CR>
 " <leader>W - Strip all trailing whitespace in the current file.
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " <leader>w - Shortcut to write file
@@ -174,6 +176,7 @@ nnoremap <leader>z :Neomake<CR>
 " fzf.vim  Shortcuts
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :GFiles<CR>
+nnoremap <leader>F :Files<CR>
 nnoremap <leader>m :History<CR>
 nnoremap <leader>l :BLines<CR>
 nnoremap <leader>s :Rg<CR>
@@ -219,7 +222,6 @@ Plug 'ludovicchabant/vim-lawrencium'
 Plug 'ludovicchabant/vim-gutentags'
 " - Syntax checking and linting
 Plug 'neomake/neomake'
-  Plug 'dojoteef/neomake-autolint'
 " - Highlight parenthesis
 Plug 'luochen1990/rainbow'
 " - SLIME!
@@ -229,6 +231,9 @@ Plug 'sjl/gundo.vim'
 " - fzf integration (handle installing the binary separately)
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-eunuch'
 
 " Language-specific support
 "
@@ -473,9 +478,6 @@ let g:terraform_fmt_on_save = 1
 " Use a hidden tag file
 let g:gutentags_ctags_tagfile = ".tags"
 
-" Neomake
-let g:neomake_autolint_sign_column_always = 1
-
 " Rainbow parentheses
 let g:rainbow_active = 1
 
@@ -487,9 +489,18 @@ let g:slime_target = "tmux"
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
+
+" neomake
+call neomake#configure#automake('nw', 1000)
+
+" gitgutter
+let g:gitgutter_sign_added = '●'
+let g:gitgutter_sign_modified = '●'
+let g:gitgutter_sign_removed = '●'
+let g:gitgutter_sign_modified_removed = '●'
 
 " --------------- Custom functions ---------------
 
