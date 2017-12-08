@@ -78,7 +78,7 @@ alias piback='ssh hpi "tar -cvf - -X ~/rpi.excl /" | bzip2 > pineapple_$(date +"
 alias serve='python -m SimpleHTTPServer'
 
 # Pretty-print json
-alias j='python -m json.tool'
+alias json='python -m json.tool'
 
 # 'c'heck - verify an env var is present
 alias c='env | grep -i'
