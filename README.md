@@ -13,14 +13,22 @@ dotfiles
 ## Initial Installation
 
 These dotfiles are laid out for installation and management with [homeshick].
-While this repo contains standalone configuration files for various tools, there are some additional repositories that should be installed via [homeshick] as dependencies:
+While this repo contains standalone configuration files for various tools, there are some additional repositories that should be installed via [homeshick] as dependencies.
+Not all of these are strictly required.
 
 ```shell
 $ git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 $ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-$ homeshick clone zsh-users/antigen
-$ homeshick clone junegunn/vim-plug
-$ homeshick clone sjl/badwolf
+$ for castle in syl20bnr/spacemacs \
+                rbenv/rbenv \
+                rbenv/ruby-build \
+                robbyrussell/oh-my-zsh \
+                zsh-users/zsh-syntax-highlighting \
+                lukechilds/zsh-nvm \
+                junegunn/vim-plug \
+                sjl/badwolf \
+                tomasr/molokai \
+                pyenv/pyenv ; do homeshick clone --batch $castle ; done
 ```
 
 Log out of the shell, log in again (antigen will install several dependencies at shell startup).
