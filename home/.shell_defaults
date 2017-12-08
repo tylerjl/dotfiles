@@ -89,6 +89,9 @@ command -v gdate &>/dev/null && alias date=gdate
 # Shortcut to skip adding host to known hosts file
 alias tssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 
+# Containers
+alias da='docker ps -a'
+
 # Custom functions
 # ================
 
