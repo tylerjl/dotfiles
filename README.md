@@ -31,7 +31,7 @@ $ for castle in syl20bnr/spacemacs \
                 pyenv/pyenv ; do homeshick clone --batch $castle ; done
 ```
 
-Log out of the shell, log in again (antigen will install several dependencies at shell startup).
+Log out of the shell, log in again.
 
 ```shell
 $ vim -c PlugInstall -c qa
